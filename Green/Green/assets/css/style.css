@@ -1,9 +1,9 @@
-*
+/* 
 * Template Name: Green - v2.3.0
 * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
-*/
+*/ 
 
 /*--------------------------------------------------------------
 # General
@@ -149,6 +149,29 @@ h1, h2, h3, h4, h5, h6 {
   #header .logo {
     font-size: 28px;
   }
+}
+
+/*--------------------------------------------------------------
+# Modals
+--------------------------------------------------------------*/
+.btn-log{
+  font-family: "Raleway", sans-serif;
+  background: #5688e6;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  transition: 0.5s;
+  line-height: 1;
+  color: white;
+  text-transform: none;
+}
+
+.btn-log:hover{
+  color: white;
+  background: #729ceb;
 }
 
 /*--------------------------------------------------------------
@@ -530,6 +553,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   background: #5688e6;
 }
+
 
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
