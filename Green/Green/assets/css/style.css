@@ -261,16 +261,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.search-engine{
+  margin-left: 25px;
+  color: black;
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+
 /* Get Startet Button */
 .get-started-btn {
-  margin-left: 25px;
+  margin-left: 3px;
   color: #5688e6;
+  background-color: #fbfbfb;
   border-radius: 4px;
-  padding: 7px 25px 8px 25px;
+  padding: 5px 15px 5px 15px;
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
-  border: 2px solid #5688e6;
+  border: none;
   display: inline-block;
   font-weight: 600;
 }
