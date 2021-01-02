@@ -1,4 +1,4 @@
-/**
+*
 * Template Name: Green - v2.3.0
 * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
 * Author: BootstrapMade.com
@@ -123,17 +123,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  
+/*  text-transform: uppercase;*/
 }
 
 #header .logo a {
-  color: #5688e6;
+  color: #2f59a7;
 }
 
 #header .logo img {
@@ -260,16 +261,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.search-engine{
+  margin-left: 25px;
+  color: black;
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+
 /* Get Startet Button */
 .get-started-btn {
-  margin-left: 25px;
+  margin-left: 3px;
   color: #5688e6;
+  background-color: #fbfbfb;
   border-radius: 4px;
-  padding: 7px 25px 8px 25px;
+  padding: 5px 15px 5px 15px;
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
-  border: 2px solid #5688e6;
+  border: none;
   display: inline-block;
   font-weight: 600;
 }
@@ -398,7 +408,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   background-color: rgba(9, 9, 9, 0.8);
   overflow: hidden;
   position: relative;
@@ -417,7 +427,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .carousel-item::before {
   content: '';
-  /* background-color: rgba(17, 41, 179, 0.8); */
+  background-color: rgba(163, 163, 163, 0.8);
 }
 
 #hero .carousel-container {
@@ -438,7 +448,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero h2 {
   color: #fff;
   margin-bottom: 20px;
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 700;
 }
 
@@ -576,7 +586,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f8fcf9;
+  background-color: #e4f0fa;
 }
 
 .section-title {
@@ -1399,7 +1409,7 @@ section {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #ddd !important;
+  background-color: rgb(230, 231, 255) !important;
 }
 
 .portfolio-details .portfolio-details-carousel .owl-dot.active {
@@ -1616,3 +1626,4 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
