@@ -55,6 +55,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+.datepicker-dropdown {
+  padding: 20px !important;
+}
+
 /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
@@ -1627,3 +1631,76 @@ section {
   text-decoration: none;
 }
 
+
+/*--------------------------------------------------------------
+# COVID-19
+--------------------------------------------------------------*/
+.departments {
+  overflow: hidden;
+}
+
+.departments .nav-tabs {
+  border: 0;
+}
+
+.departments .nav-link {
+  border: 0;
+  padding: 12px 15px 12px 0;
+  transition: 0.3s;
+  color: #2c4964;
+  border-radius: 0;
+  border-right: 2px solid #0362b1;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.departments .nav-link:hover {
+  color: #0b5fad;
+}
+
+.departments .nav-link.active {
+  color: #4946e9;
+  /* border-color: #ffffff; */
+  background-color: transparent;
+  /* border-right: #00172c; */
+  /* opacity: 20%; */
+}
+
+.departments .tab-pane.active {
+  -webkit-animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.departments .details h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c4964;
+}
+
+.departments .details p {
+  color: #474747;
+}
+
+.departments .details p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .departments .nav-link {
+    border: 0;
+    padding: 15px;
+  }
+  .departments .nav-link.active {
+    color: #fff;
+    background: #1977cc;
+  }
+}
+
+/* 
+.nav-link[data-toggle].collapsed:before {
+  content: " ▾";
+}
+.nav-link[data-toggle]:not(.collapsed):before {
+  content: " ▴";
+} */
