@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-  color: #528bb4;
+  color: #3b6fff;
   text-decoration: none;
 }
 
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top i:hover {
-  background: #528bb4;
+  background: #3b6fff;
   color: #fff;
 }
 
@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 # Top Bar
 --------------------------------------------------------------*/
 #topbar {
-  background: #fbfbfb;
+  background: #e4f0fa;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -104,6 +104,37 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 0;
 }
 
+/*--------------------------------------------------------------
+# Second nav-bar
+--------------------------------------------------------------*/
+.sec-navbar{
+  box-shadow: none;
+  height: 40px;
+  padding-right: 0px;
+}
+
+.navbar-br{
+  background-color: #fbfbfb ;
+  padding-right: 0px;
+}
+
+.search-engine{
+  margin-right: 0px;
+  padding-right: 0px;
+  height: 20px;
+  bottom: 14px;
+}
+
+.input-fr{
+  margin-right: 0px;
+  color: black;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.navbar-brand{
+  margin-left: 0;
+}
 
 
 /*--------------------------------------------------------------
@@ -113,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   transition: all 0.5s;
   z-index: 997;
-  padding: 20px 0;
+  /* padding: 20px 0; */
   top: 40px;
 }
 
@@ -138,7 +169,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 30px;
+  padding-bottom: 5px;
 }
 
 @media (max-width: 992px) {
@@ -191,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
-  padding: 10px 0 10px 28px;
+  padding: 12px 0 12px 28px;
 }
 
 .nav-menu a {
@@ -272,6 +304,37 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
 }
 
+.covid-btn{
+  background-color: #fff;
+  box-shadow: none;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color:#5688e6;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+
+a .covid-btn:hover {
+  background:#5688e6;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .covid-btn {
+    margin: 0 48px 0 0;
+    padding: 6px 18px;
+  }
+}
+
 @media (max-width: 1366px) {
   .nav-menu .drop-down .drop-down ul {
     left: -90%;
@@ -284,19 +347,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.search-engine{
-  margin-left: 25px;
-  color: black;
-  font-size: 10px;
-  font-family: "Open Sans", sans-serif;
-}
 
 
 /* Get Startet Button */
 .get-started-btn {
   margin-left: 3px;
   color: #5688e6;
-  background-color: #fbfbfb;
+  background-color: transparent;
   border-radius: 4px;
   padding: 5px 15px 5px 15px;
   white-space: nowrap;
@@ -450,7 +507,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .carousel-item::before {
   content: '';
-  background-color: rgba(163, 163, 163, 0.8);
+  background-color: none;
 }
 
 #hero .carousel-container {
@@ -466,6 +523,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .container {
   text-align: center;
+  padding: 10px 20px 10px 20px ;
+  background-color:rgba(107, 107, 107, 0.8);;
 }
 
 #hero h2 {
@@ -601,6 +660,89 @@ h1, h2, h3, h4, h5, h6 {
     height: 120vh;
   }
 }
+/*--------------------------------------------------------------
+# Frequently Asked Questions
+--------------------------------------------------------------*/
+#faq {
+  background-color: white;
+}
+.faq .faq-list {
+  padding: 0 100px;
+}
+
+.faq .faq-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.faq .faq-list li + li {
+  margin-top: 15px;
+}
+
+.faq .faq-list li {
+  padding: 20px;
+  background: #e4f0fa;
+  border-radius: 4px;
+  position: relative;
+}
+
+.faq .faq-list a {
+  display: block;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 0 30px;
+  outline: none;
+}
+
+.faq .faq-list .icon-help {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  left: 20px;
+  color: lightgray;
+}
+
+.faq .faq-list .icon-show, .faq .faq-list .icon-close {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.faq .faq-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+}
+
+.faq .faq-list .icon-show {
+  display: none;
+}
+
+.faq .faq-list a.collapsed {
+  color: #343a40;
+  transition: 0.3s;
+}
+
+.faq .faq-list a.collapsed:hover {
+  color: #5688e6;
+}
+
+.faq .faq-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq .faq-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .faq .faq-list {
+    padding: 0;
+  }
+}
 
 /*--------------------------------------------------------------
 # Sections General
@@ -621,7 +763,7 @@ section {
 .section-title h2 {
   font-size: 32px;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
