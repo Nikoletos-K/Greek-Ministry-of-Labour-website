@@ -1870,3 +1870,74 @@ section {
 .nav-link[data-toggle]:not(.collapsed):before {
   content: " ▴";
 } */
+
+/* PANEL */
+
+/* body{
+  padding:50px;
+  background:#fff;
+}
+.wrapper{
+  width:70%;
+}
+@media(max-width:992px){
+ .wrapper{
+  width:100%;
+} 
+} */
+
+.mytext {
+
+  font-size: 1px;
+}
+
+.panel-heading {
+  padding: 0;
+  border:0;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.panel-title {
+  padding: 0;
+  border:0;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.panel-title .h5{
+  padding: 0;
+  border:0;
+  font-style: normal;
+  /* font-size: 12px; */
+  background-color: #000000;
+  font-weight: bold;
+}
+
+.panel-title>a, .panel-title>a:active{
+	display:block;
+	padding:15px;
+  color:rgb(0, 0, 0);
+  font-size:14px;
+  font-weight:bold;
+	/* letter-spacing:1px;
+  word-spacing:3px; */
+	text-decoration:none;
+}
+.panel-heading  a:before {
+   /* font-family: 'Glyphicons Halflings'; */
+   font-weight: bold;
+   background-color: #000000;
+   color: #000000;
+   font-size: 14px;
+   content: "\e114";
+   float: right;
+   transition: all 0.5s;
+}
+.panel-heading.active a:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+} 

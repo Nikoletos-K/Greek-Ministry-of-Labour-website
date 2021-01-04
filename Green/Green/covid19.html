@@ -41,6 +41,7 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <style>
         .bs-example{
             margin: 20px;
@@ -62,6 +63,14 @@
             }).on('hide.bs.collapse', function(){
               $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
             });
+        });
+
+        $('.panel-collapse').on('show.bs.collapse', function () {
+          $(this).siblings('.panel-heading').addClass('active');
+        });
+
+        $('.panel-collapse').on('hide.bs.collapse', function () {
+          $(this).siblings('.panel-heading').removeClass('active');
         });
     </script>
   </head>
@@ -355,7 +364,7 @@
                   <i class=""></i>Γενικές Οδηγίες</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργαζομένους</b></span></a>
+                <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-angle-down"></i> <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργαζομένους</b></span></a>
                 <div class="collapse" id="submenu1" aria-expanded="false">
                     <ul class="flex-column pl-2 nav">
                         <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#anastoli"> Αναστολή εργασίας </a></li>
@@ -452,6 +461,66 @@
                   <h3>Αναστολή σύμβασης εργασίας</b></h3>
                   <p> Αναστολή συμβάσεων εργασίας εργαζομένων για τον μήνα Οκτώβριο 2020</p>
                   
+
+
+                  <div class="wrapper center-block">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading active" role="tab" id="headingOne">
+                        <h5 class="panel-title mb-0">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                            Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                            
+                            <hr>
+                            
+                          </a>
+                          
+                        </h5>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+
+
+
+
+
+
                   <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                   
@@ -773,6 +842,14 @@
         $('#datetimepicker2').datetimepicker({
             locale: 'ru'
         });
+    });
+
+    $('.panel-collapse').on('show.bs.collapse', function () {
+      $(this).siblings('.panel-heading').addClass('active');
+    });
+
+    $('.panel-collapse').on('hide.bs.collapse', function () {
+      $(this).siblings('.panel-heading').removeClass('active');
     });
  </script>
 
