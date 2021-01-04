@@ -1893,53 +1893,36 @@ section {
 } 
 } */
 
-.mytext {
-
-  font-size: 1px;
-}
 
 .panel-heading {
   padding: 0;
-  border:0;
+  border: 10px;
   font-style: normal;
   font-size: 12px;
   font-weight: bold;
+  border-bottom: 10px;
+  border-bottom-color : #000000;
 }
 
-.panel-title {
-  padding: 0;
-  border:0;
-  font-style: normal;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.panel-title .h5{
-  padding: 0;
-  border:0;
-  font-style: normal;
-  /* font-size: 12px; */
-  background-color: #000000;
-  font-weight: bold;
-}
 
 .panel-title>a, .panel-title>a:active{
 	display:block;
-	padding:15px;
-  color:rgb(0, 0, 0);
+	padding:10px;
+  color:#555;
   font-size:14px;
   font-weight:bold;
 	/* letter-spacing:1px;
   word-spacing:3px; */
-	text-decoration:none;
+  text-decoration:none;
+  border-bottom-color : #000000;
 }
 .panel-heading  a:before {
-   /* font-family: 'Glyphicons Halflings'; */
+   font-family: FontAwesome;
    font-weight: bold;
-   background-color: #000000;
+   background-color: #ffffff;
    color: #000000;
-   font-size: 14px;
-   content: "\e114";
+   font-size: 20px;
+   content: "\f107";
    float: right;
    transition: all 0.5s;
 }
@@ -1949,6 +1932,10 @@ section {
 	transform: rotate(180deg);
 } 
 
+.text-in-covid .ul {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
 
 /*--------------------------------------------------------------
 # Registration form

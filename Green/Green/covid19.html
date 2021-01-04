@@ -224,58 +224,6 @@
         <p>Όλες οι πληροφορίες που αφορούν τις αλλαγές στον εργασιακό τομέα, λόγω του ιού Covid-19.</p>
       </div>
 
-      <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-2 collapse show d-md-flex bg-light" id="sidebar">
-                <ul class="nav flex-column flex-nowrap overflow-hidden active show">
-                    <li class="nav-item">
-                        <a class="nav-link text-truncate active show" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Overview</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Reports</span></a>
-                        <div class="collapse" id="submenu1" aria-expanded="false">
-                            <ul class="flex-column pl-2 nav">
-                                <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
-                                <li class="nav-item">
-                                    <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
-                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
-                                        <ul class="flex-column nav pl-4">
-                                            <li class="nav-item">
-                                                <a class="nav-link p-1" href="#">
-                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link p-1" href="#">
-                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link p-1" href="#">
-                                                    <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link p-1" href="#">
-                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-bar-chart"></i> <span class="d-none d-sm-inline">Analytics</span></a></li>
-                    <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span class="d-none d-sm-inline">Export</span></a></li>
-                </ul>
-            </div>
-            <div class="col pt-2">
-                <h2>
-                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a> Content </h2>
-                <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
-                <p>Codeply editor wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
-            </div>
-        </div>
-    </div>
- -->
-
       <div class="row">
         <div class="col-lg-3 nav  nav-stacked flex-column  show d-md-flex">
             
@@ -285,7 +233,8 @@
                   <i class=""></i>Γενικές Οδηγίες</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-angle-down"></i> <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργαζομένους</b></span></a>
+                <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1">
+                  <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργαζομένους</b></span></a>
                 <div class="collapse" id="submenu1" aria-expanded="false">
                     <ul class="flex-column pl-2 nav">
                         <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#anastoli"> Αναστολή εργασίας </a></li>
@@ -341,7 +290,7 @@
 
         <div class="col-lg-9 mt-4 mt-lg-0">
           <div class="tab-content">
-
+            
             <div class="tab-pane active show" id="genikes-odhgies">
               <div class="row">
                 <div class="col-lg-8 details order-1 order-lg-1">
@@ -386,214 +335,176 @@
 
                   <div class="wrapper center-block">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
-                      <div class="panel-heading active" role="tab" id="headingOne">
-                        <h5 class="panel-title mb-0">
-                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <i class="fa fa-angle-down rotate-icon"></i>
-                            Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse"  data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                              Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                              
+                              <hr>
+                            </a>
                             
-                            <hr>
-                            
-                          </a>
-                          
-                        </h5>
-                      </div>
-                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </h4>
                         </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+                            <ul style="list-style-type: none;">
+                              
+                              <li>Άρθρο 1</li> <br>
+                            
+                              <ol>
+                                <li>
+                                  Η αναστολή των συμβάσεων εργασίας των εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων έχει ανασταλεί προσωρινά η λειτουργία με εντολή δημόσιας αρχής κατά τον μήνα Σεπτέμβριο 2020 και συνεχίζεται κατά τον μήνα Οκτώβριο 2020 βάσει ΚΑΔ που ορίζονται από το Υπουργείο Οικονομικών, παρατείνεται μέχρι την ημερομηνία της άρσης της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής.
+                                </li><br>
+                                <li>
+                                  Οι συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου, που λήγουν μετά την προσωρινή αναστολή της λειτουργίας των επιχειρήσεων - εργοδοτών, τίθενται σε αναστολή. Μετά το πέρας του διαστήματος της αναστολής τους οι συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται.
+                                </li><br>
+                                <li>
+                                  Οι επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
+                                </li><br>
+                              </ol>
+                            </ul>
+
+                          </div>
+                        </div>
+
                       </div>
-                    </div>
+                      
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Collapsible Group Item #2
+                            Α2. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά, για τον μήνα Οκτώβριο 2020
+                            <hr>
                           </a>
                         </h4>
                       </div>
                       <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          
+                          <ul class="text-in-covid" style="list-style-type: none;">
+                            
+                            <li >Άρθρο 1</li> <br>
+                         
+                            <ol>
+                              <li>
+                                Επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά και ανήκουν στους κλάδους του τουρισμού, εποχικής ή μη λειτουργίας, των αεροπορικών και ακτοπλοϊκών μεταφορών, των χερσαίων μεταφορών επιβατών, του επισιτισμού, του πολιτισμού και του αθλητισμού καθώς και κάθε άλλου κλάδου που πλήττεται σημαντικά, βάσει ΚΑΔ, όπως αυτοί ορίζονται από το Υπουργείο Οικονομικών σύμφωνα με το ΠΑΡΑΡΤΗΜΑ της παρούσας, δύνανται:
+                              </li><br>
+                              
+                              <ol style="list-style-type: lower-greek;">
+                                <li>να θέτουν σε αναστολή ή να παρατείνουν την αναστολή συμβάσεων εργασίας των εργαζομένων τους που έχουν ήδη τεθεί σε αναστολή, κατ' εφαρμογή των σχετικών διατάξεων που αφορούν στην αντιμετώπιση των συνεπειών του κινδύνου διασποράς του κορωνοϊού COVID-19, ή και
+                                </li> <br>
+
+                                <li>να θέτουν για πρώτη φορά σε αναστολή συμβάσεις εργασίας εργαζομένων τους.
+                                </li> <br>
+
+                                Τα ανωτέρω δύνανται να εφαρμοστούν για μέρος ή το σύνολο των εργαζομένων τους, που έχουν προσληφθεί έως και την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177), για τον μήνα Οκτώβριο 2020, κατ' ανώτατο χρονικό διάστημα έως τριάντα (30) ημέρες και πάντως όχι πέραν της 31ής.10.2020.
+                                <br>
+                              </ol><br>
+                            <li>
+                              Οι ανωτέρω επιχειρήσεις - εργοδότες μπορούν να εφαρμόζουν το μέτρο της αναστολής των συμβάσεων εργασίας σταδιακά και για διαφορετικό αριθμό εργαζομένων, μέχρι και του ποσοστού 100% αυτών, ανά υπεύθυνη δήλωση της επιχείρησης στο Πληροφοριακό Σύστημα ΕΡΓΑΝΗ.
+                            </li><br>
+
+                            <li>
+                              Οι συμβάσεις εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του παρόντος άρθρου, οι οποίες είχαν τεθεί σε αναστολή πριν την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177) και έχει ανακληθεί οριστικά η αναστολή τους, δύνανται να τίθενται εκ νέου σε αναστολή και πάντως όχι πέραν της 31ης.10.2020.
+                            </li><br>
+                            
+                          </ol>
+                            
+                            <br>
+                            <li class="text-in-covid">Άρθρο 2</li>  <br>
+                         
+                            <ol>
+ 
+                              <li> Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου, για όσο χρονικό διάστημα κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, και σε κάθε περίπτωση μέχρι την 31η.10.2020, υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
+                              </li>  <br>
+                              
+                              <li>Οι επιχειρήσεις-εργοδότες της παρ. 1 του παρόντος άρθρου, που κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, υποχρεούνται, μετά από τη λήξη του χρονικού διαστήματος της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών, να διατηρήσουν για χρονικό διάστημα τριάντα (30) ημερών τον ίδιο αριθμό θέσεων εργασίας και με το ίδιο είδος σύμβασης εργασίας. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
+                              </li>  <br>
+
+                              Στην έννοια του ιδίου αριθμού θέσεων εργασίας δεν συμπεριλαμβάνονται οι αποχωρούντες οικειοθελώς από την εργασία τους, οι αποχωρούντες λόγω συνταξιοδό-τησης, καθώς και οι εργαζόμενοι ορισμένου χρόνου των οποίων η σύμβαση εργασίας τους λήγει κατά τη διάρκεια του ανωτέρω χρονικού διαστήματος των 30 ημερών.
+                              <br>
+
+                              <br><li>Η αναστολή συμβάσεων εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύναται να παραταθεί κατ' ανώτατο όριο έως 30 ημέρες και όχι πέραν της 31ής.10.2020. Επίσης, δύναται να τεθούν για πρώτη φορά ή εκ νέου σε αναστολή συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου.
+                              </li>  <br>
+
+                              Σε κάθε περίπτωση μετά το πέρας του διαστήματος της αναστολής ή της παράτασης της αναστολής, οι ανωτέρω συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
+                              <br>
+                              <br><li>Οι επιχειρήσεις - εργοδότες που επαναλειτουργούν μετά την άρση της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής ή που πλήττονται σημαντικά βάσει ΚΑΔ και έχουν θέσει σε αναστολή τις συμβάσεις εργασίας μέρους ή του συνόλου των εργαζομένων τους, δύνανται να προβαίνουν σε ανάκληση της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών. Μπορούν επίσης να θέτουν εκ νέου σε αναστολή τις συμβάσεις εργασίας εργαζομένων τους ανεξάρτητα από το αν έχει ανακληθεί οριστικά η αναστολή τους. Σε κάθε περίπτωση τα ανωτέρω ισχύουν έως και την 31.10.2020.
+                              </li>  <br>
+
+                              <br>
+                              <li>Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύνανται να:
+                              </li>  <br>
+
+                              <ol style="list-style-type: lower-greek;"></ol>
+                                <li>προβαίνουν σε προσωρινή ανάκληση αναστολής συμβάσεων εργασίας εργαζομένων τους για κάλυψη έκτακτων, πρόσκαιρων, κατεπειγουσών και ανελαστικών αναγκών, στο πλαίσιο αντιμετώπισης του κορωνο-ϊού COVID-19, κατά τα οριζόμενα στο άρθρο δωδέκατο της από 1.5.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 90),
+
+                                 <li>κάνουν χρήση του Μηχανισμού «ΣΥΝ-ΕΡΓΑΣΙΑ» των διατάξεων του άρθρου 31 του ν. 4690/2020 (Α' 104) όπως ισχύει, για μέρος ή για το σύνολο των εργαζομένων τους των οποίων οι συμβάσεις εργασίας δεν τελούν σε αναστολή ή για εργαζόμενους των οποίων οι συμβάσεις εργασίας είχαν τεθεί σε αναστολή.
+                              </ol>
+                            </ol>
+                          </ul>
+
                         </div>
                       </div>
+
                     </div>
+
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
                           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Collapsible Group Item #3
+                            Α3. Αποζημίωση ειδικού σκοπού - Διαδικασία λήψης αποζημίωσης ειδικού σκοπού
                           </a>
                         </h4>
                       </div>
                       <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                         <div class="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          
+                          <ul class="text-in-covid" style="list-style-type: none;">
+                            
+                            <li >Άρθρο 1 - Αποζημίωση ειδικού σκοπού</li> <br>
+                         
+                            <ol>
+                              
+                              <li>Οι εργαζόμενοι σε επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή, είναι δικαιούχοι της αποζημίωσης ειδικού σκοπού του δέκατου τρίτου άρθρου της από 14.3.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 64), όπως αυτή κυρώθηκε με το άρθρο 3 του ν. 4682/2020 (Α' 76), κατ' αναλογία των ημερών διάρκειας της αναστολής των συμβάσεων εργασίας με βάση υπολογισμού το ποσό των πεντακο-σίων τριάντα τεσσάρων (534) ευρώ που αντιστοιχεί στις τριάντα (30) ημέρες.
+                              </li>  <br>
+                              <li> Η αποζημίωση της παρ. 1 του παρόντος άρθρου είναι αφορολόγητη, ανεκχώρητη και ακατάσχετη στα χέρια του Δημοσίου ή τρίτων, κατά παρέκκλιση κάθε γενικής και ειδικής διάταξης, δεν υπόκειται σε οποιαδήποτε κράτηση, τέλος ή εισφορά, συμπεριλαμβανομένης και της ειδικής εισφοράς αλληλεγγύης του άρθρου 43 Α του ν. 4172/2013 (Α' 167), δεν δεσμεύεται και δεν συμψηφίζεται με βεβαιωμένα χρέη προς τη φορολογική διοίκηση και το Δημόσιο εν γένει, τους δήμους, τις περιφέρειες, τα ασφαλιστικά ταμεία ή τα πιστωτικά ιδρύματα.
+                              </li>  <br>
+                              <li>Η δαπάνη για την αποζημίωση ειδικού σκοπού κατ' αναλογία του χρονικού διαστήματος των αναστολών καλύπτεται από τον κρατικό προϋπολογισμό.
+                              </li>  <br>
+                            </ol>
+
+                            <li >Άρθρο 2 - Διαδικασία λήψης αποζημίωσης ειδικού σκοπού</li> <br>
+
+                            <ol>
+                                <li> Οι επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου προβαίνουν είτε σε αρχική δήλωση των εργαζομένων τους, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή για πρώτη φορά είτε σε εκ νέου δήλωση των εργαζομένων των οποίων οι συμβάσεις εργασίας τίθενται εκ νέου σε αναστολή, είτε βεβαιώνουν ότι παρατείνεται η αναστολή των συμβάσεων εργασίας των εργαζομένων τους, για τον μήνα Οκτώβριο. Επίσης, οι ανωτέρω επιχειρήσεις - εργοδότες δηλώνουν τους εργαζόμενους των οποίων η αναστολή συμβάσεων εργασίας τους ανακαλείται.
+                                </li>  <br>
+                                <li> Για την περίπτωση των εργαζομένων των οποίων παρατείνεται η αναστολή των συμβάσεων εργασίας τους δεν απαιτείται επανυποβολή υπεύθυνης δήλωσης από τους εργαζόμενους, εκτός κι αν επιθυμούν τροποποίηση στοιχείων του τραπεζικού τους λογαριασμού (ΙΒΑΝ) ή στοιχείων της μίσθωσης κύριας κατοικίας τους.
+                                </li>  <br>
+
+                                Για την περίπτωση των εργαζομένων που τίθενται για πρώτη φορά ή εκ νέου οι συμβάσεις εργασίας τους σε αναστολή, αυτοί προβαίνουν σε υποβολή υπεύθυνης δήλωσης στην ηλεκτρονική πλατφόρμα του ειδικού μηχανισμού στήριξης των εργαζομένων (supportemployees. yeka.gr). Στην υπεύθυνη δήλωση συμπεριλαμβάνονται, εκτός των προσωπικών τους στοιχείων και του αριθμού πρωτοκόλλου καταχώρισης της υπεύθυνης δήλωσης του εργοδότη στο ΠΣ «ΕΡΓΑΝΗ», τα οποία αντλούνται αυτόματα από το ΠΣ «ΕΡΓΑΝΗ», και τα στοιχεία του προσωπικού τους τραπεζικού λογαριασμού (ΙΒΑΝ). Επίσης, δηλώνουν και το αν μισθώνουν κύρια κατοικία, καθώς και τα στοιχεία του εκμισθωτή και του μίσθιου ακινήτου.
+      
+                                <li> Σε κάθε περίπτωση, οι επιχειρήσεις - εργοδότες υποχρεούνται να γνωστοποιήσουν την ανωτέρω υπεύθυνη δήλωσή τους, εγγράφως ή με ηλεκτρονικό ταχυδρομείο, στους εργαζομένους τους, δηλώνοντάς τους και τον αριθμό πρωτοκόλλου καταχώρισης της πράξης τους στο ΠΣ ΕΡΓΑΝΗ.
+                                </li>  <br>
+                                <li> Οι σχετικές Υπεύθυνες Δηλώσεις των επιχειρήσεων - εργοδοτών και των εργαζομένων του παρόντος υποκεφαλαίου υποβάλλονται για τον μήνα Οκτώβριο συγκεντρωτικά στις αρχές του Νοεμβρίου.                        
+                                </li>  <br>
+                            </ol>
+                        
+                          </ul>
+                        
+                        
                         </div>
                       </div>
+
                     </div>
+
                   </div>
-                  </div>
-
-
-
-
-
-
-
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                  
-                      <div class="accordion-header font-weight-bold" id="headingOne">
-                        <h2 class="ml-0 text-justify">
-                          <button type="button" class="btn" data-toggle="collapse" data-target="#collapseOne"><i class="fa fa-plus "></i>Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
-                          </button>									
-                        </h2>
-                      </div>
-                  
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="accordion-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion">
-                      <div class="accordion-header" id="headingTwo">
-                        <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Collapsible Group Item #2
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="accordion-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion">
-                      <div class="accordion-header" id="headingThree">
-                        <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Collapsible Group Item #3
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                        <div class="accordion-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="faq-list">
-                    <ul>
-                      <li data-aos="fade-up">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
-                          <p>
-                            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <ul style="list-style-type:circle;">
-                    <li>
-                      <i class="bx"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-
-                      Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
-                    </li>
-                    <br>
-                    Άρθρο 1
-                    <br>
-                    <ol>
-
-                    <li>
-                    1. Η αναστολή των συμβάσεων εργασίας των εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων έχει ανασταλεί προσωρινά η λειτουργία με εντολή δημόσιας αρχής κατά τον μήνα Σεπτέμβριο 2020 και συνεχίζεται κατά τον μήνα Οκτώβριο 2020 βάσει ΚΑΔ που ορίζονται από το Υπουργείο Οικονομικών, παρατείνεται μέχρι την ημερομηνία της άρσης της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής.
-                    </li>
-
-                  <li>
-                    2. Οι συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου, που λήγουν μετά την προσωρινή αναστολή της λειτουργίας των επιχειρήσεων - εργοδοτών, τίθενται σε αναστολή. Μετά το πέρας του διαστήματος της αναστολής τους οι συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται.
-                </li><li>
-                    3. Οι επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
-                  </li>
-
-                  </ol>
-
-                  
-                  Α2. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά, για τον μήνα Οκτώβριο 2020
-
-                  Άρθρο 1
-
-                  1. Επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά και ανήκουν στους κλάδους του τουρισμού, εποχικής ή μη λειτουργίας, των αεροπορικών και ακτοπλοϊκών μεταφορών, των χερσαίων μεταφορών επιβατών, του επισιτισμού, του πολιτισμού και του αθλητισμού καθώς και κάθε άλλου κλάδου που πλήττεται σημαντικά, βάσει ΚΑΔ, όπως αυτοί ορίζονται από το Υπουργείο Οικονομικών σύμφωνα με το ΠΑΡΑΡΤΗΜΑ της παρούσας, δύνανται:
-
-                  α. να θέτουν σε αναστολή ή να παρατείνουν την αναστολή συμβάσεων εργασίας των εργαζομένων τους που έχουν ήδη τεθεί σε αναστολή, κατ' εφαρμογή των σχετικών διατάξεων που αφορούν στην αντιμετώπιση των συνεπειών του κινδύνου διασποράς του κορωνοϊού COVID-19, ή και
-
-                  β. να θέτουν για πρώτη φορά σε αναστολή συμβάσεις εργασίας εργαζομένων τους.
-
-                  Τα ανωτέρω δύνανται να εφαρμοστούν για μέρος ή το σύνολο των εργαζομένων τους, που έχουν προσληφθεί έως και την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177), για τον μήνα Οκτώβριο 2020, κατ' ανώτατο χρονικό διάστημα έως τριάντα (30) ημέρες και πάντως όχι πέραν της 31ής.10.2020.
-
-                  2. Οι ανωτέρω επιχειρήσεις - εργοδότες μπορούν να εφαρμόζουν το μέτρο της αναστολής των συμβάσεων εργασίας σταδιακά και για διαφορετικό αριθμό εργαζομένων, μέχρι και του ποσοστού 100% αυτών, ανά υπεύθυνη δήλωση της επιχείρησης στο Πληροφοριακό Σύστημα ΕΡΓΑΝΗ.
-
-                  3. Οι συμβάσεις εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του παρόντος άρθρου, οι οποίες είχαν τεθεί σε αναστολή πριν την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177) και έχει ανακληθεί οριστικά η αναστολή τους, δύνανται να τίθενται εκ νέου σε αναστολή και πάντως όχι πέραν της 31ης.10.2020.
-
-                  Άρθρο 2
-
-                  Ακυρότητα καταγγελίας συμβάσεων εργασίας -Ρήτρα διατήρησης θέσεων εργασίας -Συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου - Ανάκληση αναστολών συμβάσεων εργασίας
-
-                  1. Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου, για όσο χρονικό διάστημα κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, και σε κάθε περίπτωση μέχρι την 31η.10.2020, υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
-
-                  2. Οι επιχειρήσεις-εργοδότες της παρ. 1 του παρόντος άρθρου, που κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, υποχρεούνται, μετά από τη λήξη του χρονικού διαστήματος της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών, να διατηρήσουν για χρονικό διάστημα τριάντα (30) ημερών τον ίδιο αριθμό θέσεων εργασίας και με το ίδιο είδος σύμβασης εργασίας. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
-
-                  Στην έννοια του ιδίου αριθμού θέσεων εργασίας δεν συμπεριλαμβάνονται οι αποχωρούντες οικειοθελώς από την εργασία τους, οι αποχωρούντες λόγω συνταξιοδό-τησης, καθώς και οι εργαζόμενοι ορισμένου χρόνου των οποίων η σύμβαση εργασίας τους λήγει κατά τη διάρκεια του ανωτέρω χρονικού διαστήματος των 30 ημερών.
-
-                  3. Η αναστολή συμβάσεων εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύναται να παραταθεί κατ' ανώτατο όριο έως 30 ημέρες και όχι πέραν της 31ής.10.2020. Επίσης, δύναται να τεθούν για πρώτη φορά ή εκ νέου σε αναστολή συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου.
-
-                  Σε κάθε περίπτωση μετά το πέρας του διαστήματος της αναστολής ή της παράτασης της αναστολής, οι ανωτέρω συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
-
-                  4. Οι επιχειρήσεις - εργοδότες που επαναλειτουργούν μετά την άρση της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής ή που πλήττονται σημαντικά βάσει ΚΑΔ και έχουν θέσει σε αναστολή τις συμβάσεις εργασίας μέρους ή του συνόλου των εργαζομένων τους, δύνανται να προβαίνουν σε ανάκληση της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών. Μπορούν επίσης να θέτουν εκ νέου σε αναστολή τις συμβάσεις εργασίας εργαζομένων τους ανεξάρτητα από το αν έχει ανακληθεί οριστικά η αναστολή τους. Σε κάθε περίπτωση τα ανωτέρω ισχύουν έως και την 31.10.2020.
-
-                  5. Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύνανται να:
-
-                  α. προβαίνουν σε προσωρινή ανάκληση αναστολής συμβάσεων εργασίας εργαζομένων τους για κάλυψη έκτακτων, πρόσκαιρων, κατεπειγουσών και ανελαστικών αναγκών, στο πλαίσιο αντιμετώπισης του κορωνο-ϊού COVID-19, κατά τα οριζόμενα στο άρθρο δωδέκατο της από 1.5.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 90),
-
-                  β. κάνουν χρήση του Μηχανισμού «ΣΥΝ-ΕΡΓΑΣΙΑ» των διατάξεων του άρθρου 31 του ν. 4690/2020 (Α' 104) όπως ισχύει, για μέρος ή για το σύνολο των εργαζομένων τους των οποίων οι συμβάσεις εργασίας δεν τελούν σε αναστολή ή για εργαζόμενους των οποίων οι συμβάσεις εργασίας είχαν τεθεί σε αναστολή.
-
-                  Α3. Αποζημίωση ειδικού σκοπού - Διαδικασία λήψης αποζημίωσης ειδικού σκοπού
-
-                  Άρθρο 1
-
-                  Αποζημίωση ειδικού σκοπού
-
-                  1. Οι εργαζόμενοι σε επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή, είναι δικαιούχοι της αποζημίωσης ειδικού σκοπού του δέκατου τρίτου άρθρου της από 14.3.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 64), όπως αυτή κυρώθηκε με το άρθρο 3 του ν. 4682/2020 (Α' 76), κατ' αναλογία των ημερών διάρκειας της αναστολής των συμβάσεων εργασίας με βάση υπολογισμού το ποσό των πεντακο-σίων τριάντα τεσσάρων (534) ευρώ που αντιστοιχεί στις τριάντα (30) ημέρες.
-
-                  2. Η αποζημίωση της παρ. 1 του παρόντος άρθρου είναι αφορολόγητη, ανεκχώρητη και ακατάσχετη στα χέρια του Δημοσίου ή τρίτων, κατά παρέκκλιση κάθε γενικής και ειδικής διάταξης, δεν υπόκειται σε οποιαδήποτε κράτηση, τέλος ή εισφορά, συμπεριλαμβανομένης και της ειδικής εισφοράς αλληλεγγύης του άρθρου 43 Α του ν. 4172/2013 (Α' 167), δεν δεσμεύεται και δεν συμψηφίζεται με βεβαιωμένα χρέη προς τη φορολογική διοίκηση και το Δημόσιο εν γένει, τους δήμους, τις περιφέρειες, τα ασφαλιστικά ταμεία ή τα πιστωτικά ιδρύματα.
-
-                  3. Η δαπάνη για την αποζημίωση ειδικού σκοπού κατ' αναλογία του χρονικού διαστήματος των αναστολών καλύπτεται από τον κρατικό προϋπολογισμό.
-
-                  Άρθρο 2
-
-                  Διαδικασία λήψης αποζημίωσης ειδικού σκοπού
-
-                  1. Οι επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου προβαίνουν είτε σε αρχική δήλωση των εργαζομένων τους, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή για πρώτη φορά είτε σε εκ νέου δήλωση των εργαζομένων των οποίων οι συμβάσεις εργασίας τίθενται εκ νέου σε αναστολή, είτε βεβαιώνουν ότι παρατείνεται η αναστολή των συμβάσεων εργασίας των εργαζομένων τους, για τον μήνα Οκτώβριο. Επίσης, οι ανωτέρω επιχειρήσεις - εργοδότες δηλώνουν τους εργαζόμενους των οποίων η αναστολή συμβάσεων εργασίας τους ανακαλείται.
-
-                  2. Για την περίπτωση των εργαζομένων των οποίων παρατείνεται η αναστολή των συμβάσεων εργασίας τους δεν απαιτείται επανυποβολή υπεύθυνης δήλωσης από τους εργαζόμενους, εκτός κι αν επιθυμούν τροποποίηση στοιχείων του τραπεζικού τους λογαριασμού (ΙΒΑΝ) ή στοιχείων της μίσθωσης κύριας κατοικίας τους.
-
-                  Για την περίπτωση των εργαζομένων που τίθενται για πρώτη φορά ή εκ νέου οι συμβάσεις εργασίας τους σε αναστολή, αυτοί προβαίνουν σε υποβολή υπεύθυνης δήλωσης στην ηλεκτρονική πλατφόρμα του ειδικού μηχανισμού στήριξης των εργαζομένων (supportemployees. yeka.gr). Στην υπεύθυνη δήλωση συμπεριλαμβάνονται, εκτός των προσωπικών τους στοιχείων και του αριθμού πρωτοκόλλου καταχώρισης της υπεύθυνης δήλωσης του εργοδότη στο ΠΣ «ΕΡΓΑΝΗ», τα οποία αντλούνται αυτόματα από το ΠΣ «ΕΡΓΑΝΗ», και τα στοιχεία του προσωπικού τους τραπεζικού λογαριασμού (ΙΒΑΝ). Επίσης, δηλώνουν και το αν μισθώνουν κύρια κατοικία, καθώς και τα στοιχεία του εκμισθωτή και του μίσθιου ακινήτου.
-
-                  3. Σε κάθε περίπτωση, οι επιχειρήσεις - εργοδότες υποχρεούνται να γνωστοποιήσουν την ανωτέρω υπεύθυνη δήλωσή τους, εγγράφως ή με ηλεκτρονικό ταχυδρομείο, στους εργαζομένους τους, δηλώνοντάς τους και τον αριθμό πρωτοκόλλου καταχώρισης της πράξης τους στο ΠΣ ΕΡΓΑΝΗ.
-
-                  4. Οι σχετικές Υπεύθυνες Δηλώσεις των επιχειρήσεων - εργοδοτών και των εργαζομένων του παρόντος υποκεφαλαίου υποβάλλονται για τον μήνα Οκτώβριο συγκεντρωτικά στις αρχές του Νοεμβρίου.
-
-                  Read more at Taxheaven: https://www.taxheaven.gr/news/51137/anastolh-symbasewn-ergasias-ergazomenwn-gia-ton-mhna-oktwbrio-2020-oi-kad-kai-oi-loipes-leptomereies                </div>
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                  <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
                 </div>
-              </div>
+              </div> 
+              <!-- HERE -->
+            </div> 
             </div>
             
             <div class="tab-pane" id="adeia">
@@ -608,6 +519,8 @@
                 </div>
               </div>
             </div>
+
+
             <div class="tab-pane" id="tab-3">
               <div class="row">
                 <div class="col-lg-8 details order-2 order-lg-1">
@@ -620,6 +533,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="tab-pane" id="tab-4">
               <div class="row">
                 <div class="col-lg-8 details order-2 order-lg-1">
@@ -632,6 +546,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="tab-pane" id="tab-5">
               <div class="row">
                 <div class="col-lg-8 details order-2 order-lg-1">
@@ -644,6 +559,7 @@
                 </div>
               </div>
             </div>
+          
           </div>
         </div>
       </div>
