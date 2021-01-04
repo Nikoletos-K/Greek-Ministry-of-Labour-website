@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>Οδηγίες Covid-19</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="bootstrap/css/style.css">
+
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  
+    <!-- =======================================================
+    * Template Name: Green - v2.3.0
+    * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+        .bs-example{
+            margin: 20px;
+        }
+        .accordion .fa{
+            margin-right: 0.5rem;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            // Add minus icon for collapse element which is open by default
+            $(".collapse.show").each(function(){
+              $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+            });
+            
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function(){
+              $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+            }).on('hide.bs.collapse', function(){
+              $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+            });
+        });
+
+        $('.panel-collapse').on('show.bs.collapse', function () {
+          $(this).siblings('.panel-heading').addClass('active');
+        });
+
+        $('.panel-collapse').on('hide.bs.collapse', function () {
+          $(this).siblings('.panel-heading').removeClass('active');
+        });
+    </script>
+  </head>
+  
+  <body>
+  
+
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">info@ypakp.gr</a>
+        <i class="icofont-phone"></i> +30 213 151 6649
+      </div>
+      <div class="social-links">
+        <button href="login.html" class="get-started-btn scrollto">Σύνδεση</button>
+        <button href="register.html" class="get-started-btn scrollto">Εγγραφή</button>
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ======= Header ======= -->
+ 
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">info@ypakp.gr</a>
+        <i class="icofont-phone"></i> +30 213 151 6649
+      </div>
+      <div class="social-links">
+        <button href="login.html" class="get-started-btn scrollto"  data-target="#modalLoginForm" data-toggle="modal">Σύνδεση</button>
+        <button href="register.html" class="get-started-btn scrollto">Εγγραφή</button>
+        <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a> -->
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- ========== Login Modal =========== -->
+
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Σύνδεση</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="icofont-user prefix grey-text"></i>
+            <input type="text" id="defaultForm-name" class="form-control ">
+            <label data-error="wrong" data-success="right" for="defaultForm-name">Όνομα Χρήστη</label>
+          </div>
+          <div class="md-form mb-4">
+            <i class="icofont-ui-password prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control ">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Κωδικός</label>
+          </div>
+       </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-log">Είσοδος</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
+</div>
+
+  <!-- =========== End of Login Modal ============ -->
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    
+    <div class="navbar-br">
+      <div class="container align-items-center">
+        <nav class=" sec-navbar navbar ">
+          <h1 class="logo mr-auto navbar-brand">
+            <a href="index.html" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.html" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
+          <form class="form-inline">
+            <div class="md-form my-0 search-engine  ">
+              <i class="icofont-ui-search search-icon"></i>
+              <input class="form-control mr-sm-2 input-fr" type="text" placeholder="Αναζήτηση" aria-label="Search">
+            </div>
+          </form>
+        </nav>
+      </div>
+    </div>
+    
+    
+    <div class="container d-flex align-items-center">
+      <!-- <h1 class="logo mr-auto"><a href="index.html"> </a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.html">Αρχική</a></li>
+          <li class="drop-down"><a href="#">Εργοδότης</a>
+            <ul>
+              <li><a href="#">Πρόσλήψεις</a></li>
+              <li class="drop-down"><a href="#">COVID-19</a>
+                <ul>
+                  <li><a href="#">Χορήγηση άδειας ειδικού σκοπού</a></li>
+                  <li><a href="#">Αναστολή σύμβασης εργαζομένου</a></li>
+                  <li><a href="#">Διαχείρηση κρούσματος</a></li>
+                  <li><a href="#">Μέτρα προφύλαξης</a></li>
+                  <li><a href="#">Αποζημιώσεις</a></li>
+                  <li><a href="#">Άλλα θέματα COVID-19</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Νέα επιχείρηση</a></li>
+              <li><a href="#">Ασφάλιση εργαζομένου</a></li>
+              <li><a href="#">Απολύσεις</a></li>
+            </ul>
+          </li>
+          <li class="drop-down"><a href="#">Εργαζόμενος</a>
+            <ul>
+              <li><a href="#">Μισθοδοσία</a></li>
+              <li class="drop-down"><a href="#">COVID-19</a>
+                <ul>
+                  <li><a href="#">Άδεια ειδικού σκοπού</a></li>
+                  <li><a href="#">Αναστολή εργασίας</a></li>
+                  <li><a href="#">Τηλεργασία</a></li>
+                  <li><a href="#">Μέτρα προφύλαξης</a></li>
+                  <li><a href="#">Αποζημιώσεις</a></li>
+                  <li><a href="#">Άλλα θέματα COVID-19</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Επιδόματα</a></li>
+              <li><a href="#">Άδειες</a></li>
+              <li><a href="#">Απόλυση</a></li>
+              <li><a href="#">Ασφάλιση</a></li>
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">Εργασία και Ασφάλιση</a>
+            <ul>
+              <li><a href="#">Επιχειρήσεις</a></li>
+              <li><a href="#">Συνταξιοδότηση</a></li>
+              <li><a href="#">Ανεργία</a></li>
+              <li><a href="#">Ελεύθεροι Επαγγελματίες</a></li>
+              <li><a href="#">ΑΜΕΑ</a></li>
+              <li><a href="#">Εποχιακή Απασχόληση</a></li>
+              <li><a href="#">Κοινωνική Ασφάλιση</a></li>
+              <li><a href="#">Επιδόματα</a></li>
+              <li><a href="#">Εργασία στην ΕΕ</a></li>
+              <li><a href="#">Διεθνείς υποθέσεις</a></li>
+            </ul>
+          </li>
+          <li class="drop-down" ><a href="#">Υπουργείο</a>
+            <ul>
+              <li><a href="#">Πολιτική ηγεσία</a></li>
+              <li><a href="#">Γραμματεία</a></li>
+              <li><a href="#">Εκδηλώσεις</a></li>
+              <li><a href="#">Δαπάνες</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Επικοινωνία</a></li>
+          <li><a href="#">Νέα</a></li>
+
+          <li><a href="covid19.html" class="covid-btn scrollto " >Covid-19</a></li>
+        </ul>
+
+        
+      </nav><!-- .nav-menu -->
+       
+     
+       
+      
+    </div>
+  </header><!-- End Header -->
+
+
+  <main id="main">
+
+     <!-- ======= Breadcrumbs ======= -->
+     <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- <h2>Επικοινωνία</h2> -->
+          <ol>
+            <li><a href="index.html">Αρχική</a></li>
+            <li>COVID-19</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+  <!-- ======= Departments Section ======= -->
+  <section id="departments" class="departments">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>COVID-19</h2>
+        <p>Όλες οι πληροφορίες που αφορούν τις αλλαγές στον εργασιακό τομέα, λόγω του ιού Covid-19.</p>
+      </div>
+
+      <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 collapse show d-md-flex bg-light" id="sidebar">
+                <ul class="nav flex-column flex-nowrap overflow-hidden active show">
+                    <li class="nav-item">
+                        <a class="nav-link text-truncate active show" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">Overview</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Reports</span></a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column pl-2 nav">
+                                <li class="nav-item"><a class="nav-link py-0" href="#"><span>Orders</span></a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Customers</span></a>
+                                    <div class="collapse" id="submenu1sub1" aria-expanded="false">
+                                        <ul class="flex-column nav pl-4">
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-clock-o"></i> Daily </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link p-1" href="#">
+                                                    <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-bar-chart"></i> <span class="d-none d-sm-inline">Analytics</span></a></li>
+                    <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span class="d-none d-sm-inline">Export</span></a></li>
+                </ul>
+            </div>
+            <div class="col pt-2">
+                <h2>
+                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a> Content </h2>
+                <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
+                <p>Codeply editor wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
+            </div>
+        </div>
+    </div>
+ -->
+
+      <div class="row">
+        <div class="col-lg-3 nav nav-pills nav-stacked flex-column  show d-md-flex">
+            
+          <ul class="nav nav-pills nav-stacked flex-column collapse show d-md-flex " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#genikes-odhgies">
+                  <i class=""></i>Γενικές Οδηγίες</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed text-truncate " href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-angle-down"></i> <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργαζομένους</b></span></a>
+                <div class="collapse" id="submenu1" aria-expanded="false">
+                    <ul class="flex-column pl-2 nav">
+                        <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#anastoli"> Αναστολή εργασίας </a></li>
+                        <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#thlergasia"><span>Τηλεργασία</span></a></li>
+                        <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#metra"><span>Μέτρα προφύλαξης</span></a></li>
+                        <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#apozimiosi"><span>Αποζημιώσεις</span></a></li>
+                        <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#adeia"><span>Άδεια ειδικού σκοπού</span></a></li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Άλλα θέματα</span></a>
+                            <div class="collapse" id="submenu1sub1" aria-expanded="true">
+                                <ul class="flex-column nav pl-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link p-1" href="#">
+                                            <i class="fa fa-fw fa-clock-o"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link p-1" href="#">
+                                            <i class="fa fa-fw fa-dashboard"></i>Ευπαθείς ομάδες</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link p-1" href="#">
+                                            <i class="fa fa-fw fa-bar-chart"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link p-1" href="#">
+                                            <i class="fa fa-fw fa-compass"></i> Areas </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link collapsed text-truncate " href="#submenu2" data-toggle="collapse" data-target="#submenu2"><i class="fa fa-angle-down"></i> <span class="d-none d-sm-inline">Οδηγίες προς <b>Εργοδότες</b></span></a>
+              <div class="collapse" id="submenu2" aria-expanded="false">
+                  <ul class="flex-column pl-2 nav">
+                      <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#upoxrewseis"><span>Βασικές υποχρεώσεις</span></a></li>
+                      <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#anastoli"><span>Οργανωτικά μέτρα</span> </a></li>
+                      <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#metra"><span>Μέτρα ατομικής υγιεινής και μέσα ατομικής προστασίας</span></a></li>
+                      <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#apozimiosi"><span>Διαχείρηση κρούσματος</span></a></li>
+                      <!-- <li class="nav-item"><a class="nav-link py-0" data-toggle="tab" href="#adeia"><span>Άδεια ειδικού σκοπού</span></a></li> -->
+                  </ul>
+              </div>
+            </li>
+          
+            <li class="nav-item  ">
+              <a class="nav-link" data-toggle="tab" href="#tab-1">Cardiology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-2">Neurology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-3">Hepatology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-4">Pediatrics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab-5">Eye Care</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-9 mt-4 mt-lg-0">
+          <div class="tab-content">
+
+            <div class="tab-pane active show" id="genikes-odhgies">
+              <div class="row">
+                <div class="col-lg-8 details order-1 order-lg-1">
+                  <h3>Γενικές Οδηγίες</h3>
+                  <p class="font-italic">Σε αυτή την περιοχή θα βρείτε γενικές οδήγιες, απευθυνόμενες προς όλους του πολίτες, για την αντιμετώπιση της πανδημίας. </p>
+                  <br>
+                  <h5>Πληροφορίες για τον COVID-19</h5>
+                  <p>Στην πόλη Wuhan,επαρχία Hubei, στην Κίνα, εμφανίστηκε συρροή κρουσμάτων πνευμονίας. Στις 9 Ιανουαρίου 2020 οι υγειονομικές αρχές της Κίνας ανακοίνωσαν ότι πρόκειται για νέο στέλεχος κορωνοϊού (2019-nCoV). Οι κορωνοϊοί είναι μία ομάδα ιών που συνήθως προκαλούν αναπνευστικές λοιμώξεις με ποικίλη σοβαρότητα στον άνθρωπο και στα ζώα. Εκτιμάται ότι περίπου το ένα τρίτο των λοιμώξεων ανώτερου αναπνευστικού στον άνθρωπο μπορεί να προκαλείται από κορωνοϊούς.</p>
+                  <br>
+                  <p>Ο Εθνικός Οργανισμός Δημόσιας Υγείας (ΕΟΔΥ), παρακολουθεί από την αρχή τις εξελίξεις και βρίσκεται σε συνεχή επικοινωνία τόσο με το Ευρωπαϊκό Κέντρο Πρόληψης και Ελέγχου Νοσημάτων (ECDC) όσο και τον Παγκόσμιο Οργανισμό Υγείας (WHO). Ο ΕΟΔΥ παραμένει σε επαγρύπνηση σχετικά με ενδεχόμενα κρούσματα της νόσου σε ταξιδιώτες ενώ έχει ήδη εκδώσει και επικαιροποιεί συστηματικά ενημερωτικό υλικό και εξειδικευμένες οδηγίες, που μπορείτε να βρείτε στην ιστοσελίδα μας.</p>
+                 </div>
+
+                <ul class="col-lg-4 text-center order-1 order-lg-2" style="list-style-type:none;">
+                  <li><div>
+                    <img src="assets/img/menoume_asfalois.png" alt="" class="" style="width:240px;height:240px;">
+                  </div></li>
+                  <br><br>
+                  <li><div class="col-lg-11 order-1 order-lg-2 phone alert alert-warning" role="alert">
+                    <h4>Προσοχή: </h4>
+                    <p> 
+                      Λόγω της πανδημίας του COVID-19 η εξυπηρέτηση των πολιτών με φυσική παρουσία λειτουργεί αποκλειστικά για ζητήματα που 
+                      δεν μπορούν να εξυπηρετηθούν ηλεκτρονικά ή με κλήση στο τηλεφωνικό κέντρο.
+                      
+                      <a href="#" class="alert-link">Περισσότερες πληροφορίες για τον COVID-19</a>
+                    </p>
+                    
+                  </div></li>     
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-pane " id="anastoli">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+
+
+
+                  <h3>Αναστολή σύμβασης εργασίας</b></h3>
+                  <p> Αναστολή συμβάσεων εργασίας εργαζομένων για τον μήνα Οκτώβριο 2020</p>
+                  
+
+
+                  <div class="wrapper center-block">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading active" role="tab" id="headingOne">
+                        <h5 class="panel-title mb-0">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-angle-down rotate-icon"></i>
+                            Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                            
+                            <hr>
+                            
+                          </a>
+                          
+                        </h5>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+
+
+
+
+
+
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                  
+                      <div class="accordion-header font-weight-bold" id="headingOne">
+                        <h2 class="ml-0 text-justify">
+                          <button type="button" class="btn" data-toggle="collapse" data-target="#collapseOne"><i class="fa fa-plus "></i>Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                          </button>									
+                        </h2>
+                      </div>
+                  
+                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion">
+                      <div class="accordion-header" id="headingTwo">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion">
+                      <div class="accordion-header" id="headingThree">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faq-list">
+                    <ul>
+                      <li data-aos="fade-up">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                          <p>
+                            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                          </p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <ul style="list-style-type:circle;">
+                    <li>
+                      <i class="bx"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+
+                      Α1. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων συνεχίζεται η αναστολή λειτουργίας τους με εντολή δημόσιας αρχής για τον μήνα Οκτώβριο 2020
+                    </li>
+                    <br>
+                    Άρθρο 1
+                    <br>
+                    <ol>
+
+                    <li>
+                    1. Η αναστολή των συμβάσεων εργασίας των εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα, των οποίων έχει ανασταλεί προσωρινά η λειτουργία με εντολή δημόσιας αρχής κατά τον μήνα Σεπτέμβριο 2020 και συνεχίζεται κατά τον μήνα Οκτώβριο 2020 βάσει ΚΑΔ που ορίζονται από το Υπουργείο Οικονομικών, παρατείνεται μέχρι την ημερομηνία της άρσης της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής.
+                    </li>
+
+                  <li>
+                    2. Οι συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου, που λήγουν μετά την προσωρινή αναστολή της λειτουργίας των επιχειρήσεων - εργοδοτών, τίθενται σε αναστολή. Μετά το πέρας του διαστήματος της αναστολής τους οι συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται.
+                </li><li>
+                    3. Οι επιχειρήσεις - εργοδότες της παρ. 1 του παρόντος άρθρου υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
+                  </li>
+
+                  </ol>
+
+                  
+                  Α2. Αναστολή συμβάσεων εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά, για τον μήνα Οκτώβριο 2020
+
+                  Άρθρο 1
+
+                  1. Επιχειρήσεις - εργοδότες του ιδιωτικού τομέα που πλήττονται σημαντικά και ανήκουν στους κλάδους του τουρισμού, εποχικής ή μη λειτουργίας, των αεροπορικών και ακτοπλοϊκών μεταφορών, των χερσαίων μεταφορών επιβατών, του επισιτισμού, του πολιτισμού και του αθλητισμού καθώς και κάθε άλλου κλάδου που πλήττεται σημαντικά, βάσει ΚΑΔ, όπως αυτοί ορίζονται από το Υπουργείο Οικονομικών σύμφωνα με το ΠΑΡΑΡΤΗΜΑ της παρούσας, δύνανται:
+
+                  α. να θέτουν σε αναστολή ή να παρατείνουν την αναστολή συμβάσεων εργασίας των εργαζομένων τους που έχουν ήδη τεθεί σε αναστολή, κατ' εφαρμογή των σχετικών διατάξεων που αφορούν στην αντιμετώπιση των συνεπειών του κινδύνου διασποράς του κορωνοϊού COVID-19, ή και
+
+                  β. να θέτουν για πρώτη φορά σε αναστολή συμβάσεις εργασίας εργαζομένων τους.
+
+                  Τα ανωτέρω δύνανται να εφαρμοστούν για μέρος ή το σύνολο των εργαζομένων τους, που έχουν προσληφθεί έως και την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177), για τον μήνα Οκτώβριο 2020, κατ' ανώτατο χρονικό διάστημα έως τριάντα (30) ημέρες και πάντως όχι πέραν της 31ής.10.2020.
+
+                  2. Οι ανωτέρω επιχειρήσεις - εργοδότες μπορούν να εφαρμόζουν το μέτρο της αναστολής των συμβάσεων εργασίας σταδιακά και για διαφορετικό αριθμό εργαζομένων, μέχρι και του ποσοστού 100% αυτών, ανά υπεύθυνη δήλωση της επιχείρησης στο Πληροφοριακό Σύστημα ΕΡΓΑΝΗ.
+
+                  3. Οι συμβάσεις εργασίας εργαζομένων σε επιχειρήσεις - εργοδότες του παρόντος άρθρου, οι οποίες είχαν τεθεί σε αναστολή πριν την 15η Σεπτεμβρίου 2020, ημερομηνία δημοσίευσης του ν. 4722/2020 (Α' 177) και έχει ανακληθεί οριστικά η αναστολή τους, δύνανται να τίθενται εκ νέου σε αναστολή και πάντως όχι πέραν της 31ης.10.2020.
+
+                  Άρθρο 2
+
+                  Ακυρότητα καταγγελίας συμβάσεων εργασίας -Ρήτρα διατήρησης θέσεων εργασίας -Συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου - Ανάκληση αναστολών συμβάσεων εργασίας
+
+                  1. Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου, για όσο χρονικό διάστημα κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, και σε κάθε περίπτωση μέχρι την 31η.10.2020, υποχρεούνται να μην προβούν σε μειώσεις προσωπικού με καταγγελία των συμβάσεων εργασίας. Σε περίπτωση πραγματοποίησής τους, οι καταγγελίες αυτές είναι άκυρες.
+
+                  2. Οι επιχειρήσεις-εργοδότες της παρ. 1 του παρόντος άρθρου, που κάνουν χρήση του μέτρου της αναστολής των συμβάσεων εργασίας, υποχρεούνται, μετά από τη λήξη του χρονικού διαστήματος της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών, να διατηρήσουν για χρονικό διάστημα τριάντα (30) ημερών τον ίδιο αριθμό θέσεων εργασίας και με το ίδιο είδος σύμβασης εργασίας. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
+
+                  Στην έννοια του ιδίου αριθμού θέσεων εργασίας δεν συμπεριλαμβάνονται οι αποχωρούντες οικειοθελώς από την εργασία τους, οι αποχωρούντες λόγω συνταξιοδό-τησης, καθώς και οι εργαζόμενοι ορισμένου χρόνου των οποίων η σύμβαση εργασίας τους λήγει κατά τη διάρκεια του ανωτέρω χρονικού διαστήματος των 30 ημερών.
+
+                  3. Η αναστολή συμβάσεων εξαρτημένης εργασίας ορισμένου χρόνου εργαζομένων σε επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύναται να παραταθεί κατ' ανώτατο όριο έως 30 ημέρες και όχι πέραν της 31ής.10.2020. Επίσης, δύναται να τεθούν για πρώτη φορά ή εκ νέου σε αναστολή συμβάσεις εξαρτημένης εργασίας ορισμένου χρόνου.
+
+                  Σε κάθε περίπτωση μετά το πέρας του διαστήματος της αναστολής ή της παράτασης της αναστολής, οι ανωτέρω συμβάσεις εργασίας συνεχίζονται για τον συμφωνηθέντα χρόνο που υπολείπεται. Η υποχρέωση αυτή δεν υφίσταται όταν συντρέχει αντικειμενική αδυναμία εκπλήρωσής της, όπως σε περιπτώσεις εποχικών επιχειρήσεων.
+
+                  4. Οι επιχειρήσεις - εργοδότες που επαναλειτουργούν μετά την άρση της αναστολής λειτουργίας τους με εντολή δημόσιας αρχής ή που πλήττονται σημαντικά βάσει ΚΑΔ και έχουν θέσει σε αναστολή τις συμβάσεις εργασίας μέρους ή του συνόλου των εργαζομένων τους, δύνανται να προβαίνουν σε ανάκληση της αναστολής των συμβάσεων εργασίας των εργαζομένων αυτών. Μπορούν επίσης να θέτουν εκ νέου σε αναστολή τις συμβάσεις εργασίας εργαζομένων τους ανεξάρτητα από το αν έχει ανακληθεί οριστικά η αναστολή τους. Σε κάθε περίπτωση τα ανωτέρω ισχύουν έως και την 31.10.2020.
+
+                  5. Οι επιχειρήσεις - εργοδότες της παρ. 1 του άρθρου 1 του παρόντος υποκεφαλαίου δύνανται να:
+
+                  α. προβαίνουν σε προσωρινή ανάκληση αναστολής συμβάσεων εργασίας εργαζομένων τους για κάλυψη έκτακτων, πρόσκαιρων, κατεπειγουσών και ανελαστικών αναγκών, στο πλαίσιο αντιμετώπισης του κορωνο-ϊού COVID-19, κατά τα οριζόμενα στο άρθρο δωδέκατο της από 1.5.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 90),
+
+                  β. κάνουν χρήση του Μηχανισμού «ΣΥΝ-ΕΡΓΑΣΙΑ» των διατάξεων του άρθρου 31 του ν. 4690/2020 (Α' 104) όπως ισχύει, για μέρος ή για το σύνολο των εργαζομένων τους των οποίων οι συμβάσεις εργασίας δεν τελούν σε αναστολή ή για εργαζόμενους των οποίων οι συμβάσεις εργασίας είχαν τεθεί σε αναστολή.
+
+                  Α3. Αποζημίωση ειδικού σκοπού - Διαδικασία λήψης αποζημίωσης ειδικού σκοπού
+
+                  Άρθρο 1
+
+                  Αποζημίωση ειδικού σκοπού
+
+                  1. Οι εργαζόμενοι σε επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή, είναι δικαιούχοι της αποζημίωσης ειδικού σκοπού του δέκατου τρίτου άρθρου της από 14.3.2020 Πράξης Νομοθετικού Περιεχομένου (Α' 64), όπως αυτή κυρώθηκε με το άρθρο 3 του ν. 4682/2020 (Α' 76), κατ' αναλογία των ημερών διάρκειας της αναστολής των συμβάσεων εργασίας με βάση υπολογισμού το ποσό των πεντακο-σίων τριάντα τεσσάρων (534) ευρώ που αντιστοιχεί στις τριάντα (30) ημέρες.
+
+                  2. Η αποζημίωση της παρ. 1 του παρόντος άρθρου είναι αφορολόγητη, ανεκχώρητη και ακατάσχετη στα χέρια του Δημοσίου ή τρίτων, κατά παρέκκλιση κάθε γενικής και ειδικής διάταξης, δεν υπόκειται σε οποιαδήποτε κράτηση, τέλος ή εισφορά, συμπεριλαμβανομένης και της ειδικής εισφοράς αλληλεγγύης του άρθρου 43 Α του ν. 4172/2013 (Α' 167), δεν δεσμεύεται και δεν συμψηφίζεται με βεβαιωμένα χρέη προς τη φορολογική διοίκηση και το Δημόσιο εν γένει, τους δήμους, τις περιφέρειες, τα ασφαλιστικά ταμεία ή τα πιστωτικά ιδρύματα.
+
+                  3. Η δαπάνη για την αποζημίωση ειδικού σκοπού κατ' αναλογία του χρονικού διαστήματος των αναστολών καλύπτεται από τον κρατικό προϋπολογισμό.
+
+                  Άρθρο 2
+
+                  Διαδικασία λήψης αποζημίωσης ειδικού σκοπού
+
+                  1. Οι επιχειρήσεις - εργοδότες των υποκεφαλαίων Α1 και Α2 του παρόντος κεφαλαίου προβαίνουν είτε σε αρχική δήλωση των εργαζομένων τους, των οποίων οι συμβάσεις εργασίας τελούν σε αναστολή για πρώτη φορά είτε σε εκ νέου δήλωση των εργαζομένων των οποίων οι συμβάσεις εργασίας τίθενται εκ νέου σε αναστολή, είτε βεβαιώνουν ότι παρατείνεται η αναστολή των συμβάσεων εργασίας των εργαζομένων τους, για τον μήνα Οκτώβριο. Επίσης, οι ανωτέρω επιχειρήσεις - εργοδότες δηλώνουν τους εργαζόμενους των οποίων η αναστολή συμβάσεων εργασίας τους ανακαλείται.
+
+                  2. Για την περίπτωση των εργαζομένων των οποίων παρατείνεται η αναστολή των συμβάσεων εργασίας τους δεν απαιτείται επανυποβολή υπεύθυνης δήλωσης από τους εργαζόμενους, εκτός κι αν επιθυμούν τροποποίηση στοιχείων του τραπεζικού τους λογαριασμού (ΙΒΑΝ) ή στοιχείων της μίσθωσης κύριας κατοικίας τους.
+
+                  Για την περίπτωση των εργαζομένων που τίθενται για πρώτη φορά ή εκ νέου οι συμβάσεις εργασίας τους σε αναστολή, αυτοί προβαίνουν σε υποβολή υπεύθυνης δήλωσης στην ηλεκτρονική πλατφόρμα του ειδικού μηχανισμού στήριξης των εργαζομένων (supportemployees. yeka.gr). Στην υπεύθυνη δήλωση συμπεριλαμβάνονται, εκτός των προσωπικών τους στοιχείων και του αριθμού πρωτοκόλλου καταχώρισης της υπεύθυνης δήλωσης του εργοδότη στο ΠΣ «ΕΡΓΑΝΗ», τα οποία αντλούνται αυτόματα από το ΠΣ «ΕΡΓΑΝΗ», και τα στοιχεία του προσωπικού τους τραπεζικού λογαριασμού (ΙΒΑΝ). Επίσης, δηλώνουν και το αν μισθώνουν κύρια κατοικία, καθώς και τα στοιχεία του εκμισθωτή και του μίσθιου ακινήτου.
+
+                  3. Σε κάθε περίπτωση, οι επιχειρήσεις - εργοδότες υποχρεούνται να γνωστοποιήσουν την ανωτέρω υπεύθυνη δήλωσή τους, εγγράφως ή με ηλεκτρονικό ταχυδρομείο, στους εργαζομένους τους, δηλώνοντάς τους και τον αριθμό πρωτοκόλλου καταχώρισης της πράξης τους στο ΠΣ ΕΡΓΑΝΗ.
+
+                  4. Οι σχετικές Υπεύθυνες Δηλώσεις των επιχειρήσεων - εργοδοτών και των εργαζομένων του παρόντος υποκεφαλαίου υποβάλλονται για τον μήνα Οκτώβριο συγκεντρωτικά στις αρχές του Νοεμβρίου.
+
+                  Read more at Taxheaven: https://www.taxheaven.gr/news/51137/anastolh-symbasewn-ergasias-ergazomenwn-gia-ton-mhna-oktwbrio-2020-oi-kad-kai-oi-loipes-leptomereies                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            
+            <div class="tab-pane" id="adeia">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Et blanditiis nemo veritatis excepturi</h3>
+                  <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                  <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                  <p class="font-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                  <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-4">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
+                  <p class="font-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
+                  <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-5">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
+                  <p class="font-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                  <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane " id="upoxrewseis">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Βασικές υποχρεώσεις εργοδοτών</h3> 
+                  <div class="list-group">
+                    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-2 h5">List group item heading</h5>
+                        <small>3 days ago</small>
+                      </div>
+                      <p class="mb-2">Επικαιροποίηση της Εκτίμησης
+                        Επαγγελματικού Κινδύνου ως προς την
+                        αξιολόγηση του κινδύνου και τα μέτρα
+                        πρόληψης και προστασίας έναντι του
+                        κορωνοϊού.</p>
+                      <small>Donec id elit non mi porta.</small>
+                    </a>
+                    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-2 h5">List group item heading</h5>
+                        <small class="text-muted">3 days ago</small>
+                      </div>
+                      <p class="mb-2">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                        blandit.</p>
+                      <small class="text-muted">Donec id elit non mi porta.</small>
+                    </a>
+                    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-2 h5">List group item heading</h5>
+                        <small class="text-muted">3 days ago</small>
+                      </div>
+                      <p class="mb-2">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                        blandit.</p>
+                      <small class="text-muted">Donec id elit non mi porta.</small>
+                    </a>
+                  </div>
+                  </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div> 
+
+
+                  
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Departments Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</h3>
+            <p>
+              Σταδίου 29<br>
+              Αθήνα, 10559<br>
+              Ελλάδα <br><br>
+              <strong>Τηλέφωνο:</strong> +30 213 151 6649<br>
+              <strong>Email:</strong> info@ypakp.gr<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Εργασία και Ασφάλιση</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Εργαζόμενος</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Εργοδότης</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Σύνταξη</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ανεργία</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Απασχόληση στο Δημόσιο</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">ΑΜΕΑ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ελεύθεροι Επαγγελματίες</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Υπηρεσίες</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Επικοινώνια</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Ψηφιακή γραμμετεία</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Δελτία τύπου</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">ΦΕΚ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Ευρωπαϊκή Ένωση</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Κοινωνική Ευρώπη</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Εργασία στην Ε.Ε.</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Νέα και Εκδηλώσεις</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Εποχιακή Εργασία</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Επιχορηγήσεις</a></li>
+            </ul>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker2').datetimepicker({
+            locale: 'ru'
+        });
+    });
+
+    $('.panel-collapse').on('show.bs.collapse', function () {
+      $(this).siblings('.panel-heading').addClass('active');
+    });
+
+    $('.panel-collapse').on('hide.bs.collapse', function () {
+      $(this).siblings('.panel-heading').removeClass('active');
+    });
+ </script>
+
+</body>
+
+</html>
