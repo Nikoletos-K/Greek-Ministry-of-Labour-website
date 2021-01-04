@@ -1976,13 +1976,15 @@ section {
   z-index: 1;
 }
 
-.btn-facebook {
-  background-color: #405D9D;
+.btn-taxis {
+  background-color: #525253;
   color: #fff;
+  text-transform: none;
 }
-.btn-twitter {
-  background-color: #42AEEC;
-  color: #fff;
+
+.btn-sub{
+  text-transform: none;
 }
+
 
 

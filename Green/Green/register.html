@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -206,11 +207,6 @@
 
   <!-- ========= Registration form ============ -->
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
 <div class="container">
 <br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"></a></p>
 <hr>
@@ -220,7 +216,7 @@
 	<h4 class="card-title mt-3 text-center">Δημιουργία λογαριασμού</h4>
 	<!-- <p class="text-center">Get started with your free account</p> -->
 	<p>
-		<a href="" class="btn btn-block "> Μέσω TaxisNet</a>
+		<a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
 	</p>
 	<p class="divider-text">
         <span class="bg-light">Ή</span>
@@ -229,48 +225,54 @@
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
+		</div>
         <input name="" class="form-control" placeholder="Όνομα χρήστη" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
+  </div> <!-- form-group// -->
+  <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
+		  </div>
         <input name="" class="form-control" placeholder="Email" type="email">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
+  </div> <!-- form-group// -->
+  <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
+		  </div>
     	<input name="" class="form-control" placeholder="Αριθμός Τηλεφώνου" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
+  </div> <!-- form-group// -->
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
+    </div>
+    <input name="" class="form-control" placeholder="ΑΦΜ" type="text">
+  </div> <!-- form-group// -->
+  <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-		</div>
-		<select class="form-control">
-			<option selected=""> Κατάσταση</option>
-			<option>Εργαζόμενος</option>
-			<option>Εργοδότης</option>
-      <option>Άνεργος</option>
-      <option>Ελεύθερος Επαγγελματίας</option>
-      <option>Άλλο</option>
-		</select>
+		  </div>
+      <select class="form-control">
+        <option selected=""> Κατάσταση</option>
+        <option>Εργαζόμενος</option>
+        <option>Εργοδότης</option>
+        <option>Άνεργος</option>
+        <option>Ελεύθερος Επαγγελματίας</option>
+        <option>Άλλο</option>
+      </select>
 	</div> <!-- form-group end.// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
+		  </div>
         <input class="form-control" placeholder="Κωδικός" type="password">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
+		  </div>
         <input class="form-control" placeholder="Επανάληψη κωδικού" type="password">
     </div> <!-- form-group// -->                                      
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Δημιουργία  </button>
+        <button type="submit" class="btn btn-primary btn-block btn-sub"> Δημιουργία  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Έχετε ήδη λογαριασμό; <a href="">Σύνδεση</a> </p>                                                                 
 </form>
