@@ -60,7 +60,7 @@
         <i class="icofont-phone"></i> +30 213 151 6649
       </div>
       <!-- <div class="social-links"> -->
-        <a href="login.html"><button class="get-started-btn scrollto">Σύνδεση</button></a>
+        <a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
         <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
         <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
@@ -78,8 +78,8 @@
       <div class="container align-items-center">
         <nav class=" sec-navbar navbar ">
           <h1 class="logo mr-auto navbar-brand">
-            <a href="index.html" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            <a href="index.html" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
+            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.php" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
           <form class="form-inline">
             <div class="md-form my-0 search-engine  ">
               <i class="icofont-ui-search search-icon"></i>
@@ -92,13 +92,9 @@
     
     
     <div class="container d-flex align-items-center">
-      <!-- <h1 class="logo mr-auto"><a href="index.html"> </a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      
-
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Αρχική</a></li>
+          <li class="active"><a href="index.php">Αρχική</a></li>
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
               <li><a href="#">Πρόσλήψεις</a></li>

@@ -12,17 +12,6 @@
 
   $errors = array(); 
 
-  // connect to the database
-  // $connink = OpenCon();
-    define('DB_SERVER', '127.0.0.1:3307');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_DATABASE', 'sdi1700038');
-    $connink = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-    if($connink === false) {
-      die("Connect failed: %s\n". mysqli_connect_error());
-    }
-
   // REGISTER USER
   if (isset($_POST['reg_user'])) {
     // receive all input values from the form
@@ -144,8 +133,8 @@
         <i class="icofont-phone"></i> +30 213 151 6649
       </div>
        <!-- <div class="social-links"> -->
-        <a href="login.html"><button class="get-started-btn scrollto">Σύνδεση</button></a>
-        <a href="register.html"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
+        <a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
+        <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
         <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
@@ -162,8 +151,8 @@
       <div class="container align-items-center">
         <nav class=" sec-navbar navbar ">
           <h1 class="logo mr-auto navbar-brand">
-            <a href="index.html" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            <a href="index.html" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
+            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.php" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
           <form class="form-inline">
             <div class="md-form my-0 search-engine  ">
               <i class="icofont-ui-search search-icon"></i>
