@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+    echo "Connected Successfully";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,6 +1,15 @@
+<?php
+
+    session_start();
+    echo "Connected Successfully";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
+
+  
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -52,7 +61,7 @@
       </div>
       <!-- <div class="social-links"> -->
         <a href="login.html"><button class="get-started-btn scrollto">Σύνδεση</button></a>
-        <a href="register.html"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
+        <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
         <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>

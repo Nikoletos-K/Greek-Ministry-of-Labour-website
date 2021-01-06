@@ -1,3 +1,96 @@
+<?php
+
+    echo "About to start\n";
+    session_start();
+    echo "Connected Successfully\n";
+
+    include 'db_connection.php';
+
+?>
+
+<?php
+
+  $errors = array(); 
+
+  // connect to the database
+  // $connink = OpenCon();
+    define('DB_SERVER', '127.0.0.1:3307');
+    define('DB_USER', 'root');
+    define('DB_PASSWORD', '');
+    define('DB_DATABASE', 'sdi1700038');
+    $connink = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
+    if($connink === false) {
+      die("Connect failed: %s\n". mysqli_connect_error());
+    }
+
+  // REGISTER USER
+  if (isset($_POST['reg_user'])) {
+    // receive all input values from the form
+    $username = $_POST['username'] = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+    $name =  $_POST['phone'] = mysqli_real_escape_string($conn, $_POST['phone']);
+    $afm =  $_POST['afm'] = mysqli_real_escape_string($conn, $_POST['afm']);
+    $role =  $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
+    $password_1 = $_POST['password_1'] = mysqli_real_escape_string($conn, $_POST['password_1']);
+    $password_2 = $_POST['password_2'] = mysqli_real_escape_string($conn, $_POST['password_2']);
+
+  }
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  
+  if (empty($username)) { array_push($errors, "Username is required"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($phone)) { array_push($errors, "Phone is required"); }
+  if (empty($afm)) { array_push($errors, "afm is required"); }
+  if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if ($password_1 != $password_2) {
+    array_push($errors, "The two passwords do not match");
+  }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  // $user_check_query = "SELECT * FROM simpleuser WHERE username='$username' OR email='$email' LIMIT 1";
+  // $result = mysqli_query($conn, $user_check_query);
+  // $user = mysqli_fetch_assoc($result);
+  
+  // if ($user) { // if user exists
+  //   if ($user['username'] === $username) {
+  //     array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
+  //   }
+
+  //   if ($user['email'] === $email) {
+  //     array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+  //   }
+  // }
+
+  // Finally, register user if there are no errors in the form
+  //  if (count($errors) == 0) {
+      $password = md5($password_1);//encrypt the password before saving in the database
+
+      $query = "INSERT INTO simpleuser (username, password, email, phone, afm, role) 
+            VALUES ('$username', '$password', '$email', '$phone', '$afm', '$role')";
+
+      if(mysqli_query($conn, $query)){
+         
+         $_SESSION['reg_user'] = true;
+         $_SESSION['login_user'] = true;
+         
+         $_SESSION["username"] = $username;
+         $_SESSION["email"] = $email;
+         $_SESSION["phone"] = $phone;
+         $_SESSION["afm"] = $afm;
+         $_SESSION["role"] = $role;      
+         
+        //  header('location:../profile/profile.php');
+      }
+      else{
+         array_push($errors, "Αποτυχία εγγραφής");
+      }
+  //  }
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -178,36 +271,39 @@
 		<a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
 	</p>
 	<p class="divider-text"><span class="bg-light">Ή</span> </p>
-	<form>
+  
+  <form action="register.php"  method="post">
+  
+
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		</div>
-        <input name="" class="form-control" placeholder="Όνομα χρήστη" type="text">
+        <input name="username" class="form-control" placeholder="Όνομα χρήστη" type="text" id="form_username" required <?php if(isset($_POST['username'])) echo 'value="'.$_POST['username'].'"' ?>>
   </div> <!-- form-group// -->
   <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		  </div>
-        <input name="" class="form-control" placeholder="Email" type="email">
+        <input name="email" class="form-control" placeholder="Email" type="email" id="form_email" required <?php if(isset($_POST['email'])) echo 'value="'.$_POST['email'].'"' ?>>
   </div> <!-- form-group// -->
   <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 		  </div>
-    	<input name="" class="form-control" placeholder="Αριθμός Τηλεφώνου" type="text">
+    	<input name="phone" class="form-control" placeholder="Αριθμός Τηλεφώνου" type="text" id="form_phone" required <?php if(isset($_POST['phone'])) echo 'value="'.$_POST['phone'].'"' ?>>
   </div> <!-- form-group// -->
   <div class="form-group input-group">
     <div class="input-group-prepend">
       <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
     </div>
-    <input name="" class="form-control" placeholder="ΑΦΜ" type="text">
+    <input name="afm" class="form-control" placeholder="ΑΦΜ" type="text" id="form_afm" required <?php if(isset($_POST['afm'])) echo 'value="'.$_POST['afm'].'"' ?>>
   </div> <!-- form-group// -->
   <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
 		  </div>
-      <select class="form-control">
+      <select name="role" class="form-control" id="form_role" required <?php if(isset($_POST['role'])) echo 'value="'.$_POST['role'].'"' ?>>
         <option selected=""> Κατάσταση</option>
         <option>Εργαζόμενος</option>
         <option>Εργοδότης</option>
@@ -220,16 +316,16 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		  </div>
-        <input class="form-control" placeholder="Κωδικός" type="password">
+        <input name="password_1" class="form-control" placeholder="Κωδικός" type="password" id="form_password_1" required <?php if(isset($_POST['password_1'])) echo 'value="'.$_POST['password_1'].'"' ?>>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		  </div>
-        <input class="form-control" placeholder="Επανάληψη κωδικού" type="password">
+        <input name="password_2" class="form-control" placeholder="Επανάληψη κωδικού" type="password"  id="form_password_2" required <?php if(isset($_POST['password_2'])) echo 'value="'.$_POST['password_2'].'"' ?>>
     </div> <!-- form-group// -->                                      
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block btn-sub"> Δημιουργία  </button>
+        <button type="submit" class="btn btn-primary btn-block btn-sub" name="reg_user"> Δημιουργία  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Έχετε ήδη λογαριασμό; <a href="login.html">Σύνδεση</a> </p>                                                                 
 </form>
