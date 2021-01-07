@@ -18,24 +18,6 @@
     $message =  $_POST['message'] = mysqli_real_escape_string($conn, $_POST['message']);
   // }
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
-  // $user_check_query = "SELECT * FROM simpleuser WHERE username='$username' OR email='$email' LIMIT 1";
-  // $result = mysqli_query($conn, $user_check_query);
-  // $user = mysqli_fetch_assoc($result);
-  
-  // if ($user) { // if user exists
-  //   if ($user['username'] === $username) {
-  //     array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
-  //   }
-
-  //   if ($user['email'] === $email) {
-  //     array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
-  //   }
-  // }
 
   // Finally, register user if there are no errors in the form
    if (count($errors) == 0) {
@@ -61,32 +43,7 @@
       }
    }
 
-  //  $php_email_form = 
-
-  // if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-  //   include( $php_email_form );
-  // } else {
-  //   die( 'Unable to load the "PHP Email Form" Library!');
-  // }
-
-  // $contact = new PHP_Email_Form;
-  // $contact->ajax = true;
-  
-  
-  // $contact->to = $receiving_email_address;
-  // $contact->from_name = $_POST['name'];
-  // $contact->from_email = $_POST['email'];
-  // $contact->subject = $_POST['subject'];
-
-
-  // $contact->add_message( $_POST['name'], 'From');
-  // $contact->add_message( $_POST['email'], 'Email');
-  // $contact->add_message( $_POST['message'], 'Message', 10);
-
-  // echo $contact->send();
-  
-  $bim = 1;
-  if ($bim == 0) {
+   if (count($errors) == 0) {
     echo "OK";
   } 
   else {

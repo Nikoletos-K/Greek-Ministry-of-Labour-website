@@ -8,76 +8,7 @@
 
 ?>
 
-<?php
 
-  $errors = array(); 
-
-  // REGISTER USER
-  if (isset($_POST['reg_user'])) {
-    // receive all input values from the form
-    $username = $_POST['username'] = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
-    $name =  $_POST['phone'] = mysqli_real_escape_string($conn, $_POST['phone']);
-    $afm =  $_POST['afm'] = mysqli_real_escape_string($conn, $_POST['afm']);
-    $role =  $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
-    $password_1 = $_POST['password_1'] = mysqli_real_escape_string($conn, $_POST['password_1']);
-    $password_2 = $_POST['password_2'] = mysqli_real_escape_string($conn, $_POST['password_2']);
-  
-
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  
-    if (empty($username)) { array_push($errors, "Το όνομα χρήστη είναι απαραίτητο"); }
-    if (empty($email)) { array_push($errors, "Εισάγετε ένα έγκυρο email"); }
-    if (empty($phone)) { array_push($errors, "Το τηλέφωνο είναι απαραίτητο"); }
-    if (empty($afm)) { array_push($errors, "Το ΑΦΜ είναι απαραίτητο"); }
-    if (empty($password_1)) { array_push($errors, "Εισάγετε έναν κωδικό"); }
-    if ($password_1 != $password_2) {
-      array_push($errors, "Οι κωδικοί που εισάγατε δεν ταιριάζουν");
-    }
-
-    // first check the database to make sure 
-    // a user does not already exist with the same username and/or email
-    $user_check_query = "SELECT * FROM simpleuser WHERE username='$username' OR email='$email' LIMIT 1";
-    $result = mysqli_query($conn, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
-    
-    if ($user) { // if user exists
-      if ($user['username'] === $username) {
-        array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
-      }
-
-      if ($user['email'] === $email) {
-        array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
-      }
-    }
-
-    // Finally, register user if there are no errors in the form
-    if (count($errors) == 0) {
-        $password = md5($password_1);//encrypt the password before saving in the database
-
-        $query = "INSERT INTO simpleuser (username, password, email, phone, afm, role) 
-              VALUES ('$username', '$password', '$email', '$phone', '$afm', '$role')";
-
-        if(mysqli_query($conn, $query)){
-          
-          $_SESSION['reg_user'] = true;
-          $_SESSION['login_user'] = true;
-          
-          $_SESSION["username"] = $username;
-          $_SESSION["email"] = $email;
-          $_SESSION["phone"] = $phone;
-          $_SESSION["afm"] = $afm;
-          $_SESSION["role"] = $role;      
-          
-          //  header('location:../profile/profile.php');
-        }
-        else{
-          array_push($errors, "Αποτυχία εγγραφής");
-        }
-    }
-  }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -256,7 +187,7 @@
             <!-- <h2>Επικοινωνία</h2> -->
             <ol>
               <li><a href="index.html">Αρχική</a></li>
-              <li>Επικοινωνία</li>
+              <li>Δημιουργία λογαργιασμού</li>
             </ol>
           </div>
         </div>
@@ -272,7 +203,8 @@
                 <div class="section-title">
                   <br>
                   <h3 style="font-weight: bold; ">Δημιουργία λογαριασμού</h3><br><hr>
-                  <h7>Συμπληρώστε τα στοιχεία σας για να αποκτήσετε πρόσβαση σε όλες τις δυνατότητες του ιστοχώρου του Υπουργείου. Η προσωποποιήμενη διεπαφή απευθύνεται σε <b>εργαζόμενους, εργοδότες-επιχειρήσεις, ανέργους</b>. Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                  <h7>Συμπληρώστε τα στοιχεία σας για να αποκτήσετε πρόσβαση σε όλες τις δυνατότητες του ιστοχώρου του Υπουργείου. Η προσωποποιήμενη διεπαφή απευθύνεται σε <b>εργαζόμενους, εργοδότες-επιχειρήσεις, ανέργους, ελεύθερους επαγγελματίες και συνταξιούχους</b>. 
+                  <br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
                 </div>
               </div>
               <div class="form-row">
@@ -292,8 +224,8 @@
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="telephone">Τηλέφωνο</label>
-                  <input type="text" class="form-control" name="telephone" id="telephone" data-rule="minlen:10" data-msg="Παρακαλώ εισάγετε ένα έγκυρο τηλέφωνο, κινητό ή σταθερό" />
+                  <label for="phone">Τηλέφωνο</label>
+                  <input type="text" class="form-control" name="phone" id="phone" data-rule="minlen:10" data-msg="Παρακαλώ εισάγετε ένα έγκυρο τηλέφωνο, κινητό ή σταθερό" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
@@ -303,13 +235,13 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="role">Εργασιακή κατάσταση</label>
-                  <select id="role" class="form-control">
-                    <option selected>Εργασιακή κατάσταση</option>
-                    <option>Εργαζόμενος</option>
-                    <option>Εργοδότης/Επιχείρηση</option>
-                    <option>Άνεργος</option>
-                    <option>Ελεύθερος επαγγελματίας</option>
-                    <option>Συνταξιούχος</option>
+                  <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                    <option value="default" style="display:none;">Διαλέξτε</option>
+                    <option value="ergazomenos">Εργαζόμενος</option>
+                    <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
+                    <option value="anergos">Άνεργος</option>
+                    <option value="el_epag">Ελεύθερος επαγγελματίας</option>
+                    <option value="syntaxiouxos">Συνταξιούχος</option>
                   </select>
                   <!-- <label for="name">Εργασιακή κατάσταση</label>
                   <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" /> -->
@@ -317,22 +249,20 @@
                 </div>
               </div>
               <hr>
-
-
               <div class="form-group">
-                <label for="name">Όνομα χρήστη</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" />
+                <label for="username">Όνομα χρήστη</label>
+                <input type="text" class="form-control" name="username" id="username" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε ένα όνομα χρήστη με τουλάχιστον 4 χαρακτήρες" />
                 <div class="validate"></div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="name">Κωδικός</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <label for="password_1">Κωδικός</label>
+                  <input type="password" class="form-control" name="password_1" id="password_1" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε έναν κωδικό με τουλάχιστον 4 χαρακτήρες" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Επανάληψη κωδικού</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <label for="password_2">Επαλήθευση κωδικού</label>
+                  <input type="password" class="form-control" name="password_2" id="password_2" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε έναν κωδικό με τουλάχιστον 4 χαρακτήρες" />
                   <div class="validate"></div>
                 </div>
               </div>
@@ -350,10 +280,12 @@
               <hr><br>
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
-                <div class="error-message">ΛΑΘΟΣ</div>
-                <div class="sent-message">Το αίτημα σας καχορήθηκε. Θα ενημερωθείτε άμεσα!</div>
+                <div class="error-message"></div>
+                <div class="sent-message">O λογαργιασμός δημιουργήθηκε με επιτυχία</div>
               </div>
-              <div class="text-center"><button type="submit">Δημιουργία</button></div>
+              <div class="text-center">
+                <button value="submit" name="submit" type="submit">Δημιουργία</button>
+              </div>
             </form>
           </div>
         </div>
