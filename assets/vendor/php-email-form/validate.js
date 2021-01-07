@@ -58,6 +58,7 @@ jQuery(document).ready(function($) {
         i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
       }
     });
+
     f.children('textarea').each(function() { // run all inputs
 
       var i = $(this); // current input
@@ -89,6 +90,7 @@ jQuery(document).ready(function($) {
         i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
       }
     });
+
     if (ferror) return false;
     else var str = $(this).serialize();
 
@@ -116,11 +118,12 @@ jQuery(document).ready(function($) {
           this_form.find("input:not(input[type=submit]), textarea").val('');
         } else {
           this_form.find('.loading').slideUp();
-          this_form.find('.error-message').slideDown().html(msg);
+          this_form.find('.error-message').slideDown();
+          this_form.find("input:not(input[type=submit]), textarea").val('');
         }
       }
     });
+    
     return false;
   });
-
 });

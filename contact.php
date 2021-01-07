@@ -261,7 +261,7 @@
               </div>
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
-                <div class="error-message"></div>
+                <div class="error-message">ΛΑΘΟΣ</div>
                 <div class="sent-message">Το αίτημα σας καχορήθηκε. Θα ενημερωθείτε άμεσα!</div>
               </div>
               <div class="text-center"><button type="submit">Αποστολή</button></div>
