@@ -22,62 +22,61 @@
     $role =  $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
     $password_1 = $_POST['password_1'] = mysqli_real_escape_string($conn, $_POST['password_1']);
     $password_2 = $_POST['password_2'] = mysqli_real_escape_string($conn, $_POST['password_2']);
-
-  }
+  
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   
-  if (empty($username)) { array_push($errors, "Το όνομα χρήστη είναι απαραίτητο"); }
-  if (empty($email)) { array_push($errors, "Εισάγετε ένα έγκυρο email"); }
-  if (empty($phone)) { array_push($errors, "Το τηλέφωνο είναι απαραίτητο"); }
-  if (empty($afm)) { array_push($errors, "Το ΑΦΜ είναι απαραίτητο"); }
-  if (empty($password_1)) { array_push($errors, "Εισάγετε έναν κωδικό"); }
-  if ($password_1 != $password_2) {
-    array_push($errors, "Οι κωδικοί που εισάγατε δεν ταιριάζουν");
-  }
-
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM simpleuser WHERE username='$username' OR email='$email' LIMIT 1";
-  $result = mysqli_query($conn, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
+    if (empty($username)) { array_push($errors, "Το όνομα χρήστη είναι απαραίτητο"); }
+    if (empty($email)) { array_push($errors, "Εισάγετε ένα έγκυρο email"); }
+    if (empty($phone)) { array_push($errors, "Το τηλέφωνο είναι απαραίτητο"); }
+    if (empty($afm)) { array_push($errors, "Το ΑΦΜ είναι απαραίτητο"); }
+    if (empty($password_1)) { array_push($errors, "Εισάγετε έναν κωδικό"); }
+    if ($password_1 != $password_2) {
+      array_push($errors, "Οι κωδικοί που εισάγατε δεν ταιριάζουν");
     }
 
-    if ($user['email'] === $email) {
-      array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    // first check the database to make sure 
+    // a user does not already exist with the same username and/or email
+    $user_check_query = "SELECT * FROM simpleuser WHERE username='$username' OR email='$email' LIMIT 1";
+    $result = mysqli_query($conn, $user_check_query);
+    $user = mysqli_fetch_assoc($result);
+    
+    if ($user) { // if user exists
+      if ($user['username'] === $username) {
+        array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
+      }
+
+      if ($user['email'] === $email) {
+        array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+      }
+    }
+
+    // Finally, register user if there are no errors in the form
+    if (count($errors) == 0) {
+        $password = md5($password_1);//encrypt the password before saving in the database
+
+        $query = "INSERT INTO simpleuser (username, password, email, phone, afm, role) 
+              VALUES ('$username', '$password', '$email', '$phone', '$afm', '$role')";
+
+        if(mysqli_query($conn, $query)){
+          
+          $_SESSION['reg_user'] = true;
+          $_SESSION['login_user'] = true;
+          
+          $_SESSION["username"] = $username;
+          $_SESSION["email"] = $email;
+          $_SESSION["phone"] = $phone;
+          $_SESSION["afm"] = $afm;
+          $_SESSION["role"] = $role;      
+          
+          //  header('location:../profile/profile.php');
+        }
+        else{
+          array_push($errors, "Αποτυχία εγγραφής");
+        }
     }
   }
-
-  // Finally, register user if there are no errors in the form
-   if (count($errors) == 0) {
-      $password = md5($password_1);//encrypt the password before saving in the database
-
-      $query = "INSERT INTO simpleuser (username, password, email, phone, afm, role) 
-            VALUES ('$username', '$password', '$email', '$phone', '$afm', '$role')";
-
-      if(mysqli_query($conn, $query)){
-         
-         $_SESSION['reg_user'] = true;
-         $_SESSION['login_user'] = true;
-         
-         $_SESSION["username"] = $username;
-         $_SESSION["email"] = $email;
-         $_SESSION["phone"] = $phone;
-         $_SESSION["afm"] = $afm;
-         $_SESSION["role"] = $role;      
-         
-        //  header('location:../profile/profile.php');
-      }
-      else{
-         array_push($errors, "Αποτυχία εγγραφής");
-      }
-   }
-// }
 ?>
 
 <!DOCTYPE html>
@@ -133,8 +132,8 @@
         <i class="icofont-phone"></i> +30 213 151 6649
       </div>
        <!-- <div class="social-links"> -->
-        <a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
-        <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
+        <a href="login.html"><button class="get-started-btn scrollto">Σύνδεση</button></a>
+        <a href="register.html"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
         <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
@@ -144,15 +143,15 @@
     </div>
   </div>
 
- <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     
     <div class="navbar-br">
       <div class="container align-items-center">
         <nav class=" sec-navbar navbar ">
           <h1 class="logo mr-auto navbar-brand">
-            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            <a href="index.php" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
+            <a href="index.html" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.html" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
           <form class="form-inline">
             <div class="md-form my-0 search-engine  ">
               <i class="icofont-ui-search search-icon"></i>
@@ -246,85 +245,122 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ========= Registration form ============ -->
+  <main id="main">
 
-<div class="container">
-<br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"></a></p>
-<hr>
+     <!-- ======= Breadcrumbs ======= -->
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
 
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Δημιουργία λογαριασμού</h4>
-	<!-- <p class="text-center">Get started with your free account</p> -->
-	<p>
-		<a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
-	</p>
-	<p class="divider-text"><span class="bg-light">Ή</span> </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- <h2>Επικοινωνία</h2> -->
+            <ol>
+              <li><a href="index.html">Αρχική</a></li>
+              <li>Επικοινωνία</li>
+            </ol>
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+
+      <section id="contact" class="contact">
+        
+        <div class="row justify-content-center ">
+          <div class="col-lg-5 mt-5 mt-lg-0 d-flex">
+            <form action="forms/register.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="section-title">
+                  <br>
+                  <h3 style="font-weight: bold; ">Δημιουργία λογαριασμού</h3><br><hr>
+                  <h7>Συμπληρώστε τα στοιχεία σας για να αποκτήσετε πρόσβαση σε όλες τις δυνατότητες του ιστοχώρου του Υπουργείου. Η προσωποποιήμενη διεπαφή απευθύνεται σε <b>εργαζόμενους, εργοδότες-επιχειρήσεις, ανέργους</b>. Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="firstname">Όνομα</label>
+                  <input type="text" name="firstname" class="form-control" id="firstname" data-rule="required" data-msg="Παρακαλώ εισάγετε το όνομα σας" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="lastname">Επώνυμο</label>
+                  <input type="text" class="form-control" name="lastname" id="lastname" data-rule="required" data-msg="Παρακαλώ εισάγετε το επίθετο σας" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="telephone">Τηλέφωνο</label>
+                  <input type="text" class="form-control" name="telephone" id="telephone" data-rule="minlen:10" data-msg="Παρακαλώ εισάγετε ένα έγκυρο τηλέφωνο, κινητό ή σταθερό" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="afm">Αριθμός Φορολογικού Μητρώου (ΑΦΜ)</label>
+                  <input type="text" class="form-control" name="afm" id="afm" data-rule="required" data-msg="Παρακαλώ εισάγετε το Α.Φ.Μ σας" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="role">Εργασιακή κατάσταση</label>
+                  <select id="role" class="form-control">
+                    <option selected>Εργασιακή κατάσταση</option>
+                    <option>Εργαζόμενος</option>
+                    <option>Εργοδότης/Επιχείρηση</option>
+                    <option>Άνεργος</option>
+                    <option>Ελεύθερος επαγγελματίας</option>
+                    <option>Συνταξιούχος</option>
+                  </select>
+                  <!-- <label for="name">Εργασιακή κατάσταση</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" /> -->
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <hr>
+
+
+              <div class="form-group">
+                <label for="name">Όνομα χρήστη</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Κωδικός</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Επανάληψη κωδικού</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+<!--               
+              <div class="form-group">
+                <label for="name">Θέμα</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Μήνυμα</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
+                <div class="validate"></div>
+              </div> -->
+              <hr><br>
+              <div class="mb-3">
+                <div class="loading">Φόρτωση</div>
+                <div class="error-message">ΛΑΘΟΣ</div>
+                <div class="sent-message">Το αίτημα σας καχορήθηκε. Θα ενημερωθείτε άμεσα!</div>
+              </div>
+              <div class="text-center"><button type="submit">Δημιουργία</button></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main><!-- End #main -->
+
   
-  <form action="register.php"  method="post">
-  
-
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		</div>
-        <input name="username" class="form-control" placeholder="Όνομα χρήστη" type="text" id="form_username" required <?php if(isset($_POST['username'])) echo 'value="'.$_POST['username'].'"' ?>>
-  </div> <!-- form-group// -->
-  <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		  </div>
-        <input name="email" class="form-control" placeholder="Email" type="email" id="form_email" required <?php if(isset($_POST['email'])) echo 'value="'.$_POST['email'].'"' ?>>
-  </div> <!-- form-group// -->
-  <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		  </div>
-    	<input name="phone" class="form-control" placeholder="Αριθμός Τηλεφώνου" type="text" id="form_phone" required <?php if(isset($_POST['phone'])) echo 'value="'.$_POST['phone'].'"' ?>>
-  </div> <!-- form-group// -->
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
-    </div>
-    <input name="afm" class="form-control" placeholder="ΑΦΜ" type="text" id="form_afm" required <?php if(isset($_POST['afm'])) echo 'value="'.$_POST['afm'].'"' ?>>
-  </div> <!-- form-group// -->
-  <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-		  </div>
-      <select name="role" class="form-control" id="form_role" required <?php if(isset($_POST['role'])) echo 'value="'.$_POST['role'].'"' ?>>
-        <option selected=""> Κατάσταση</option>
-        <option>Εργαζόμενος</option>
-        <option>Εργοδότης</option>
-        <option>Άνεργος</option>
-        <option>Ελεύθερος Επαγγελματίας</option>
-        <option>Άλλο</option>
-      </select>
-	</div> <!-- form-group end.// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		  </div>
-        <input name="password_1" class="form-control" placeholder="Κωδικός" type="password" id="form_password_1" required <?php if(isset($_POST['password_1'])) echo 'value="'.$_POST['password_1'].'"' ?>>
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		  </div>
-        <input name="password_2" class="form-control" placeholder="Επανάληψη κωδικού" type="password"  id="form_password_2" required <?php if(isset($_POST['password_2'])) echo 'value="'.$_POST['password_2'].'"' ?>>
-    </div> <!-- form-group// -->                                      
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block btn-sub" name="reg_user"> Δημιουργία  </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Έχετε ήδη λογαριασμό; <a href="login.html">Σύνδεση</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
-
-</div> 
-<!--container end.//-->
-
-  <!-- ========= End of registration form ============ -->
 
 
 <!-- ======= Footer ======= -->

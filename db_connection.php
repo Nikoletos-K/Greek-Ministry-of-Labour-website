@@ -2,7 +2,7 @@
 
 
 
-$dbhost = "127.0.0.1";
+$dbhost = "127.0.0.1:3307";
 $dbuser = "root";
 $dbpass = '';
 $db = 'sdi1700038';

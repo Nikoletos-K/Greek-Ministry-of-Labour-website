@@ -157,7 +157,7 @@
           <li><a href="contact.php">Επικοινωνία</a></li>
           <li><a href="#">Νέα</a></li>
 
-          <li><a href="covid19.php" class="covid-btn scrollto " >Covid-19</a></li>
+          <li><a href="covid19.html" class="covid-btn scrollto " >Covid-19</a></li>
         </ul>
 
         
