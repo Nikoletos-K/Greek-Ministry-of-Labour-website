@@ -1970,9 +1970,16 @@ section {
   text-transform: none;
 }
 
+.btn-taxis:hover{
+  color:white;
+}
+
 .btn-sub{
   text-transform: none;
 }
 
-
+.login-form{
+  padding-top: 80px;
+  padding-bottom: 150px;
+}
 

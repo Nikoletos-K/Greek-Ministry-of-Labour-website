@@ -92,10 +92,6 @@
     
     
     <div class="container d-flex align-items-center">
-      <!-- <h1 class="logo mr-auto"><a href="index.php"> </a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      
-
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.php">Αρχική</a></li>

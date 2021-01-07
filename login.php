@@ -1,6 +1,56 @@
+<?php
+
+  include 'db_connection.php';
+
+  session_start();
+
+  // if(isset($_SESSION["login_user"]) && $_SESSION["login_user"] === true){
+  //   // header("location:../profile/profile.php");
+  //   exit;
+  // }
+?>
+<?php
+$errors = array(); 
+
+// $conn = mysqli_connect('127.0.0.1', 'root', '', 'sdi1700038');
+
+if (isset($_POST['login_user'])) {
+  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+  if (empty($username)) {
+    array_push($errors, "Παρακαλώ συμπληρώστε το όνομα χρήστη");
+  }
+  if (empty($password)) {
+    array_push($errors, "Παρακαλώ συμπληρώστε τον κωδικό σας");
+  }
+
+  if (count($errors) == 0) {
+    $password = md5($password);
+    $query = "SELECT * FROM simpleuser WHERE username='$username' AND password='$password'";
+    $results = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($results);
+    $active = $row['active'];  
+
+    if (mysqli_num_rows($results) == 1) {
+      $_SESSION['login_user'] = true;
+      $_SESSION["name"] = $row["name"];
+      $_SESSION["email"] = $row["email"];
+      $_SESSION["phone"] = $row["phone"];
+      $_SESSION["afm"] = $row["afm"];
+      $_SESSION["role"] = $row["role"];
+      // header('location:../profile/profile.php');
+    }else {
+     array_push($errors, "Λανθασμένος συνδιασμός όνομα χρήστη και κωδικού");
+      
+    }
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -51,8 +101,8 @@
         <i class="icofont-phone"></i> +30 213 151 6649
       </div>
        <!-- <div class="social-links"> -->
-        <a href="login.html"><button class="get-started-btn scrollto">Σύνδεση</button></a>
-        <a href="register.html"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
+        <a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
+        <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>
         <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
@@ -62,47 +112,6 @@
     </div>
   </div>
 
- 
-
-  <!-- ========== Login Modal =========== -->
-
-  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Σύνδεση</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <i class="icofont-user prefix grey-text"></i>
-            <input type="text" id="defaultForm-name" class="form-control ">
-            <label data-error="wrong" data-success="right" for="defaultForm-name">Όνομα Χρήστη</label>
-          </div>
-          <div class="md-form mb-4">
-            <i class="icofont-ui-password prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" class="form-control ">
-            <label data-error="wrong" data-success="right" for="defaultForm-pass">Κωδικός</label>
-          </div>
-       </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-log">Είσοδος</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-    Modal Login Form</a>
-</div>
-
-  <!-- =========== End of Login Modal ============ -->
-
-
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     
@@ -110,8 +119,8 @@
       <div class="container align-items-center">
         <nav class=" sec-navbar navbar ">
           <h1 class="logo mr-auto navbar-brand">
-            <a href="index.html" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            <a href="index.html" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
+            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.php" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
           <form class="form-inline">
             <div class="md-form my-0 search-engine  ">
               <i class="icofont-ui-search search-icon"></i>
@@ -123,14 +132,10 @@
     </div>
     
     
-    <div class="container d-flex align-items-center">
-      <!-- <h1 class="logo mr-auto"><a href="index.html"> </a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      
-
+    <div class="container d-flex align-items-center"> 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Αρχική</a></li>
+          <li class="active"><a href="index.php">Αρχική</a></li>
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
               <li><a href="#">Πρόσλήψεις</a></li>
@@ -193,7 +198,7 @@
           <li><a href="contact.html">Επικοινωνία</a></li>
           <li><a href="#">Νέα</a></li>
 
-          <li><a href="covid19.html" class="covid-btn scrollto " >Covid-19</a></li>
+          <li><a href="covid19.php" class="covid-btn scrollto " >Covid-19</a></li>
         </ul>
 
         
@@ -205,128 +210,130 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ========= Registration form ============ -->
+  <!-- ========= Login form ============ -->
 
-<div class="container">
-<br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"></a></p>
-<hr>
+<div class="container login-form">
+  <br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"></a></p>
+  <hr>
 
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Είσοδος Χρήστη</h4>
-	<!-- <p class="text-center">Get started with your free account</p> -->
-	<p>
-		<a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
-	</p>
-	<p class="divider-text">
-        <span class="bg-light">Ή</span>
+  <div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center" >Είσοδος Χρήστη</h4>
+    <!-- <p class="text-center">Get started with your free account</p> -->
+    <p>
+      <a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
     </p>
-	<form>
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		</div>
-        <input name="" class="form-control" placeholder="Όνομα χρήστη" type="text">
-    </div> <!-- form-group// -->
+    <p class="divider-text">
+          <span class="bg-light">Ή</span>
+    </p>
+    <form action="login.php"  method="post">
+      <?php include('errors.php'); ?>
 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		  </div>
-        <input class="form-control" placeholder="Κωδικός" type="password">
-    </div> <!-- form-group// -->                                   
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block btn-sub"> Είσοδος </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Δεν έχετε λογαριασμό; <a href="register.html">Εγγραφή</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+            <input name="username" class="form-control" placeholder="Όνομα χρήστη" type="text">
+      </div> <!-- form-group// -->
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+          <input name="password" class="form-control" placeholder="Κωδικός" type="password">
+      </div> <!-- form-group// -->                                   
+      <div class="form-group">
+
+          <button type="submit" name="login_user" class="btn btn-primary btn-block btn-sub"> Είσοδος </button>
+      </div> <!-- form-group// -->      
+      <p class="text-center">Δεν έχετε λογαριασμό; <a href="register.php">Εγγραφή</a> </p>                                                                 
+    </form>
+  </article>
+  </div> <!-- card.// -->
 
 </div> 
 <!--container end.//-->
 
-  <!-- ========= End of registration form ============ -->
+  <!-- ========= End of login form ============ -->
 
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
 
-<div class="footer-top">
-  <div class="container">
-    <div class="row">
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h3>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</h3>
+          <p>
+            Σταδίου 29<br>
+            Αθήνα, 10559<br>
+            Ελλάδα <br><br>
+            <strong>Τηλέφωνο:</strong> +30 213 151 6649<br>
+            <strong>Email:</strong> info@ypakp.gr<br>
+          </p>
+        </div>
 
-      <div class="col-lg-4 col-md-6 footer-contact">
-        <h3>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</h3>
-        <p>
-          Σταδίου 29<br>
-          Αθήνα, 10559<br>
-          Ελλάδα <br><br>
-          <strong>Τηλέφωνο:</strong> +30 213 151 6649<br>
-          <strong>Email:</strong> info@ypakp.gr<br>
-        </p>
-      </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Εργασία και Ασφάλιση</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Εργαζόμενος</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Εργοδότης</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Σύνταξη</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Ανεργία</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Απασχόληση στο Δημόσιο</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">ΑΜΕΑ</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Ελεύθεροι Επαγγελματίες</a></li>
 
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Εργασία και Ασφάλιση</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Εργαζόμενος</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Εργοδότης</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Σύνταξη</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Ανεργία</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Απασχόληση στο Δημόσιο</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">ΑΜΕΑ</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Ελεύθεροι Επαγγελματίες</a></li>
+          </ul>
+        </div>
 
-        </ul>
-      </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Υπηρεσίες</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Επικοινώνια</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Ψηφιακή γραμμετεία</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Δελτία τύπου</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">ΦΕΚ</a></li>
+          </ul>
+        </div>
 
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Υπηρεσίες</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Επικοινώνια</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Ψηφιακή γραμμετεία</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Δελτία τύπου</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">ΦΕΚ</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-2 col-md-6 footer-links">
-        <h4>Ευρωπαϊκή Ένωση</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Κοινωνική Ευρώπη</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Εργασία στην Ε.Ε.</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Νέα και Εκδηλώσεις</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Εποχιακή Εργασία</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Επιχορηγήσεις</a></li>
-        </ul>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Ευρωπαϊκή Ένωση</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Κοινωνική Ευρώπη</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Εργασία στην Ε.Ε.</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Νέα και Εκδηλώσεις</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Εποχιακή Εργασία</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Επιχορηγήσεις</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container d-md-flex py-4">
+  <div class="container d-md-flex py-4">
 
-  <div class="mr-md-auto text-center text-md-left">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</span></strong>. All Rights Reserved
+    <div class="mr-md-auto text-center text-md-left">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
     </div>
   </div>
-  <div class="social-links text-center text-md-right pt-3 pt-md-0">
-    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-  </div>
-</div>
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> 
