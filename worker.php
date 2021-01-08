@@ -54,7 +54,6 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-            <!-- <h2>Επικοινωνία</h2> -->
             <ol>
                 <li><a href="index.php"><i class="icofont-home"></i></a></li>
                 <li>Προφίλ</li>
@@ -68,135 +67,102 @@
             <ul class="tab-menu">
                 <li class="active">Κάνε αίτηση</li>
                 <li>Εργασιακή Κατάσταση </li>
-                <li>Λεωφορεία</li>
-                <li>Τραμ</li>
-                <li>Προαστιακός</li>
-                <li>Τρόλεϊ</li>
+                <li>Ιστορικό αδειών</li>
+                <li>Ένσημα</li>
+                <li>Αποθηκευμένα Έγγραφα</li>
             </ul>
             <div class="tab-content">
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
+                    <h5>Επιλέξτε αίτηση</h5>
                     <br>
-                    <a href="timetables_results.php?TID=<?php echo 'Μ1'; ?>" class="icon-border-m1">
-                        <span>M1</span>
-                    </a>
+                    <div class="select-btn" style="padding-bottom:50px;">                    
+                        <select id="aithsh" class="form-control col-md-6" >
+                            <option value="default" style="display:none;">Διαλέξτε</option>
+                            <option value="eidikou-skopou" >Άδεια ειδικού σκοπού</option>
+                            <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
+                            <option value="anergia" >Επίδομα ανεργείας</option>
+                            <option value="paraithsh" >Αίτηση παραίτησης</option>
+                        </select>
+                    </div>
+                    <form style="display:none;" id="eidikou-skopou" action="forms/eidikou-skopou.php" method="post" role="form" class="contact">
+                        <div class="php-email-form">
+                            <div class="form-row">
+                                <div class="section-title">
+                                    <br>
+                                    <h3 style="font-weight: bold; ">Δήλωση άδειας ειδικού σκοπού</h3><br><hr>
+                                    <h7 >Συμπληρώστε τα στοιχεία που σας ζητούνται για να κάνετε την αίτησή σας στο υπουργείο. Τα προσωπικά σας στοιχεία θα σταλούν αυτόματα απο τον ιστόχωρό μας.<br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="firstname">Ημερομηνία Έναρξης</label>
+                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="firstname">Ημερομηνία Λήξης</label>
+                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="family">Οικογενειακή κατάσταση</label>
+                                        <div class="row col-md-8">
+                                            <label class="radio-inline" style="padding-right:25px; ">
+                                            <input type="radio" name="optradio" checked> Έγγαμος
+                                            </label>
+                                            <label class="radio-inline" style="padding-right:15px;">
+                                            <input type="radio" name="optradio"> Άγαμος
+                                        </div>   
+                                    <div class="validate"></div>
+                                </div>
+                            
+                                <div class="form-group col-md-6">
+                                    <label for="role">Αριθμός ανήλικων τέκνων</label>
+                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                        <option value="default" style="display:none;">Διαλέξτε</option>
+                                        <option value="ergazomenos">1</option>
+                                        <option value="ergodoths">2</option>
+                                        <option value="anergos">3</option>
+                                        <option value="el_epag">Περισσότερα από 3</option>
+                                    </select>
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="name">Σημείωση</label>
+                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <hr><br>
+                            <div class="mb-3">
+                                <div class="loading">Φόρτωση</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Το αίτημά σας στάλθηκε επιτυχώς </div>
+                            </div>
+                            <div class="text-center">
+                                <button value="submit" name="submit" type="submit">Αποστολή</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
-                    <br>
-                    <a href="timetables_results.php?TID=<?php echo 'Μ2'; ?>" class="icon-border-m2">
-                        <span>M2</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-m3">
-                        <span>M3</span>
-                    </a>
+                    
                 </div>
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
-                    <br>
-                    <p onClick = "openList(this)" id="l0" class="icon-border-l">
-                        <span>0</span>
-                    </p>
-                    <p onClick = "openList(this)" id="l1" class="icon-border-l">
-                        <span>1</span>
-                    </p>
-                    <p onClick = "openList(this)" id="l6" class="icon-border-l">
-                        <span>6</span>
-                    </p>
-                    <ul id="lil0" style="display: none">
-                        <li>
-                            <a href="coming_soon.php" class="icon-border-l">
-                                <span>022</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="timetables_results.php?TID=<?php echo '024'; ?>" class="icon-border-l">
-                                <span>024</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="coming_soon.php" class="icon-border-l">
-                                <span>049</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="lil1" style="display: none">
-                        <li>
-                            <a href="coming_soon.php" class="icon-border-l">
-                                <span>101</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="coming_soon.php" class="icon-border-l">
-                                <span>122</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="timetables_results.php?TID=<?php echo '140'; ?>" class="icon-border-l">
-                                <span>140</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="lil6" style="display: none">
-                        <li>
-                            <a href="coming_soon.php" class="icon-border-l">
-                                <span>602</span>
-                            </a>
-                        </li>
-                    </ul>
+                   
                 </div>
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
-                    <br>
-                    <a href="coming_soon.php" class="icon-border-tram">
-                        <span>T</span>
-                    </a>
+                    
                 </div>
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
-                    <br>
-                    <a href="timetables_results.php?TID=<?php echo 'Π1'; ?>" class="icon-border-p1">
-                        <span>Π1</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-p2">
-                        <span>Π2</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-p3">
-                        <span>Π3</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-p4">
-                        <span>Π4</span>
-                    </a>
+                   
                 </div>
                 <div>
-                    <h5>Επιλέξτε μια γραμμή</h5>
-                    <br>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T1</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T2</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T3</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T4</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T5</span>
-                    </a>
-                    <a href="coming_soon.php" class="icon-border-t">
-                        <span>T6</span>
-                    </a>
                 </div>
             </div><!-- //tab-content -->
         </div><!-- //tab-wrapper -->
     </div> 
-
-
-
-
     </main><!-- End #main -->
 
 
@@ -235,6 +201,12 @@ include "./footer.php";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="assets/js/wrapper.js"></script>
 
+<script>
+$('#aithsh').change(function(){
+    $('form').hide();
+    $('form#'+$(this).val()).show();
+});
+</script>
 
 </body>
 
