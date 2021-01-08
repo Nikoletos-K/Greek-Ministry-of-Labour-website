@@ -66,14 +66,14 @@
             <h4 style="font-weight: bold;">Τα στοιχεία μου</h4>
             <hr>
             <div class="row">
-                <div class="col-lg-3"  style="font-size: 16px;">Όνομα:</div>
-                <div class="col-lg-3"  style="font-size: 16px;"><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
-                <div class="col-lg-3" style="font-size: 16px;">Επίθετο:</div>
-                <div class="col-lg-3" style="font-size: 16px;"><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
-                <div class="col-lg-3"  style="font-size: 16px;">Όνομα:</div><br><br>
-                <div class="col-lg-3"  style="font-size: 16px;"><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
-                <div class="col-lg-3" style="font-size: 16px;">Επίθετο:</div>
-                <div class="col-lg-3" style="font-size: 16px;"><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
+                <div class="col-lg-3 profil-item" >Όνομα:</div>
+                <div class="col-lg-3" ><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
+                <div class="col-lg-3" >Επίθετο:</div>
+                <div class="col-lg-3" ><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
+                <div class="col-lg-3" >Όνομα:</div>
+                <div class="col-lg-3" ><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
+                <div class="col-lg-3" >Επίθετο:</div>
+                <div class="col-lg-3" ><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
             </div>
 
             <!-- <form action="updateprofile.php">

@@ -149,7 +149,6 @@
 
         <div class="col-lg-9 mt-4 mt-lg-0">
           <div class="tab-content">
-            
             <div class="tab-pane active show" id="genikes-odhgies">
               <div class="row">
                 <div class="col-lg-8 details order-1 order-lg-1">
@@ -336,7 +335,9 @@
                   </div>
                 </div>
               </div>
-            </div>  
+              </div>
+            </div>
+             
             
             <div class="tab-pane" id="thlergasia">
               <div class="row">
@@ -690,6 +691,7 @@
                   <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
                 </div>
               </div>
+            </div>
             </div>
 
             <div class="tab-pane" id="leitourgia">
