@@ -64,7 +64,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <!-- <h2>Επικοινωνία</h2> -->
             <ol>
-              <li><a href="index.html">Αρχική</a></li>
+              <li><a href="index.html"><i class="icofont-home"></i></a></li>
               <li>Σύνδεση</li>
             </ol>
           </div>
