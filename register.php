@@ -123,8 +123,6 @@
                     <option value="el_epag">Ελεύθερος επαγγελματίας</option>
                     <option value="syntaxiouxos">Συνταξιούχος</option>
                   </select>
-                  <!-- <label for="name">Εργασιακή κατάσταση</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" /> -->
                   <div class="validate"></div>
                 </div>
               </div>

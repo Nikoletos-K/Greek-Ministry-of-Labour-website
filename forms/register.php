@@ -57,14 +57,18 @@
             $_SESSION["afm"] = $afm;
             $_SESSION["role"] = $role;      
             
-             header('location:../worker.php');
-            echo 'OK';
+            if($role === 'ergazomenos' ){
+                echo 'OK:worker.php';
+            }else {
+                echo 'OK:business.php';
+            }
+            
         }
         else{
             array_push($errors, "Αποτυχία εγγραφής");
             echo 'Αποτυχία εγγραφής<br />';
         }
-        
+
     }else{
         echo 'Αποτυχία εγγραφής<br />';
     }

@@ -134,9 +134,10 @@ jQuery(document).ready(function($) {
 
           if (rule == 'OK') {
             this_form.find('.loading').slideUp();
-            this_form.find('.sent-message').slideDown().html(window.location.pathname);
+            this_form.find('.sent-message').slideDown().html(exp);
             this_form.find("input:not(input[type=submit]), textarea").val('');
             window.location.assign(exp);
+            
             // window.location.pathname = exp;
             
           } else {
