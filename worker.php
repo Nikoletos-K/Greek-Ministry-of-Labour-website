@@ -1,6 +1,7 @@
 <?php
-  include 'db_connection.php';
-  session_start();
+    session_start();
+    include 'db_connection.php';
+    echo print_r($_SESSION);
 ?>
 
 
@@ -62,19 +63,71 @@
         </div>
         </section><!-- End Breadcrumbs -->
 
-        <div class="container-fluid" style="padding:60px 285px 0 285px;">
-            <h4 style="font-weight: bold;">Τα στοιχεία μου</h4>
-            <hr>
-            <div class="row">
-                <div class="col-lg-3 profil-item" >Όνομα:</div>
-                <div class="col-lg-3" ><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
-                <div class="col-lg-3" >Επίθετο:</div>
-                <div class="col-lg-3" ><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
-                <div class="col-lg-3" >Όνομα:</div>
-                <div class="col-lg-3" ><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
-                <div class="col-lg-3" >Επίθετο:</div>
-                <div class="col-lg-3" ><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
+        <div class="container-fluid col-md-8 " >
+            
+            <div class="well-title d-flex align-items-start flex-column">
+                <br><br>
+                <h4 style="font-weight: bold; ">Τα στοιχεία μου</h4>
             </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div style="font-size:18px;" class="form-group">
+                            <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                            <div class="col-sm-10">
+                                <?php echo $_SESSION["firstname"]; ?>
+                            </div>
+                        </div>
+                        <div style="font-size:18px;" class="form-group">
+                            <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <?php echo $_SESSION["email"]; ?>
+                            </div>
+                        </div>
+                        <div style="font-size:18px;" class="form-group">
+                            <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                            <div class="col-sm-10">
+                                <?php echo $_SESSION["afm"]; ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div style="font-size:18px;" class="form-group">
+                                <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                <div class="col-sm-10">
+                                    <?php echo $_SESSION["lastname"]; ?>
+                                </div>
+                            </div>
+                            <div style="font-size:18px;" class="form-group">
+                                <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                <div class="col-sm-10">
+                                    <?php echo $_SESSION["phone"]; ?>
+                                </div>
+                            </div>
+                            <div style="font-size:18px;" class="form-group">
+                                <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
+                                <div class="col-sm-11">
+                                    <?php 
+                                        if($_SESSION["role"] === 'ergazomenos'){
+                                            echo 'Εργαζόμενος';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- <div class="row col-lg-10">
+                <div class="col-lg-3 profil-item" >Όνομα: <br><?php echo $_SESSION["firstname"]; ?></div>
+                <div class="col-lg-3" >Επίθετο: <?php echo $_SESSION["lastname"]; ?></div>
+                <div class="col-lg-3 profil-item" >Όνομα: <?php echo $_SESSION["firstname"]; ?></div>
+                <div class="col-lg-3" >Επίθετο: <?php echo $_SESSION["lastname"]; ?></div>                
+            </div> -->
 
             <!-- <form action="updateprofile.php">
                 <div class="form-row">                          
@@ -121,6 +174,7 @@
                         <li>Ιστορικό αδειών</li>
                         <li>Ένσημα</li>
                         <li>Αποθηκευμένα Έγγραφα</li>
+                        <li>Επεξεργασία προφίλ</li>
                     </ul>
                     <div class="tab-content">
                         <div>

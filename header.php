@@ -8,11 +8,20 @@
         <?php 
           if(isset(($_SESSION['login_user'])) && ($_SESSION['login_user']) == true) {
 
-              echo '<div class=" d-flex justify-content-end">
-                    <a class="login-icons" href="profile.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
-                    <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
-                    </div>'; 
-              
+              if($_SESSION['role'] === 'ergazomenos'){
+
+                  echo '<div class=" d-flex justify-content-end">
+                  <a class="login-icons" href="worker.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  </div>'; 
+
+              } else {
+                  echo '<div class=" d-flex justify-content-end">
+                  <a class="login-icons" href="business.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  </div>'; 
+              }
+                            
           } else {
 
             echo '<a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>

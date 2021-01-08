@@ -1,35 +1,44 @@
 <?php
-
-  include '../db_connection.php';
   session_start();
-  OpenCon();
-
+  include '../db_connection.php';
+ 
   $errors = array(); 
 
-  $name = $_POST['name'] = mysqli_real_escape_string($conn, $_POST['name']);
-  $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
-  $subject =  $_POST['subject'] = mysqli_real_escape_string($conn, $_POST['subject']);
-  $message =  $_POST['message'] = mysqli_real_escape_string($conn, $_POST['message']);
+  if(isset($_POST['name'])) {
+    $name = $_POST['name'] = mysqli_real_escape_string($conn, $_POST['name']);
+  }
+  if(isset( $_POST['email'])) {
+    $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+  }
+  if(isset($_POST['subject'])) {
+    $subject =  $_POST['subject'] = mysqli_real_escape_string($conn, $_POST['subject']);
+  }
+  if(isset($_POST['message'])) {
+    $message =  $_POST['message'] = mysqli_real_escape_string($conn, $_POST['message']);
+  }
+   
+  
+ 
 
    if (count($errors) == 0) {
 
       $query = "INSERT INTO message (name,  email, subject, message) 
             VALUES ('$name', '$email', '$subject', '$message')";
 
-      if(mysqli_query($conn, $query)){
+      // if(mysqli_query($conn, $query)){
          
-         $_SESSION['reg_user'] = true;
-         $_SESSION['login_user'] = true;
+      //   //  $_SESSION['reg_user'] = true;
+      //   //  $_SESSION['login_user'] = true;
           
-          $_SESSION["name"] = $name;
-          $_SESSION["email"] = $email;
-          $_SESSION["subject"] = $subject;
-          $_SESSION["message"] = $message;
+      //     $_SESSION["name"] = $name;
+      //     $_SESSION["email"] = $email;
+      //     $_SESSION["subject"] = $subject;
+      //     $_SESSION["message"] = $message;
         
-      }
-      else{
-         array_push($errors, "Αποτυχία εγγραφής");
-      }
+      // }
+      // else{
+      //    array_push($errors, "Αποτυχία εγγραφής");
+      // }
    }
 
   if (count($errors) == 0) {

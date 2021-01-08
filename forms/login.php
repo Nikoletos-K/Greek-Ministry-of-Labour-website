@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../db_connection.php';
 
     $errors = array(); 
@@ -37,21 +38,21 @@
         
         $_SESSION["username"] = $username;
         $_SESSION["password"] = $password;
-
         $_SESSION["firstname"] = $validated_user['firstname'];
+        // echo $validated_user['firstname'];
         $_SESSION["lastname"] = $validated_user['lastname'];
         $_SESSION["email"] = $validated_user['email'];
         $_SESSION["phone"] = $validated_user['phone'];
         $_SESSION["afm"] = $validated_user['afm'];
         $_SESSION["role"] = $validated_user['role'];      
-        
+        // echo print_r($_SESSION);
+
         
         if($validated_user['role'] === 'ergazomenos' ){
             echo 'OK:worker.php';
         }else {
             echo 'OK:business.php';
-        }  
-        // echo 'OK:worker.php';
+        }
   
     }else{
         echo 'Αποτυχία σύνδεσης<br />';
