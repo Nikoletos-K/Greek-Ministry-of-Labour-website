@@ -30,11 +30,11 @@
          
          $_SESSION['reg_user'] = true;
          $_SESSION['login_user'] = true;
-         
-         $_SESSION["name"] = $name;
-         $_SESSION["email"] = $email;
-         $_SESSION["subject"] = $subject;
-         $_SESSION["message"] = $message;
+          
+          $_SESSION["name"] = $name;
+          $_SESSION["email"] = $email;
+          $_SESSION["subject"] = $subject;
+          $_SESSION["message"] = $message;
         
         //  header('location:../profile/profile.php');
       }

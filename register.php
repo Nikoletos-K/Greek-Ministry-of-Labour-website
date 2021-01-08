@@ -178,7 +178,6 @@
 
   <main id="main">
 
-     <!-- ======= Breadcrumbs ======= -->
       <!-- ======= Breadcrumbs ======= -->
       <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
@@ -266,17 +265,7 @@
                   <div class="validate"></div>
                 </div>
               </div>
-<!--               
-              <div class="form-group">
-                <label for="name">Θέμα</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <label for="name">Μήνυμα</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
-                <div class="validate"></div>
-              </div> -->
+
               <hr><br>
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
@@ -290,7 +279,8 @@
           </div>
         </div>
       </section>
-    </main><!-- End #main -->
+
+  </main><!-- End #main -->
 
   
 

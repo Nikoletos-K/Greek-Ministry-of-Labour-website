@@ -1,53 +1,8 @@
 <?php
-
   include 'db_connection.php';
-
   session_start();
-
-  // if(isset($_SESSION["login_user"]) && $_SESSION["login_user"] === true){
-  //   // header("location:../profile/profile.php");
-  //   exit;
-  // }
 ?>
-<?php
-$errors = array(); 
 
-// $conn = mysqli_connect('127.0.0.1', 'root', '', 'sdi1700038');
-
-if (isset($_POST['login_user'])) {
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-  if (empty($username)) {
-    array_push($errors, "Παρακαλώ συμπληρώστε το όνομα χρήστη");
-  }
-  if (empty($password)) {
-    array_push($errors, "Παρακαλώ συμπληρώστε τον κωδικό σας");
-  }
-
-  if (count($errors) == 0) {
-    $password = md5($password);
-    $query = "SELECT * FROM simpleuser WHERE username='$username' AND password='$password'";
-    $results = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($results);
-    $active = $row['active'];  
-
-    if (mysqli_num_rows($results) == 1) {
-      $_SESSION['login_user'] = true;
-      $_SESSION["name"] = $row["name"];
-      $_SESSION["email"] = $row["email"];
-      $_SESSION["phone"] = $row["phone"];
-      $_SESSION["afm"] = $row["afm"];
-      $_SESSION["role"] = $row["role"];
-      // header('location:../profile/profile.php');
-    }else {
-     array_push($errors, "Λανθασμένος συνδιασμός όνομα χρήστη και κωδικού");
-      
-    }
-  }
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -212,49 +167,63 @@ if (isset($_POST['login_user'])) {
 
   <!-- ========= Login form ============ -->
 
-<div class="container login-form">
-  <br>  <p class="text-center"> <a href="http://bootstrap-ecommerce.com/"></a></p>
-  <hr>
 
-  <div class="card bg-light">
-  <article class="card-body mx-auto" style="max-width: 400px;">
-    <h4 class="card-title mt-3 text-center" >Είσοδος Χρήστη</h4>
-    <!-- <p class="text-center">Get started with your free account</p> -->
-    <p>
-      <a href="" class="btn btn-block btn-taxis "> Μέσω TaxisNet</a>
-    </p>
-    <p class="divider-text">
-          <span class="bg-light">Ή</span>
-    </p>
-    <form action="login.php"  method="post">
-      <?php include('errors.php'); ?>
+  <main id="main">
 
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- <h2>Επικοινωνία</h2> -->
+            <ol>
+              <li><a href="index.html">Αρχική</a></li>
+              <li>Σύνδεση</li>
+            </ol>
+          </div>
         </div>
-            <input name="username" class="form-control" placeholder="Όνομα χρήστη" type="text">
-      </div> <!-- form-group// -->
+      </section><!-- End Breadcrumbs -->
 
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+
+      <section id="contact" class="contact">
+        <div class="row justify-content-center ">
+          <div class="col-lg-4 mt-5 mt-lg-0 d-flex">
+            <form action="forms/login.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="section-title">
+                  <br>
+                  <h3 style="font-weight: bold; ">Σύνδεση</h3><br><hr>
+                  <h7>Συμπληρώστε τo όνομα χρήστη και τον κωδικό σας για να αποκτήσετε πρόσβαση στον ιστοχώρο του Υπουργείου.</h7><br><hr>
+                </div>
+              </div>
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="form-group col-md-8">
+                  <label for="username">Όνομα χρήστη</label>
+                  <input type="text" class="form-control" name="username" id="username" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε ένα όνομα χρήστη με τουλάχιστον 4 χαρακτήρες" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="password">Κωδικός</label>
+                    <input type="password" class="form-control" name="password" id="password" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε έναν κωδικό με τουλάχιστον 4 χαρακτήρες" />
+                    <div class="validate"></div>
+                </div>
+
+              </div>
+              <hr><br>
+              <div class="mb-3">
+                <div class="loading">Φόρτωση</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Επιτυχής σύνδεση!</div>
+              </div>
+              <div class="text-center">
+                <button value="submit" name="submit" type="submit">Σύνδεση</button>
+              </div>
+            </form>
+          </div>
         </div>
-          <input name="password" class="form-control" placeholder="Κωδικός" type="password">
-      </div> <!-- form-group// -->                                   
-      <div class="form-group">
+      </section>
 
-          <button type="submit" name="login_user" class="btn btn-primary btn-block btn-sub"> Είσοδος </button>
-      </div> <!-- form-group// -->      
-      <p class="text-center">Δεν έχετε λογαριασμό; <a href="register.php">Εγγραφή</a> </p>                                                                 
-    </form>
-  </article>
-  </div> <!-- card.// -->
-
-</div> 
-<!--container end.//-->
-
-  <!-- ========= End of login form ============ -->
+  </main><!-- End #main -->
 
 
 <!-- ======= Footer ======= -->
