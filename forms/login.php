@@ -46,11 +46,12 @@
         $_SESSION["role"] = $validated_user['role'];      
         
         
-  
-        echo 'OK:worker.php';
-        // echo 'HEYY';
-        // redirect("../worker.php");
-        // header('Location:../worker.php');
+        if($validated_user['role'] === 'ergazomenos' ){
+            echo 'OK:worker.php';
+        }else {
+            echo 'OK:business.php';
+        }  
+        // echo 'OK:worker.php';
   
     }else{
         echo 'Αποτυχία σύνδεσης<br />';
