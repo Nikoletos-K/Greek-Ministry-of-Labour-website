@@ -85,14 +85,15 @@
               </div>
               <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="form-group col-md-8">
-                  <label for="username">Όνομα χρήστη</label>
+                  <i class="icofont-user-alt-3" style="color: #1869ff; padding-right: 5px; "></i><label for="username"> Όνομα χρήστη</label>
                   <input type="text" class="form-control" name="username" id="username" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε ένα όνομα χρήστη με τουλάχιστον 4 χαρακτήρες" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-8">
-                    <label for="password">Κωδικός</label>
-                    <input type="password" class="form-control" name="password" id="password" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε έναν κωδικό με τουλάχιστον 4 χαρακτήρες" />
-                    <div class="validate"></div>
+                  <i class="fa fa-lock" style="color: #1869ff; padding-right: 5px;" aria-hidden="true"></i>
+                  <label for="password">Κωδικός</label>
+                  <input type="password" class="form-control" name="password" id="password" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε έναν κωδικό με τουλάχιστον 4 χαρακτήρες" />
+                  <div class="validate"></div>
                 </div>
 
               </div>
