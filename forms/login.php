@@ -23,7 +23,7 @@
         }
 
     } else {
-        echo "Το όνομα χρήστη: " . $username . " δεν υπάρχει, προσπαθήστε ξανά<br>"; 
+        echo "Το όνομα χρήστη " . $username . " δεν υπάρχει, προσπαθήστε ξανά<br>"; 
         array_push($errors, "Το όνομα χρήστη δεν υπάρχει");
     }
 
@@ -45,9 +45,12 @@
         $_SESSION["afm"] = $validated_user['afm'];
         $_SESSION["role"] = $validated_user['role'];      
         
-        //  header('location:../profile/profile.php');
+        
   
-        echo 'OK';
+        echo 'OK:worker.php';
+        // echo 'HEYY';
+        // redirect("../worker.php");
+        // header('Location:../worker.php');
   
     }else{
         echo 'Αποτυχία σύνδεσης<br />';

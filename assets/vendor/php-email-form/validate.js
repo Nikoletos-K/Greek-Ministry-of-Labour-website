@@ -126,14 +126,40 @@ jQuery(document).ready(function($) {
       url: action,
       data: str,
       success: function(msg) {
-        if (msg == 'OK') {
-          this_form.find('.loading').slideUp();
-          this_form.find('.sent-message').slideDown();
-          this_form.find("input:not(input[type=submit]), textarea").val('');
+
+        var pos = msg.indexOf(':', 0);
+        if (pos >= 0) {
+          var exp = msg.substr(pos + 1, msg.length);
+          var rule = msg.substr(0, pos);
+
+          if (rule == 'OK') {
+            this_form.find('.loading').slideUp();
+            this_form.find('.sent-message').slideDown().html(window.location.pathname);
+            this_form.find("input:not(input[type=submit]), textarea").val('');
+            window.location.assign(exp);
+            // window.location.pathname = exp;
+            
+          } else {
+            this_form.find('.loading').slideUp();
+            this_form.find('.error-message').slideDown().html(msg);
+            // this_form.find("input:not(input[type=submit]), textarea").val('');
+          }
+           
+
         } else {
-          this_form.find('.loading').slideUp();
-          this_form.find('.error-message').slideDown().html(msg);
-          // this_form.find("input:not(input[type=submit]), textarea").val('');
+          
+          if (msg == 'OK') {
+            this_form.find('.loading').slideUp();
+            this_form.find('.sent-message').slideDown();
+            this_form.find("input:not(input[type=submit]), textarea").val('');
+
+            
+          } else {
+            this_form.find('.loading').slideUp();
+            this_form.find('.error-message').slideDown().html(msg);
+            // this_form.find("input:not(input[type=submit]), textarea").val('');
+          }
+ 
         }
       }
     });

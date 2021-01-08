@@ -57,15 +57,14 @@
             $_SESSION["afm"] = $afm;
             $_SESSION["role"] = $role;      
             
-            //  header('location:../profile/profile.php');
+             header('location:../worker.php');
             echo 'OK';
         }
         else{
             array_push($errors, "Αποτυχία εγγραφής");
             echo 'Αποτυχία εγγραφής<br />';
         }
-        // echo 'OK';
-
+        
     }else{
         echo 'Αποτυχία εγγραφής<br />';
     }
