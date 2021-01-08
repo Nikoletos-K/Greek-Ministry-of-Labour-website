@@ -62,107 +62,159 @@
         </div>
         </section><!-- End Breadcrumbs -->
 
-     <div class="col-lg-10 mt-4 mt-lg-0">   
-        <div class="tab-wrapper">
-            <ul class="tab-menu">
-                <li class="active">Κάνε αίτηση</li>
-                <li>Εργασιακή Κατάσταση </li>
-                <li>Ιστορικό αδειών</li>
-                <li>Ένσημα</li>
-                <li>Αποθηκευμένα Έγγραφα</li>
-            </ul>
-            <div class="tab-content">
-                <div>
-                    <h5>Επιλέξτε αίτηση</h5>
-                    <br>
-                    <div class="select-btn" style="padding-bottom:50px;">                    
-                        <select id="aithsh" class="form-control col-md-6" >
-                            <option value="default" style="display:none;">Διαλέξτε</option>
-                            <option value="eidikou-skopou" >Άδεια ειδικού σκοπού</option>
-                            <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
-                            <option value="anergia" >Επίδομα ανεργείας</option>
-                            <option value="paraithsh" >Αίτηση παραίτησης</option>
-                        </select>
+        <div class="container-fluid" style="padding:60px 285px 0 285px;">
+            <h4 style="font-weight: bold;">Τα στοιχεία μου</h4>
+            <hr>
+            <div class="row">
+                <div class="col-lg-3"  style="font-size: 16px;">Όνομα:</div>
+                <div class="col-lg-3"  style="font-size: 16px;"><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
+                <div class="col-lg-3" style="font-size: 16px;">Επίθετο:</div>
+                <div class="col-lg-3" style="font-size: 16px;"><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
+                <div class="col-lg-3"  style="font-size: 16px;">Όνομα:</div><br><br>
+                <div class="col-lg-3"  style="font-size: 16px;"><?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?></div>
+                <div class="col-lg-3" style="font-size: 16px;">Επίθετο:</div>
+                <div class="col-lg-3" style="font-size: 16px;"><?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?></div>
+            </div>
+
+            <!-- <form action="updateprofile.php">
+                <div class="form-row">                          
+                    <div class="col-xs-6">
+                        <label for="name"><h4>Όνομα</h4></label>
+                        <input readonly type="text" class="form-control" name="name" <?php if (isset($_SESSION['name'])) echo 'value = "'.$_SESSION['name'].'"' ?>>
                     </div>
-                    <form style="display:none;" id="eidikou-skopou" action="forms/eidikou-skopou.php" method="post" role="form" class="contact">
-                        <div class="php-email-form">
-                            <div class="form-row">
-                                <div class="section-title">
-                                    <br>
-                                    <h3 style="font-weight: bold; ">Δήλωση άδειας ειδικού σκοπού</h3><br><hr>
-                                    <h7 >Συμπληρώστε τα στοιχεία που σας ζητούνται για να κάνετε την αίτησή σας στο υπουργείο. Τα προσωπικά σας στοιχεία θα σταλούν αυτόματα απο τον ιστόχωρό μας.<br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
-                                </div>
+                    <div class="col-xs-6">
+                        <label for="username"><h4>Username</h4></label>
+                        <input readonly type="username" class="form-control" name="username" <?php if (isset($_SESSION['username'])) echo 'value = "'.$_SESSION['username'].'"' ?>>
+                    </div>
+                </div>
+                <div class="form-row">
+                                
+                    <div class="col-xs-6">
+                    <label for="surname"><h4>Επώνυμο</h4></label>
+                        <input readonly type="text" class="form-control" name="surname"<?php if (isset($_SESSION['surname'])) echo 'value = "'.$_SESSION['surname'].'"' ?>>
+                    </div>
+                
+                    
+                    <div class="col-xs-6">
+                        <label for="email"><h4>Email</h4></label>
+                        <input readonly type="email" class="form-control" name="email" <?php if (isset($_SESSION['email'])) echo 'value = "'.$_SESSION['email'].'"' ?>>
+                    </div>
+                </div>   
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                            <button class="btn">Επεξεργασία στοιχείων</button>
+                    </div>
+                </div>
+            </form> -->
+
+
+
+        </div>
+ 
+        <div class="col-lg-10 mt-4 mt-lg-0">
+            <div class="profile-wrapper">   
+                <div class="tab-wrapper">
+                    <ul class="tab-menu">
+                        <li class="active">Κάνε αίτηση</li>
+                        <li>Εργασιακή Κατάσταση </li>
+                        <li>Ιστορικό αδειών</li>
+                        <li>Ένσημα</li>
+                        <li>Αποθηκευμένα Έγγραφα</li>
+                    </ul>
+                    <div class="tab-content">
+                        <div>
+                            <h5>Επιλέξτε αίτηση</h5>
+                            <br>
+                            <div class="select-btn" style="padding-bottom:50px;">                    
+                                <select id="aithsh" class="form-control col-md-6" >
+                                    <option value="default" style="display:none;">Διαλέξτε</option>
+                                    <option value="eidikou-skopou" >Άδεια ειδικού σκοπού</option>
+                                    <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
+                                    <option value="anergia" >Επίδομα ανεργείας</option>
+                                    <option value="paraithsh" >Αίτηση παραίτησης</option>
+                                </select>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="firstname">Ημερομηνία Έναρξης</label>
-                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="firstname">Ημερομηνία Λήξης</label>
-                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="family">Οικογενειακή κατάσταση</label>
-                                        <div class="row col-md-8">
-                                            <label class="radio-inline" style="padding-right:25px; ">
-                                            <input type="radio" name="optradio" checked> Έγγαμος
-                                            </label>
-                                            <label class="radio-inline" style="padding-right:15px;">
-                                            <input type="radio" name="optradio"> Άγαμος
-                                        </div>   
-                                    <div class="validate"></div>
-                                </div>
+                            <form style="display:none;" id="eidikou-skopou" action="forms/eidikou-skopou.php" method="post" role="form" class="contact">
+                                <div class="php-email-form">
+                                    <div class="form-row">
+                                        <div class="section-title">
+                                            <br>
+                                            <h3 style="font-weight: bold; ">Δήλωση άδειας ειδικού σκοπού</h3><br><hr>
+                                            <h7 >Συμπληρώστε τα στοιχεία που σας ζητούνται για να κάνετε την αίτησή σας στο υπουργείο. Τα προσωπικά σας στοιχεία θα σταλούν αυτόματα απο τον ιστόχωρό μας.<br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="firstname">Ημερομηνία Έναρξης</label>
+                                            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                            <div class="validate"></div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="firstname">Ημερομηνία Λήξης</label>
+                                            <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                            <div class="validate"></div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="family">Οικογενειακή κατάσταση</label>
+                                                <div class="row col-md-8">
+                                                    <label class="radio-inline" style="padding-right:25px; ">
+                                                    <input type="radio" name="optradio" checked> Έγγαμος
+                                                    </label>
+                                                    <label class="radio-inline" style="padding-right:15px;">
+                                                    <input type="radio" name="optradio"> Άγαμος
+                                                </div>   
+                                            <div class="validate"></div>
+                                        </div>
+                                    
+                                        <div class="form-group col-md-6">
+                                            <label for="role">Αριθμός ανήλικων τέκνων</label>
+                                            <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                                <option value="default" style="display:none;">Διαλέξτε</option>
+                                                <option value="ergazomenos">1</option>
+                                                <option value="ergodoths">2</option>
+                                                <option value="anergos">3</option>
+                                                <option value="el_epag">Περισσότερα από 3</option>
+                                            </select>
+                                            <div class="validate"></div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="name">Σημείωση</label>
+                                        <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
+                                        <div class="validate"></div>
+                                    </div>
+                                    <hr><br>
+                                    <div class="mb-3">
+                                        <div class="loading">Φόρτωση</div>
+                                        <div class="error-message"></div>
+                                        <div class="sent-message">Το αίτημά σας στάλθηκε επιτυχώς </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button value="submit" name="submit" type="submit">Αποστολή</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div>
                             
-                                <div class="form-group col-md-6">
-                                    <label for="role">Αριθμός ανήλικων τέκνων</label>
-                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
-                                        <option value="default" style="display:none;">Διαλέξτε</option>
-                                        <option value="ergazomenos">1</option>
-                                        <option value="ergodoths">2</option>
-                                        <option value="anergos">3</option>
-                                        <option value="el_epag">Περισσότερα από 3</option>
-                                    </select>
-                                    <div class="validate"></div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-group">
-                                <label for="name">Σημείωση</label>
-                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
-                                <div class="validate"></div>
-                            </div>
-                            <hr><br>
-                            <div class="mb-3">
-                                <div class="loading">Φόρτωση</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Το αίτημά σας στάλθηκε επιτυχώς </div>
-                            </div>
-                            <div class="text-center">
-                                <button value="submit" name="submit" type="submit">Αποστολή</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div>
-                    
-                </div>
-                <div>
-                   
-                </div>
-                <div>
-                    
-                </div>
-                <div>
-                   
-                </div>
-                <div>
-                </div>
-            </div><!-- //tab-content -->
-        </div><!-- //tab-wrapper -->
-    </div> 
+                        </div>
+                        <div>
+                        
+                        </div>
+                        <div>
+                            
+                        </div>
+                        <div>
+                        
+                        </div>
+                        <div>
+                        </div>
+                    </div><!-- //tab-content -->
+                </div><!-- //tab-wrapper -->
+            </div>    
+        </div> 
     </main><!-- End #main -->
 
 
