@@ -64,7 +64,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <!-- <h2>Επικοινωνία</h2> -->
             <ol>
-              <li><a href="index.html"><i class="icofont-home"></i></a></li>
+              <li><a href="index.php"><i class="icofont-home"></i></a></li>
               <li>Σύνδεση</li>
             </ol>
           </div>
@@ -102,6 +102,7 @@
                 <div class="loading">Φόρτωση</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Επιτυχής σύνδεση!</div>
+                <!-- <div class="redirect"></div> -->
               </div>
               <div class="text-center">
                 <button value="submit" name="submit" type="submit">Σύνδεση</button>
