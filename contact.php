@@ -39,6 +39,7 @@
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
+
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
   
@@ -174,41 +175,49 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label" for="appointmentfor">Τμήμα Υπουργείου</label>
-                <select id="appointmentfor" name="appointmentfor" class="form-control">
+                <label for="tmhma">Τμήμα Υπουργείου</label>
+                <select id="tmhma" name="tmhma" class="form-control" data-column="tmhma" data-msg="Παρακαλώ εισάγετε το τμήμα που θέλετε να επισκεφτείτε">
                     <option value="default" style="display:none;">Διαλέξτε</option>
                     <option value="grammateia">Γραμματεία</option>
                     <option value="director">Διευθυντής</option>
                     <option value="minister">Υπουργός</option>
                     <option value="submnister">Υφυπουργός</option>
                 </select>
-                <!-- <input type="dropdown-menu" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" /> -->
                 <div class="validate"></div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Διαθέσιμες ημερομηνίες</label>
+
                   <div class="form-group">
-                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Ημερολόγιο" data-rule="required" data-msg="Please enter at least 4 chars">
-                    <div class="validate"></div>
+                    <input type="datetime" name="date" class="form-control datepicker" id="datepicker" placeholder="  Ημερολόγιο" data-rule="required" data-msg="Please enter at least 4 chars">
                  </div>
-                  <!-- <input  class="form-control data-date-format="dd/mm/yyyy" id="datepicker"> -->
-                  <div class="validate"></div>
+                 <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Διαθέσιμες ώρες</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Παρακαλώ εισάγετε ένα έγκυρο email" />
+                  <select id="appointmenthour" name="appointmenthour" data-column="appointmenthour"  data-rule="required" data-msg="Διαλέξτε την ώρα που σας βολεύει" class="form-control">
+                    <option value="default" style="display:none;">Διαλέξτε ώρα</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:00">10:00</option>
+                    <option value="09:00">11:00</option>
+                    <option value="09:00">12:00</option>
+                    <option value="09:00">13:00</option>
+                    <option value="09:00">14:00</option>
+                  </select>
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Σημείωση</label>
+                <label for="name">Αίτημα</label><br>
+                <h8 style="font-size:13px;font-style:italic;">Γραψτε μας το αίτημα σας συνοπτικά, για να ετοιμάσουμε τα έγγραφα που θα χρειαστείτε.</h8>
                 <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
                 <div class="validate"></div>
               </div>
+
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
-                <div class="error-message"></div>
+                <div class="error-message">ΛΑΘΟΣ</div>
                 <div class="sent-message">Το αίτημα σας καχορήθηκε. Θα ενημερωθείτε άμεσα!</div>
               </div>
               <div class="text-center"><button type="submit">Ολοκλήρωση ραντεβού</button></div>
@@ -277,8 +286,9 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
-
+  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" ></script>
+  
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 

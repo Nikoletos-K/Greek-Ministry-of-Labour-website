@@ -115,7 +115,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="role">Εργασιακή κατάσταση</label>
-                  <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                  <select name="role" id="role" class="form-control" data-column="role" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
                     <option value="default" style="display:none;">Διαλέξτε</option>
                     <option value="ergazomenos">Εργαζόμενος</option>
                     <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
