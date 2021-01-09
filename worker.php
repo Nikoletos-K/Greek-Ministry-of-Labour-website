@@ -131,7 +131,7 @@
                             <li>Ιστορικό αδειών</li>
                             <li>Ένσημα</li>
                             <li>Έγγραφα</li>
-                            <li>Επεξεργασία προφίλ</li>
+                            <li >Επεξεργασία προφίλ</li>
                         </ul>
                         <div class="tab-content">
                             <div>
@@ -225,7 +225,115 @@
                             </div>
                             <div>
                                 <h5>Επεξεργασία των στοιχείων μου</h5>
-                                    <br>
+                                <hr><br>
+                                <div class="row simple-form">
+                                    <div class="col-md-12">
+                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">
+                                            
+                                            <div class="form-group form-row">
+                                                <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                                <div class="validate"></div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="email" class="col-4 col-form-label">Email</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="afm" class="col-4 col-form-label">ΑΦΜ</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="afm" name="afm" placeholder=<?php echo $_SESSION["afm"]; ?> data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="form-group form-row">
+                                                <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="role" class="col-4 col-form-label">Εργασιακή κατάσταση</label> 
+                                                <div class="form-group col-md-6">
+                                                    
+                                                    <select name="role" id="role" class="form-control" data-column="role">
+                                                        <option value="default" style="display:none;">
+                                                        <?php
+                                                            if($_SESSION["role"] == 'ergazomenos'){
+                                                                echo "Εργαζόμενος";
+                                                            }else{
+                                                                echo 'Εργοδότης-Επιχείρηση';
+                                                            }
+                                                         ?></option>
+                                                        <option value="ergazomenos">Εργαζόμενος</option>
+                                                        <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
+                                                        <option value="anergos">Άνεργος</option>
+                                                        <option value="el_epag">Ελεύθερος επαγγελματίας</option>
+                                                        <option value="syntaxiouxos">Συνταξιούχος</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <hr style="align: center; width: 200px;">
+                                            <br>
+
+                                            <div class="form-group form-row">
+                                                <label for="username" class="col-4 col-form-label">Όνομα χρήστη</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="password_1" class="col-4 col-form-label">Νέος κωδικός</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-row">
+                                                <label for="password_2" class="col-4 col-form-label">Επαλήθευση νέου κωδικού</label> 
+                                                <div class="form-group col-md-6">
+                                                    <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="mb-3">
+                                                <div class="loading">Φόρτωση</div>
+                                                <div class="error-message"></div>
+                                                <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία</div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div>

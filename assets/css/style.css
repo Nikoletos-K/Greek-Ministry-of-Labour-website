@@ -1527,6 +1527,210 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Simple-Form - Contact
+--------------------------------------------------------------*/
+/* .simple-form .info {
+  border-top: 3px solid #5688e6;
+  border-bottom: 3px solid #5688e6;
+  padding: 30px;
+  background: transparent;
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+} */
+
+/* .simple-form .info i {
+  font-size: 20px;
+  color: #5688e6;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #eaf6ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+} */
+
+.simple-form .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #222222;
+}
+
+.simple-form .info p {
+  padding: 0 0 10px 60px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555555;
+}
+
+.simple-form .info .social-links {
+  padding-left: 60px;
+}
+
+.simple-form .info .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+.simple-form .info .social-links a:hover {
+  background: #5688e6;
+  color: #fff;
+}
+
+.simple-form .info .email:hover i, .simple-form .info .address:hover i, .simple-form .info .phone:hover i {
+  background: #5688e6;
+  color: #fff;
+}
+
+.simple-form .php-email-form {
+  width: 100%;
+  /* border-top: 3px solid #5688e6;
+  border-bottom: 3px solid #5688e6; */
+  padding: 30px;
+  background: transparent;
+  /* box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12); */
+}
+
+.simple-form .php-email-form .form-group {
+  padding-bottom: 6px;
+}
+
+.simple-form .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.simple-form .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.simple-form .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.simple-form .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.simple-form .php-email-form .loading {
+  display: none;
+  background: transparent;
+  text-align: center;
+  padding: 15px;
+}
+
+.simple-form .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #5688e6;
+  border-top-color: transparent;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.simple-form .php-email-form input, .simple-form .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.simple-form .php-email-form label {
+  font-weight: bold;
+}
+
+.simple-form .php-email-form input:focus, .simple-form .php-email-form textarea:focus {
+  border-color: #5688e6;
+}
+
+.simple-form .php-email-form input {
+  height: 44px;
+}
+
+.simple-form .php-email-form select {
+  height: 44px;
+}
+
+.simple-form .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.simple-form .php-email-form select, .simple-form .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.simple-form .php-email-form select:focus, .simple-form .php-email-form textarea:focus {
+  border-color: #5688e6;
+}
+
+.simple-form .php-email-form button[type="submit"] {
+  background: #1869ff;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.2s;
+  border-radius: 4px;
+}
+
+.simple-form .php-email-form button[type="submit"]:hover {
+  background: #6ea1ff;
+  border: none;
+}
+
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {

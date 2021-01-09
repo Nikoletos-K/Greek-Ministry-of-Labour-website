@@ -8,37 +8,37 @@
     $firstname_surname = $_POST['firstname_surname'] = mysqli_real_escape_string($conn, $_POST['firstname_surname']);
   }else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 1);
   }
   if(isset($_POST['tmhma'])) {
     $tmhma = $_POST['tmhma'] = mysqli_real_escape_string($conn, $_POST['tmhma']);
   }else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 2);
   }
   if(isset($_POST['appointmenthour'])) {
     $appointmenthour = $_POST['appointmenthour'] = mysqli_real_escape_string($conn, $_POST['appointmenthour']);
   }else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 3);
   }
   if(isset( $_POST['email'])) {
     $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
   }else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 4);
   }
   if(isset($_POST['date'])) {
     $date =  $_POST['date'] = mysqli_real_escape_string($conn, $_POST['date']);
   }else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 5);
   }
   if(isset($_POST['message'])) {
     $message =  $_POST['message'] = mysqli_real_escape_string($conn, $_POST['message']);
   } else {
     echo "message";
-    array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
+    array_push($errors, 6);
   }
    
 

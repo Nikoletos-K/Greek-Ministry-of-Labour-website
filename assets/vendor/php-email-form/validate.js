@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
             if (i.val() === '') {
               ferror = ierror = true;
             }
-            break;
+            break;    
 
           case 'minlen':
             if (i.val().length < parseInt(exp)) {
@@ -36,6 +36,20 @@ jQuery(document).ready(function($) {
             }
             break;
 
+            
+          case 'checkifFilled':
+
+            if (i.val() !== '' && i.val().length < parseInt(exp)) {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'ifemail':
+              if (i.val() !== '' &&  !emailExp.test(i.val())) {
+                ferror = ierror = true;
+              }
+              break;
+              
           case 'email':
             if (!emailExp.test(i.val())) {
               ferror = ierror = true;

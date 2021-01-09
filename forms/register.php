@@ -58,6 +58,8 @@
             $_SESSION["afm"] = $afm;
             $_SESSION["role"] = $role;      
             
+            $_POST = array();
+            
             if($role === 'ergazomenos' ){
                 echo 'OK:worker.php';
             }else {
