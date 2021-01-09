@@ -212,7 +212,8 @@
   // Initiate the datepicker plugin
   $(document).ready(function() {
     $('.datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      
     });
   });
 

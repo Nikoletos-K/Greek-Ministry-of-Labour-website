@@ -154,7 +154,7 @@
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
 
-            <form action="appointment forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="section-title">
                   <h3>Κλείστε ραντεβού</h3>
@@ -163,8 +163,8 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="name">Όνομα και Επώνυμο</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 4 χαρακτήρες" />
+                  <label for="firstname_surname">Όνομα και Επώνυμο</label>
+                  <input type="text" name="firstname_surname" class="form-control" id="firstname_surname" data-rule="minlen:6" data-msg="Παρακαλώ εισάγετε τουλάχιστον 4 χαρακτήρες" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
@@ -176,10 +176,11 @@
               <div class="form-group">
                 <label class="control-label" for="appointmentfor">Τμήμα Υπουργείου</label>
                 <select id="appointmentfor" name="appointmentfor" class="form-control">
-                    <option value="Service#1">Γραμματεία</option>
-                    <option value="Service#2">Διευθυντής</option>
-                    <option value="Service#3">Υπουργός</option>
-                    <option value="Service#4">Υφυπουργός</option>
+                    <option value="default" style="display:none;">Διαλέξτε</option>
+                    <option value="grammateia">Γραμματεία</option>
+                    <option value="director">Διευθυντής</option>
+                    <option value="minister">Υπουργός</option>
+                    <option value="submnister">Υφυπουργός</option>
                 </select>
                 <!-- <input type="dropdown-menu" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" /> -->
                 <div class="validate"></div>
@@ -188,7 +189,7 @@
                 <div class="form-group col-md-6">
                   <label for="name">Διαθέσιμες ημερομηνίες</label>
                   <div class="form-group">
-                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Ημερολόγιο" data-rule="required" data-msg="Please enter at least 4 chars">
                     <div class="validate"></div>
                  </div>
                   <!-- <input  class="form-control data-date-format="dd/mm/yyyy" id="datepicker"> -->
