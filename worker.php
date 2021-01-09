@@ -208,8 +208,59 @@
                                 </form>
                             </div>
                             <div>
-                                <h5>Η εργασιακή μου κατάσταση</h5>
-                                    <br>
+                                <h5>Η εργασιακή μου κατάσταση</h5><br><hr>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 style="font-weight: bold; ">Στοιχεία Επιχείρησης Εργασίας</h5><br>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-9 control-label">'Ονομα </label>
+                                                <div class="col-sm-10">
+                                                    <?php echo $_SESSION["firstname"]; ?>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-9 control-label">Email </label>
+                                                <div class="col-sm-10">
+                                                    <?php echo $_SESSION["email"]; ?>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-9 control-label">ΑΦΜ </label>
+                                                <div class="col-sm-10">
+                                                    <?php echo $_SESSION["afm"]; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col">
+                                        <h5 style="font-weight: bold; ">Προσωπικά στοιχεία</h5><br>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Ταμείο Ασφάλισης</label>
+                                                <div class="col-sm-10">
+                                                    <?php echo $_SESSION["lastname"]; ?>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Χρόνια Εργασίας</label>
+                                                <div class="col-sm-10">
+                                                    <?php echo $_SESSION["phone"]; ?>
+                                                </div>
+                                            </div>
+                                            <div style="font-size:18px;" class="form-group">
+                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Μηνιαία Επιδόματα</label>
+                                                <div class="col-sm-11">
+                                                    <?php 
+                                                        if($_SESSION["role"] === 'ergazomenos'){
+                                                            echo 'Εργαζόμενος';
+                                                        }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> <hr> 
                             </div>
                             <div>
                                 <h5>Οι άδειές μου</h5>
@@ -397,6 +448,7 @@ $('#aithsh').change(function(){
     $('form').hide();
     $('form#'+$(this).val()).show();
 });
+$('.date').datepicker({ language: "el"});
 </script>
 
 </body>

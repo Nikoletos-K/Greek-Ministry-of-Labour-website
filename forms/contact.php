@@ -17,7 +17,6 @@
     $message =  $_POST['message'] = mysqli_real_escape_string($conn, $_POST['message']);
   }
    
-
   if (count($errors) == 0) {
 
     $query = "INSERT INTO message (name,  email, subject, message) 
