@@ -108,7 +108,6 @@
             </div>
           </div>
 
-
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
@@ -190,7 +189,7 @@
                   <label for="name">Διαθέσιμες ημερομηνίες</label>
 
                   <div class="form-group">
-                    <input type="datetime" name="date" class="form-control datepicker" id="datepicker" placeholder="  Ημερολόγιο" data-rule="required" data-msg="Please enter at least 4 chars">
+                    <input type="text" name="date" class="form-control datepicker" id="date" placeholder="  Ημερολόγιο" data-rule="required" data-msg="Παρακαλώ επιλέξτε">
                  </div>
                  <div class="validate"></div>
                 </div>
@@ -199,11 +198,11 @@
                   <select id="appointmenthour" name="appointmenthour" data-column="appointmenthour"  data-rule="required" data-msg="Διαλέξτε την ώρα που σας βολεύει" class="form-control">
                     <option value="default" style="display:none;">Διαλέξτε ώρα</option>
                     <option value="09:00">09:00</option>
-                    <option value="09:00">10:00</option>
-                    <option value="09:00">11:00</option>
-                    <option value="09:00">12:00</option>
-                    <option value="09:00">13:00</option>
-                    <option value="09:00">14:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
                   </select>
                   <div class="validate"></div>
                 </div>
@@ -218,7 +217,7 @@
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
                 <div class="error-message">ΛΑΘΟΣ</div>
-                <div class="sent-message">Το αίτημα σας καχορήθηκε. Θα ενημερωθείτε άμεσα!</div>
+                <div class="sent-message">Το αίτημα σας καταχωρήθηκε. Θα ενημερωθείτε άμεσα!</div>
               </div>
               <div class="text-center"><button type="submit">Ολοκλήρωση ραντεβού</button></div>
             </form>
@@ -286,11 +285,12 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" ></script>
-  
+
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/datepicker-el.js"></script>
 
 
 </body>

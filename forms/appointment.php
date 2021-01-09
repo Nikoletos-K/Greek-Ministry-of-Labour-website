@@ -29,7 +29,9 @@
     array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
   }
   if(isset($_POST['date'])) {
+
     $date =  $_POST['date'] = mysqli_real_escape_string($conn, $_POST['date']);
+
   }else {
     echo "message";
     array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
@@ -39,8 +41,7 @@
   } else {
     echo "message";
     array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
-  }
-   
+  }   
 
   if (count($errors) == 0) {
 

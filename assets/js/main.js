@@ -223,3 +223,18 @@
   });
 
 })(jQuery);
+
+$(document).ready(function(){
+  var date_input = $('input[name="date"]'); //our date input has the name "date"
+  var container = "body";
+  var options = {
+    format: 'dd/mm/yyyy',
+    container: container,
+    todayHighlight: true,
+    autoclose: true,
+    language: 'el'
+  };
+  date_input.datepicker(options);
+})
+
+$.datetimepicker.setLocale('el');
