@@ -212,8 +212,13 @@
   // Initiate the datepicker plugin
   $(document).ready(function() {
     $('.datepicker').datepicker({
+      // uiLibrary: 'bootstrap4',
       autoclose: true,
-      
+      todayHighlight: true,
+      language: 'el',
+      locale: 'el',
+      daysOfWeekDisabled: [0,6],
+      todayBtn: true
     });
   });
 

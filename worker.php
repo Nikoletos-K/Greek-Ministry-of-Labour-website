@@ -1,7 +1,7 @@
 <?php
     session_start();
     include 'db_connection.php';
-    echo print_r($_SESSION);
+    // echo print_r($_SESSION);
 ?>
 
 

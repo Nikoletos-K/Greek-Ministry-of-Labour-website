@@ -23,9 +23,13 @@
     $query = "INSERT INTO message (name,  email, subject, message) 
           VALUES ('$name', '$email', '$subject', '$message')";
 
-    echo "OK";
-
+    if(mysqli_query($conn, $query)){
+      echo "OK";
+    } else {
+      echo "FAIL";
+    }
+    
   } else {
-    echo "NOT_OK";
+    echo "FAIL";
   }  
 ?>
