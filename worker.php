@@ -279,8 +279,8 @@
                                 <hr><br>
                                 <div class="row simple-form">
                                     <div class="col-md-12">
-                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">
-                                            
+                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
+                                            <br>                                            
                                             <div class="form-group form-row">
                                                 <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
                                                 <div class="form-group col-md-6">
@@ -345,7 +345,8 @@
                                                 </div>
                                             </div>
 
-                                            <hr style="align: center; width: 200px;">
+                                            <br>
+                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
                                             <br>
 
                                             <div class="form-group form-row">
@@ -355,7 +356,9 @@
                                                     <div class="validate"></div>
                                                 </div>
                                             </div>
-
+                                            <br>
+                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
+                                            <br>
                                             <div class="form-group form-row">
                                                 <label for="password_1" class="col-4 col-form-label">Νέος κωδικός</label> 
                                                 <div class="form-group col-md-6">

@@ -5,10 +5,24 @@
     $errors = array(); 
     $changed_fields = 0;
 
-    // print_r($_POST);
     if(isset($_POST['username']) && $_POST['username'] !== '' && $_SESSION['login_user'] === true ) {
-        $username = $_POST['username'] = mysqli_real_escape_string($conn, $_POST['username']);
-        $changed_fields++;
+        
+        $temp_username = $_POST['username'];
+        $user_check_query = "SELECT * FROM genericuser WHERE username='$temp_username' LIMIT 1";
+        $result = mysqli_query($conn, $user_check_query);
+        $user = mysqli_fetch_assoc($result);
+
+        if ($user) { // if user exists
+            if ($user['username'] === $username) {
+                array_push($errors, "Το όνομα χρήστη υπάρχει ήδη");
+                echo  "Το όνομα χρήστη υπάρχει ήδη <br />";
+            }
+        }else{
+        
+            $username = $_POST['username'] = mysqli_real_escape_string($conn, $_POST['username']);
+            $changed_fields++;
+        }
+
     } else {
         $username = $_SESSION['username'];
     }
@@ -52,7 +66,6 @@
     if(isset($_POST['role']) && $_POST['role'] !== 'default' && $_SESSION['login_user'] === true ) {
         $role = $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
         $changed_fields++;   
-        echo "HERE"; 
     } else {
         $role = $_SESSION['role'];
     }
@@ -86,6 +99,17 @@
                 VALUES ('$username','$firstname','$lastname', '$password', '$email', '$phone', '$afm', '$role')";
 
         if(mysqli_query($conn, $query)){
+
+            
+            $_SESSION["username"] = $username;
+            $_SESSION["firstname"] = $firstname;
+            $_SESSION["lastname"] = $lastname;
+            $_SESSION["password"] = $password;
+            $_SESSION["email"] = $email;
+            $_SESSION["phone"] = $phone;
+            $_SESSION["afm"] = $afm;
+            $_SESSION["role"] = $role;      
+                        
            echo 'OK';
         } else {
             array_push($errors, "Αποτυχία εγγραφής");

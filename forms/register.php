@@ -19,7 +19,7 @@
         array_push($errors, "Οι κωδικοί που εισάγατε δεν ταιριάζουν");
     }
 
-    $user_check_query = "SELECT * FROM genericuser WHERE username='$username' OR email='$email' LIMIT 1";
+    $user_check_query = "SELECT * FROM genericuser WHERE (username='$username' OR afm='$afm' OR email='$email') LIMIT 1";
     $result = mysqli_query($conn, $user_check_query);
     $user = mysqli_fetch_assoc($result);
 
@@ -29,12 +29,16 @@
             echo  "Το όνομα χρήστη υπάρχει ήδη <br />";
         }
 
+        if ($user['afm'] === $afm) {
+            array_push($errors, "Το ΑΦΜ υπάρχει ήδη");
+            echo  "Το ΑΦΜ υπάρχει ήδη <br />";
+        }
+
         if ($user['email'] === $email) {
             array_push($errors, "Το email χρησιμοποιείται από άλλον χρήστη");
             echo "Το email χρησιμοποιείται από άλλον χρήστη<br />";
         }
     }
-
 
     // Finally, register user if there are no errors in the form
     if (count($errors) == 0) {
@@ -69,10 +73,11 @@
         }
         else{
             array_push($errors, "Αποτυχία εγγραφής");
-            echo 'Αποτυχία εγγραφής<br />';
+            echo mysqli_errno($conn) . ": " . mysqli_error($conn). "\n";
+            echo 'Αποτυχία εγγραφής - 1<br />';
         }
 
     }else{
-        echo 'Αποτυχία εγγραφής<br />';
+        echo 'Αποτυχία εγγραφής - 2<br />';
     }
 ?>
