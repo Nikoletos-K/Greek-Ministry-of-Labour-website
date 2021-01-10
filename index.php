@@ -41,6 +41,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Green - v2.3.0
@@ -148,8 +149,8 @@
           <div class="icon-box">
             <div class="icon"><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i></div>
             <h4 class="title"><a href="#">Ειδικός σχεδιασμός</a></h4>
-            <p class="description">Aν είστε χρήστης με κάποια σωματική δυσλειτουργία, παρακαλώ πατήστε εδώ
-               για να γίνει ο ιστότοπος συμβατός με τις ανάγκες σας.</p>
+            <p class="description">Aν ανήκετε σε ομάδα ατόμων με ειδικές ανάγκες, παρακαλώ πατήστε εδώ
+               για να γίνει ο ιστότοπος συμβατός με τις απαιτήσεις σας.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">

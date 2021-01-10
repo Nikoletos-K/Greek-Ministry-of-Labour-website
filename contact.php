@@ -26,8 +26,7 @@
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-    <!-- Google Fonts -->
+     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   
     <!-- Vendor CSS Files -->
@@ -153,7 +152,6 @@
         <div class="row">
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-
             <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="section-title">
@@ -164,7 +162,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="firstname_surname">Όνομα και Επώνυμο</label>
-                  <input type="text" name="firstname_surname" class="form-control" id="firstname_surname" data-rule="minlen:6" data-msg="Παρακαλώ εισάγετε τουλάχιστον 4 χαρακτήρες" />
+                  <input type="text" name="firstname_surname" class="form-control" id="firstname_surname" data-rule="minlen:6" data-msg="Παρακαλώ εισάγετε τουλάχιστον 5 χαρακτήρες" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
