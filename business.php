@@ -174,19 +174,21 @@
                                 <!-- <div class="container"> -->
                                     <div class="table-responsive">
                                         <div class="table-wrapper">
-                                            <div class="table-title">
+                                            <?php echo 
+                                            '<form method="post"  id="test"> <div class="table-title">
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <h2>Διαχείρηση <b>Εργαζομένων</b></h2>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <a href="#dhlwshEmployeeModal" class="btn btn-secondary" data-toggle="modal"><i class="fa fa-file-text-o" aria-hidden="true"></i> Δήλωση</a>
-                                                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> Προσθήκη</a>
-                                                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> Διαγραφή</a>						
+                                                        <button type="submit" class="btn btn-secondary">
+                                                            <i class="fa fa-file-text-o" aria-hidden="true"></i>  Δήλωση
+                                                        </button>
+                                                        </input>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <?php
+                                            </div>';
+
                                             $myafm = $_SESSION["afm"];
                                             $result = mysqli_query($conn,"SELECT * FROM employee WHERE workingFor=$myafm");
                                             echo '<table id="table" class="table table-striped table-hover">
@@ -205,38 +207,38 @@
                                                     <th>Κατάσταση</th>
                                                     <th>Ενέργειες</th>
                                                 </tr>
-                                            </thead> <tbody> ';
+                                            </thead> <tbody>  ';
 
                                             while($row = mysqli_fetch_array($result))
                                             {
-                                            $workerAFM = $row['afm'];
-                                            $checkBoxes = array();
-                                            $worker_result = mysqli_query($conn,"SELECT * FROM genericuser WHERE afm=$workerAFM");
-                                            $worker = mysqli_fetch_array($worker_result);
-                                            $checkedAFM = $worker['afm'];
-                                            echo "<tr>
-                                                <td>
-                                                    <span class='custom-checkbox'>
+                                                $workerAFM = $row['afm'];
+                                                $checkBoxes = array();
+                                                $worker_result = mysqli_query($conn,"SELECT * FROM genericuser WHERE afm=$workerAFM");
+                                                $worker = mysqli_fetch_array($worker_result);
+                                                $checkedAFM = $worker['afm'];
+                                                echo "<tr>
+                                                    <td>
+                                                        <span class='custom-checkbox'>
+                                                        
+                                                            <input id='checkbox1'  type='checkbox' name='checkBoxes[]'  value='" . $worker['afm'] . "'>
+                                                            <label for='checkbox1'></label>
                                                     
-                                                        <input id='checkbox1'  type='checkbox' name='checkBoxes[]' value='" . $worker['afm'] . "'>
-                                                        <label for='checkbox1'></label>
-                                                   
-                                                    </span>
-                                                </td>";
-                                            
-                                            echo "<td>" . $worker['firstname'] .  "</td>";
-                                            echo "<td>" . $worker['lastname'] . "</td>";
-                                            echo "<td>" . $worker['email'] . "</td>";
-                                            echo "<td>" . $worker['afm'] . "</td>";
-                                            echo "<td>" . $row['anastoli_id'] . "</td>";
-                                            echo ' <td>
-                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
-                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
-                                            </td>
-                                            </tr>';
+                                                        </span>
+                                                    </td>";
+                                                
+                                                echo "<td>" . $worker['firstname'] .  "</td>";
+                                                echo "<td>" . $worker['lastname'] . "</td>";
+                                                echo "<td>" . $worker['email'] . "</td>";
+                                                echo "<td>" . $worker['afm'] . "</td>";
+                                                echo "<td>" . $row['anastoli_id'] . "</td>";
+                                                echo ' <td>
+                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
+                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
+                                                </td>
+                                                </tr>';
                                             }
-                                            $_SESSION['checkBoxes'] = $checkBoxes;
-                                            echo " </tbody> </table>";
+
+                                            echo " </tbody> </table> </form>";
 
                                             ?>
                                             <div class="clearfix">
@@ -711,8 +713,16 @@ $('#aithsh').change(function(){
             break;
     }
   });
+  
 </script>
-
+<script>
+$(document).ready(function() {
+  $('#test').on('submit', function(e){
+      $('#dhlwshEmployeeModal').modal('show');
+      e.preventDefault();
+  });
+});
+</script>
 
 </body>
 

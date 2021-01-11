@@ -5,7 +5,9 @@
  
   $errors = array(); 
 
+  echo "DHLVSH";
   print_r($_SESSION['checkBoxes']);
+  // print_r($_POST['checkBoxes']);
 
   if(isset($_POST['dhlwsh'])) {
     $dhlwsh= $_POST['dhlwsh'] = mysqli_real_escape_string($conn, $_POST['dhlwsh']);
