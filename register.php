@@ -126,10 +126,9 @@
                 </div>
               </div>
               <div id="afmErgodoth" style="display:none;">
-              <div class="form-group">
-
+                <div class="form-group">
                   <label for="specify">Α.Φ.Μ του εργοδότη ή της επιχείρησης για την οποία εργάζεστε</label>
-                  <input type="text" id="afmEmployer" name="afmEmployer" class="form-control" data-rule="required" data-msg="Παρακαλώ εισάγετε το Α.Φ.Μ του εργοδότη ή της επιχείρησης για την οποία εργάζεστε" />
+                  <input type="text" id="afmEmployer" name="afmEmployer" data-afm="role" class="form-control" data-rule="required" data-msg="Παρακαλώ εισάγετε το Α.Φ.Μ του εργοδότη ή της επιχείρησης για την οποία εργάζεστε" />
                   <div class="validate"></div>
                 </div>
               </div>
@@ -204,7 +203,7 @@
 
 <script>
   $('#role').change(function(){
-    selection = $(this).val();    
+    selection = $(this).val();
     switch(selection)
     { 
         case 'ergazomenos':

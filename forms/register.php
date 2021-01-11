@@ -57,8 +57,24 @@
             if($role === 'ergazomenos') {
                 $employee_query = "INSERT INTO employee (afm,workingFor) VALUES ('$afm','$afmEmployer')";
                 mysqli_query($conn, $employee_query);
-                // echo mysqli_errno($conn) . ": " . mysqli_error($conn). "\n";
+                
     
+                $employee_actions_q = "SELECT * FROM employee WHERE afm='$afmEmployer' LIMIT 1";
+                $result = mysqli_query($conn, $employee_actions_q);
+                $actions = mysqli_fetch_assoc($result);
+
+                if($actions){
+                    $_SESSION["actions"] = $actions;    
+                }
+
+                $employer_query = "SELECT * FROM genericuser WHERE afm='$afmEmployer' LIMIT 1";
+                $employer_res = mysqli_query($conn, $employer_query);
+                $employer = mysqli_fetch_assoc($employer_res);
+
+                if($employer){
+                    $_SESSION["employer"] = $employer;
+                }
+                
             } else {
                 $employer_query = "INSERT INTO employer (afm) VALUES ('$afm')";
                 mysqli_query($conn, $employer_query);

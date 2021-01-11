@@ -55,13 +55,15 @@
         $phone = $_SESSION['phone'];
     }
 
-    if(isset($_POST['afm'])  && $_POST['afm'] !== '' && $_SESSION['login_user'] === true ) {
-        $afm = $_POST['afm'] = mysqli_real_escape_string($conn, $_POST['afm']);
-        $changed_fields++;    
+    // if(isset($_POST['afm'])  && $_POST['afm'] !== '' && $_SESSION['login_user'] === true ) {
+    //     $afm = $_POST['afm'] = mysqli_real_escape_string($conn, $_POST['afm']);
+    //     $changed_fields++;    
         
-    } else {
-        $afm = $_SESSION['afm'];
-    }
+    // } else {
+    //     $afm = $_SESSION['afm'];
+    // }
+    
+    $afm = $_SESSION['afm'];
 
     if(isset($_POST['role']) && $_POST['role'] !== 'default' && $_SESSION['login_user'] === true ) {
         $role = $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
@@ -70,6 +72,12 @@
         $role = $_SESSION['role'];
     }
 
+    if(isset($_POST['afmEmployer']) && $_POST['afmEmployer'] !== '' && $_SESSION['login_user'] === true ) {
+        $afmEmployer = $_POST['afmEmployer'] = mysqli_real_escape_string($conn, $_POST['afmEmployer']);
+        $changed_fields++;   
+    } else {
+        $afmEmployer = $_SESSION['afmEmployer'];
+    }
 
     if(isset($_POST['password_1'])  && $_POST['password_1'] !== '' && $_SESSION['login_user'] === true ) {
 
@@ -92,13 +100,22 @@
 
     if (count($errors) == 0 && $changed_fields > 0) {
 
-        $user_delete_query = "DELETE FROM genericuser WHERE username='$username';";
-        $result = mysqli_query($conn, $user_delete_query);
-
-        $query = "INSERT INTO genericuser (username, firstname, lastname, password, email, phone, afm, role) 
-                VALUES ('$username','$firstname','$lastname', '$password', '$email', '$phone', '$afm', '$role')";
+        $query = "UPDATE genericuser 
+                    SET username = '$username' , firstname = '$firstname', lastname ='$lastname' , password  = '$password', email = '$email' , phone = '$phone', role = '$role' 
+                WHERE  afm = '$afm'";
 
         if(mysqli_query($conn, $query)){
+
+            if($afmEmployer !== $_SESSION['afmEmployer']){
+        
+                $query = "UPDATE employee 
+                        SET workingFor = '$afmEmployer'
+                        WHERE afm = '$afm'";
+
+                mysqli_query($conn, $query);
+
+                $_SESSION["afmEmployer"] = $afmEmployer;
+            }
 
             
             $_SESSION["username"] = $username;

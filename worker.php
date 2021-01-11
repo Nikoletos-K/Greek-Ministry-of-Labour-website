@@ -208,60 +208,96 @@
                                 </form>
                             </div>
                             <div>
-                                <h5>Η εργασιακή μου κατάσταση</h5><br><hr>
+                                <h5>Η εργασιακή μου κατάσταση</h5><hr><br><br>
+                                <div class="card-deck d-flex justify-content-center">
+                                <div class="card border-success mb-3" style="max-width: 18rem;">
+                                    <div class="card-header">CoVid-19</div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">Αναστολή σύμβασης εργασίας</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div> 
+                                <div class="card border-primary mb-3" style="max-width: 18rem;">
+                                    <div class="card-header">CoVid-19</div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">Τηλεργασία</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div> 
+                                <div class="card border-primary mb-3" style="max-width: 18rem;">
+                                    <div class="card-header">CoVid-19</div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">Άδεια ειδικού σκοπού</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div> 
+                                <div class="card border-success mb-3" style="max-width: 18rem;">
+                                    <div class="card-header">CoVid-19</div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">Αναστολή σύμβασης εργασίας</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div> 
+                                </div>
+
                                 <div class="container">
-                                    <div class="row">
+                                    <br>
+                                    <h5 style="font-weight: bold; ">Στοιχεία Επιχείρησης-Εργοδότη</h5>
+                                    <p style = "font-style:italic">Παρακάτω παρουσιάζονται όλα τα στοιχεία του εργοδότη για τον οποίο εργάζεστε και με τα οποία μπορείτε να έρθετε σε επαφή μαζί του.</p>
+                                    <br>
+                                    <div class="row">                                
                                         <div class="col">
-                                            <h5 style="font-weight: bold; ">Στοιχεία Επιχείρησης Εργασίας</h5><br>
                                             <div style="font-size:18px;" class="form-group">
-                                                <label style="font-weight:bold;" class="col-sm-9 control-label">'Ονομα </label>
+                                                <label style="font-weight:bold;" class="col-sm-9 control-label">'Ονομα Εργοδότη</label>
                                                 <div class="col-sm-10">
-                                                    <?php echo $_SESSION["firstname"]; ?>
+                                                    <?php echo $_SESSION["employer"]["firstname"]; ?>
                                                 </div>
                                             </div>
                                             <div style="font-size:18px;" class="form-group">
                                                 <label style="font-weight:bold;" class="col-sm-9 control-label">Email </label>
                                                 <div class="col-sm-10">
-                                                    <?php echo $_SESSION["email"]; ?>
+                                                    <?php echo $_SESSION["employer"]["email"]; ?>
                                                 </div>
                                             </div>
                                             <div style="font-size:18px;" class="form-group">
                                                 <label style="font-weight:bold;" class="col-sm-9 control-label">ΑΦΜ </label>
                                                 <div class="col-sm-10">
-                                                    <?php echo $_SESSION["afm"]; ?>
+                                                    <?php echo $_SESSION["employer"]["afm"]; ?>
                                                 </div>
                                             </div>
                                         </div>
 
 
                                         <div class="col">
-                                        <h5 style="font-weight: bold; ">Προσωπικά στοιχεία</h5><br>
                                             <div style="font-size:18px;" class="form-group">
-                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Ταμείο Ασφάλισης</label>
+                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Επίθετο εργοδότη</label>
                                                 <div class="col-sm-10">
-                                                    <?php echo $_SESSION["lastname"]; ?>
+                                                    <?php echo $_SESSION["employer"]["lastname"]; ?>
                                                 </div>
                                             </div>
                                             <div style="font-size:18px;" class="form-group">
-                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Χρόνια Εργασίας</label>
+                                                <label style="font-weight:bold;" class="col-sm-7 control-label">Τηλέφωνο</label>
                                                 <div class="col-sm-10">
-                                                    <?php echo $_SESSION["phone"]; ?>
+                                                    <?php echo $_SESSION["employer"]["phone"]; ?>
                                                 </div>
                                             </div>
-                                            <div style="font-size:18px;" class="form-group">
+                                            <!-- <div style="font-size:18px;" class="form-group">
                                                 <label style="font-weight:bold;" class="col-sm-7 control-label">Μηνιαία Επιδόματα</label>
                                                 <div class="col-sm-11">
                                                     <?php 
-                                                        if($_SESSION["role"] === 'ergazomenos'){
-                                                            echo 'Εργαζόμενος';
-                                                        }
+                                                        // if($_SESSION["employer"]["role"] === 'ergazomenos'){
+                                                        //     echo 'Εργαζόμενος';
+                                                        // }
                                                     ?>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div> 
                                 </div> <hr>
+     
+
                                 <div class="container">
+
                                     <h5 style="font-weight: bold; ">Άλλες πληροφορίες</h5><br>
                                     <div class="row">
                                         <div style="font-size:18px;" class="form-group">
@@ -329,13 +365,13 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group form-row">
+                                            <!-- <div class="form-group form-row">
                                                 <label for="afm" class="col-4 col-form-label">ΑΦΜ</label> 
                                                 <div class="form-group col-md-6">
                                                     <input id="afm" name="afm" placeholder=<?php echo $_SESSION["afm"]; ?> data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
                                                     <div class="validate"></div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             
                                             <div class="form-group form-row">
@@ -380,6 +416,17 @@
                                                 </div>
                                             </div>
                                             <br>
+                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ΑΦΜ επιχείρησης ή εργοδότη</h4>
+                                            <br>
+                                            <div class="form-group form-row">
+                                                <label for="password_1" class="col-4 col-form-label">Α.Φ.Μ επιχείρησης ή εργοδότη</label>                                             
+                                                <div class="form-group col-md-6">
+                                                    <input id="afmEmployer" name="afmEmployer" placeholder=<?php echo $_SESSION["afmEmployer"]; ?> data-rule="checkifFilled:4" data-msg="Ο κωδικός ΑΦΜ να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="text">
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+
+                                            <br>
                                             <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
                                             <br>
                                             <div class="form-group form-row">
@@ -402,7 +449,7 @@
                                             <div class="mb-3">
                                                 <div class="loading">Φόρτωση</div>
                                                 <div class="error-message"></div>
-                                                <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία</div>
+                                                <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία.<br> Ανανεώστε την σελίδα για να δείτε τα νέα στοιχεία.</div>
                                             </div>
                                             <div class="text-center">
                                                 <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
