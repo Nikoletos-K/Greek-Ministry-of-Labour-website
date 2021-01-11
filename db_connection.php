@@ -1,6 +1,6 @@
 <?php
 
-$dbhost = "127.0.0.1:3307";
+$dbhost = "127.0.0.1";
 $dbuser = "root";
 $dbpass = '';
 $db = 'sdi1700038';
