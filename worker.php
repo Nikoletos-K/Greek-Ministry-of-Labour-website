@@ -260,6 +260,29 @@
                                             </div>
                                         </div>
                                     </div> 
+                                </div> <hr>
+                                <div class="container">
+                                    <h5 style="font-weight: bold; ">Άλλες πληροφορίες</h5><br>
+                                    <div class="row">
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">'Ονομα </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["firstname"]; ?>
+                                            </div>
+                                        </div>
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">Email </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["email"]; ?>
+                                            </div>
+                                        </div>
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">ΑΦΜ </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["afm"]; ?>
+                                            </div>
+                                        </div>
+                                    </div> 
                                 </div> <hr> 
                             </div>
                             <div>
@@ -279,8 +302,7 @@
                                 <hr><br>
                                 <div class="row simple-form">
                                     <div class="col-md-12">
-                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">
-                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
+                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
                                             <br>                                            
                                             <div class="form-group form-row">
                                                 <label for="firstname" class="col-4 col-form-label">Όνομα</label> 

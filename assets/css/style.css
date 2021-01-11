@@ -2439,4 +2439,26 @@ color: rgb(0, 33, 95);
 .modal .simple-form .php-email-form input {
   height: 44px;
 }
- 
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  overflow: auto;
+  height: 100%;
+}
+
+/* unset bs3 setting */
+.modal-open {
+ overflow: auto; 
+}
+
+.modal {
+  overflow-y: auto;
+}
+
+/* header {
+  position: sticky;
+  top: 0;
+} */
