@@ -39,14 +39,33 @@
         $_SESSION["username"] = $username;
         $_SESSION["password"] = $password;
         $_SESSION["firstname"] = $validated_user['firstname'];
-        // echo $validated_user['firstname'];
         $_SESSION["lastname"] = $validated_user['lastname'];
         $_SESSION["email"] = $validated_user['email'];
         $_SESSION["phone"] = $validated_user['phone'];
         $_SESSION["afm"] = $validated_user['afm'];
         $_SESSION["role"] = $validated_user['role'];      
-        // echo print_r($_SESSION);
 
+        if($validated_user['role'] === 'ergazomenos'){
+
+            $employee_afm = $validated_user['afm'];
+            $employee_actions_q = "SELECT * FROM employee WHERE afm='$employee_afm' LIMIT 1";
+            $result = mysqli_query($conn, $employee_actions_q);
+            $actions = mysqli_fetch_assoc($result);
+            $afmEmployer = $actions['workingFor'];
+            $_SESSION["afmEmployer"] = $afmEmployer;      
+
+            if($actions){
+                $_SESSION["actions"] = $actions;    
+            }
+
+            $employer_query = "SELECT * FROM genericuser WHERE afm='$afmEmployer' LIMIT 1";
+            $employer_res = mysqli_query($conn, $employer_query);
+            $employer = mysqli_fetch_assoc($employer_res);
+
+            if($employer){
+                $_SESSION["employer"] = $employer;
+            }
+        }
         
         if($validated_user['role'] === 'ergazomenos' ){
             echo 'OK:worker.php';
