@@ -370,23 +370,16 @@
                                 <div id="addEmployeeModal" class="modal fade contact">
                                     <div class="modal-dialog row justify-content-center">
                                         <div class="modal-content">
-                                            <form class="php-email-form">
+                                            <form  action="forms/hirement.php" method="post" role="form" class="php-email-form">
                                                 <div class="modal-header">						
-                                                    <h4 class="modal-title">Προσθήκη υπαλλήλου</h4>
+                                                    <h4 class="modal-title">Πρόσληψη υπαλλήλου</h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                 </div>
                                                 <div class="modal-body" style="font-size:18px;">					
                                                     <div class="form-group">
-                                                        <label>Ονοματεπώνυμο</label>
-                                                        <input type="text" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Email</label>
-                                                        <input type="email" class="form-control" required>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label>ΑΦΜ</label>
-                                                        <input type="text" class="form-control" required>
+                                                        <input id="employee_afm" name="employee_afm" type="text" class="form-control" data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ">
+                                                        <div class="validate"></div>
                                                     </div>					
                                                 </div>
                                                 <div class="text-center">

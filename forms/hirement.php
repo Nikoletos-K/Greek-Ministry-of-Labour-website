@@ -4,21 +4,7 @@
 
     $errors = array(); 
 
-    $username = $_POST['username'] = mysqli_real_escape_string($conn, $_POST['username']);
-    $firstname = $_POST['firstname'] = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $lastname = $_POST['lastname'] = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = $_POST['email'] = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone =  $_POST['phone'] = mysqli_real_escape_string($conn, $_POST['phone']);
-    $afm =  $_POST['afm'] = mysqli_real_escape_string($conn, $_POST['afm']);
-    $role =  $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
-    $password_1 = $_POST['password_1'] = mysqli_real_escape_string($conn, $_POST['password_1']);
-    $password_2 = $_POST['password_2'] = mysqli_real_escape_string($conn, $_POST['password_2']);
-
-    if ($password_1 != $password_2) {
-        echo "Οι κωδικοί που εισάγατε δεν ταιριάζουν<br />";
-        array_push($errors, "Οι κωδικοί που εισάγατε δεν ταιριάζουν");
-    }
-
+    
     $user_check_query = "SELECT * FROM genericuser WHERE (username='$username' OR afm='$afm' OR email='$email') LIMIT 1";
     $result = mysqli_query($conn, $user_check_query);
     $user = mysqli_fetch_assoc($result);
