@@ -122,7 +122,14 @@
                     <option value="anergos">Άνεργος</option>
                     <option value="el_epag">Ελεύθερος επαγγελματίας</option>
                     <option value="syntaxiouxos">Συνταξιούχος</option>
-                  </select>
+                  </select>                
+                </div>
+              </div>
+              <div id="afmErgodoth" style="display:none;">
+              <div class="form-group">
+
+                  <label for="specify">Α.Φ.Μ του εργοδότη ή της επιχείρησης για την οποία εργάζεστε</label>
+                  <input type="text" id="afmEmployer" name="afmEmployer" class="form-control" data-rule="required" data-msg="Παρακαλώ εισάγετε το Α.Φ.Μ του εργοδότη ή της επιχείρησης για την οποία εργάζεστε" />
                   <div class="validate"></div>
                 </div>
               </div>
@@ -195,6 +202,20 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 
+<script>
+  $('#role').change(function(){
+    selection = $(this).val();    
+    switch(selection)
+    { 
+        case 'ergazomenos':
+            $('#afmErgodoth').show();
+            break;
+        default:
+            $('#afmErgodoth').hide();
+            break;
+    }
+  });
+</script>
 
 </body>
 

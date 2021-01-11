@@ -13,6 +13,9 @@
     $role =  $_POST['role'] = mysqli_real_escape_string($conn, $_POST['role']);
     $password_1 = $_POST['password_1'] = mysqli_real_escape_string($conn, $_POST['password_1']);
     $password_2 = $_POST['password_2'] = mysqli_real_escape_string($conn, $_POST['password_2']);
+    if($role === 'ergazomenos'){
+        $afmEmployer =  $_POST['afmEmployer'] = mysqli_real_escape_string($conn, $_POST['afmEmployer']);
+    }
 
     if ($password_1 != $password_2) {
         echo "Οι κωδικοί που εισάγατε δεν ταιριάζουν<br />";
@@ -52,19 +55,19 @@
         if(mysqli_query($conn, $query)){
             
             if($role === 'ergazomenos') {
-                $employee_query = "INSERT INTO employee (afm) VALUES ('$afm')";
+                $employee_query = "INSERT INTO employee (afm,workingFor) VALUES ('$afm','$afmEmployer')";
                 mysqli_query($conn, $employee_query);
+                // echo mysqli_errno($conn) . ": " . mysqli_error($conn). "\n";
     
             } else {
                 $employer_query = "INSERT INTO employer (afm) VALUES ('$afm')";
                 mysqli_query($conn, $employer_query);
             }
-            
+
             $_SESSION['submit'] = true;
             $_SESSION['login_user'] = true;
             
             $_SESSION["username"] = $username;
-
             $_SESSION["firstname"] = $firstname;
             $_SESSION["lastname"] = $lastname;
             $_SESSION["password"] = $password;
@@ -76,6 +79,7 @@
             $_POST = array();
             
             if($role === 'ergazomenos' ){
+                $_SESSION["afmEmployer"] = $afmEmployer;
                 echo 'OK:worker.php';
             }else {
                 echo 'OK:business.php';
@@ -85,10 +89,10 @@
         else{
             array_push($errors, "Αποτυχία εγγραφής");
             echo mysqli_errno($conn) . ": " . mysqli_error($conn). "\n";
-            echo 'Αποτυχία εγγραφής - 1<br />';
+            echo 'Αποτυχία εγγραφής <br />';
         }
 
     }else{
-        echo 'Αποτυχία εγγραφής - 2<br />';
+        echo 'Αποτυχία εγγραφής<br />';
     }
 ?>
