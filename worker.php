@@ -302,8 +302,7 @@
                                 <hr><br>
                                 <div class="row simple-form">
                                     <div class="col-md-12">
-                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">
-                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
+                                        <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
                                             <br>                                            
                                             <div class="form-group form-row">
                                                 <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
