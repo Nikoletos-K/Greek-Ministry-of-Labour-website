@@ -260,6 +260,29 @@
                                             </div>
                                         </div>
                                     </div> 
+                                </div> <hr>
+                                <div class="container">
+                                    <h5 style="font-weight: bold; ">Άλλες πληροφορίες</h5><br>
+                                    <div class="row">
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">'Ονομα </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["firstname"]; ?>
+                                            </div>
+                                        </div>
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">Email </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["email"]; ?>
+                                            </div>
+                                        </div>
+                                        <div style="font-size:18px;" class="form-group">
+                                            <label style="font-weight:bold;" class="col-sm-9 control-label">ΑΦΜ </label>
+                                            <div class="col-sm-10">
+                                                <?php echo $_SESSION["afm"]; ?>
+                                            </div>
+                                        </div>
+                                    </div> 
                                 </div> <hr> 
                             </div>
                             <div>
