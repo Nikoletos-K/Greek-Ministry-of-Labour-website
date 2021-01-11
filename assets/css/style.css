@@ -896,7 +896,7 @@ section {
 
 .why-us .content-item {
   padding: 40px;
-  border-left: 1px solid #eee;
+  border-left: 1px solid rgb(184, 182, 182);
   border-bottom: 1px solid #eee;
   margin: -1px;
 }
@@ -2453,12 +2453,3 @@ body {
 .modal-open {
  overflow: auto; 
 }
-
-.modal {
-  overflow-y: auto;
-}
-
-/* header {
-  position: sticky;
-  top: 0;
-} */
