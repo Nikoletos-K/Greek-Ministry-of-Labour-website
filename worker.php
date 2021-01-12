@@ -80,7 +80,7 @@
                             <div class="container" >
                                 <div class="row ">
                                     <div class="col-md-6 ">
-                                        <div class="container " style="background-color: white;"  >
+                                        <div class="container z-depth-1" style="background-color: white;"  >
                                             <br><h5>Τα στοιχεία μου</h5><hr><br>
                                             <div class="row justify-content-center">
                                                 <div class="col-md-6">
@@ -135,57 +135,54 @@
                                     </div>
                                     
                                     <div class=" col-md-5 ">
-                                        <div class="container " style="background-color: rgb(226, 226, 226);"  >
+                                        <div class="container z-depth-1 " style="background-color: rgb(226, 226, 226);"  >
                                         <br><h5>Στοιχεία που αφορούν τον <b style="color:#5688e6;">Covid-19</b></h5><hr><br>
-                                            <div class="row justify-content-center ">
-                                                <div class="col-md-6">
-                                                    
+                                            <!-- <div class="row justify-content-center "> -->
+                                                <!-- <div class="col-md-12"> -->
+                                                <?php
+
+                                                    $myafm = $_SESSION["afm"];
+                                                    $result = mysqli_query($conn,"SELECT * FROM employee WHERE afm=$myafm");
+                                                    $employee = mysqli_fetch_array($result);
+                                                    $anastoli = $employee['anastoli_id'];
+                                                    $thlergasia = $employee['thlergasia_id'];
+                                                    $adeia = $employee['adeia_id'];
+                                                              
+                                                    if($anastoli != NULL){
+                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$anastoli");
+                                                        $action = mysqli_fetch_array($result);
+                                                        echo '<div style="font-size:18px;" class="form-group">
+                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε αναστολή εργασίας το διάστημα:</label>
+                                                            <div class="col-sm-10">';
+                                                            echo    $action['starting_date'];
+                                                         echo ' - '; 
+                                                         echo $action['end_date']; 
+                                                         echo ' </div> </div>';
+                                                    } if($thlergasia !=NULL){
+                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$thlergasia");
+                                                        $action = mysqli_fetch_array($result);
+                                                        echo '
                                                         <div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
-                                                            <div class="col-sm-10">
-                                                                <?php echo $_SESSION["firstname"]; ?>
-                                                            </div>
-                                                        </div>
+                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε εργασία εξ αποστάσεως το διάστημα:</label>
+                                                            <div class="col-sm-10">';
+                                                               echo $action['starting_date']; echo ' - '; echo $action['end_date']; 
+                                                         echo '   </div>
+                                                        </div>';
+                                                    }  if($thlergasia !=NULL){
+                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$adeia");
+                                                        $action = mysqli_fetch_array($result);
+                                                        echo '
                                                         <div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                                                            <div class="col-sm-10">
-                                                                <?php echo $_SESSION["email"]; ?>
-                                                            </div>
-                                                        </div>
-                                                        <div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
-                                                            <div class="col-sm-10">
-                                                                <?php echo $_SESSION["afm"]; ?>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                </div>
-                                                <div class="col-md-6">
-                                                    
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                                                        <div class="col-sm-10">
-                                                            <?php echo $_SESSION["lastname"]; ?>
-                                                        </div>
-                                                    </div>
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                                                        <div class="col-sm-10">
-                                                            <?php echo $_SESSION["phone"]; ?>
-                                                        </div>
-                                                    </div>
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
-                                                        <div class="col-sm-11">
-                                                            <?php 
-                                                                if($_SESSION["role"] === 'ergazomenos'){
-                                                                    echo 'Εργαζόμενος';
-                                                                }
-                                                            ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε άδεια το διάστημα:</label>
+                                                            <div class="col-sm-10">';
+                                                               echo $action['starting_date']; echo ' - '; echo $action['end_date']; 
+                                                         echo '   </div>
+                                                        </div> <br>';
+                                                    }
+                                            
+                                                ?>
+                                                <!-- </div> -->
+                                            <!-- </div> -->
                                         </div>                              
                                     </div>
                                 </div>
@@ -269,6 +266,7 @@
                                 <div class="container">
                                     <p style = "font-style:italic">Παρακάτω παρουσιάζονται όλα τα στοιχεία του εργοδότη για τον οποίο εργάζεστε και με τα οποία μπορείτε να έρθετε σε επαφή μαζί του.</p>
                                     <br>
+                                    <hr>
                                     <div class="row">                                
                                         <div class="col">
                                             <div style="font-size:18px;" class="form-group">

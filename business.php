@@ -63,82 +63,133 @@
         </div>
         </section><!-- End Breadcrumbs -->
 
-        <div class="container-fluid col-md-8 " >
+        <div class="container-fluid col-md-12 " >
             
-            <div class="well-title d-flex align-items-start flex-column">
-                <br><br>
-                <h4 style="font-weight: bold; ">Τα στοιχεία μου</h4>
-            </div>
-            <hr>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div style="font-size:18px;" class="form-group">
-                            <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
-                            <div class="col-sm-10">
-                                <?php echo $_SESSION["firstname"]; ?>
-                            </div>
-                        </div>
-                        <div style="font-size:18px;" class="form-group">
-                            <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                                <?php echo $_SESSION["email"]; ?>
-                            </div>
-                        </div>
-                        <div style="font-size:18px;" class="form-group">
-                            <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
-                            <div class="col-sm-10">
-                                <?php echo $_SESSION["afm"]; ?>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col">
-                        <div style="font-size:18px;" class="form-group">
-                                <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                                <div class="col-sm-10">
-                                    <?php echo $_SESSION["lastname"]; ?>
-                                </div>
-                            </div>
-                            <div style="font-size:18px;" class="form-group">
-                                <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                                <div class="col-sm-10">
-                                    <?php echo $_SESSION["phone"]; ?>
-                                </div>
-                            </div>
-                            <div style="font-size:18px;" class="form-group">
-                                <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
-                                <div class="col-sm-11">
-                                    <?php 
-                                        if($_SESSION["role"] === 'ergodoths'){
-                                            echo 'Εργοδότης';
-                                        }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
- 
+           
             <div class="col-lg-10 mt-4 mt-lg-0">
                 <div class="profile-wrapper">   
                     <div class="tab-wrapper">
                         <ul class="tab-menu " >
-                            <li class="active">Εργασιακή κατάσταση</li>
+                            <li class="active">Τα στοιχεία μου</li>
                             <li>Εργαζόμενοι</li>
                             <li>Δηλώσεις</li>
-                            
-                            
                             <li>Ένσημα</li>
                             <li>Έγγραφα</li>
                             <li>Επεξεργασία προφίλ</li>
                         </ul>
                         <div class="tab-content">
-                            <div>
-                                <h5>Κατάσταση της επιχείρησης</h5>
-                                    <br>
+                        <div class="container" >
+                                <div class="row ">
+                                    <div class="col-md-6 ">
+                                        <div class="container z-depth-1" style="background-color: white;"  >
+                                            <br><h5>Τα στοιχεία μου</h5><hr><br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-6">
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["firstname"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["email"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["afm"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["lastname"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["phone"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
+                                                        <div class="col-sm-12">
+                                                            <?php 
+                                                                if($_SESSION["role"] === 'ergodoths'){
+                                                                    echo 'Εργοδότης';
+                                                                }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-1">
+                                    </div>
+                                    
+                                    <div class=" col-md-5 ">
+                                        <div class="container z-depth-1" style="background-color: rgb(226, 226, 226);"  >
+                                        <br><h5>Στοιχεία που αφορούν τον <b style="color:#5688e6;">Covid-19</b></h5><hr><br>
+                                            <div class="row justify-content-center ">
+                                                <div class="col-md-6">
+                                                    
+                                                        <div style="font-size:16px;" class="form-group">
+                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                                                            <div class="col-sm-10">
+                                                                <?php echo $_SESSION["firstname"]; ?>
+                                                            </div>
+                                                        </div>
+                                                        <div style="font-size:16px;" class="form-group">
+                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                                                            <div class="col-sm-10">
+                                                                <?php echo $_SESSION["email"]; ?>
+                                                            </div>
+                                                        </div>
+                                                        <div style="font-size:16px;" class="form-group">
+                                                            <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                                                            <div class="col-sm-10">
+                                                                <?php echo $_SESSION["afm"]; ?>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                </div>
+                                                <div class="col-md-6">
+                                                    
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["lastname"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                        <div class="col-sm-10">
+                                                            <?php echo $_SESSION["phone"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
+                                                        <div class="col-sm-11">
+                                                            <?php 
+                                                                if($_SESSION["role"] === 'ergodoths'){
+                                                                    echo 'Εργοδότης';
+                                                                }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                              
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <h5>Οι εργαζόμενοι της επιχείρησης</h5><br>
