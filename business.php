@@ -226,16 +226,15 @@
                                     <div class="table-responsive">
                                         <div class="table-wrapper">
                                             <?php echo 
-                                            '<form method="post"  id="test"> <div class="table-title">
+                                            '<form method="post" action="forms/afms.php" id="checkBoxes_POST"> <div class="table-title">
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <h2>Διαχείρηση <b>Εργαζομένων</b></h2>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <button type="submit" class="btn btn-secondary">
-                                                            <i class="fa fa-file-text-o" aria-hidden="true"></i>  Δήλωση
-                                                        </button>
-                                                        </input>
+                                                    <input type="submit" name="submit" value="Submit" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
+                                                    <!-- <input type="submit" value="Δήλωση" ></input> -->
+                                                    <!--<a href="#dhlwshEmployeeModal" id="submitPost" data-toggle="modal" data-target="#dhlwshEmployeeModal" data-to class="btn btn-secondary">Submit</a> -->
                                                     </div>
                                                 </div>
                                             </div>';
@@ -263,7 +262,7 @@
                                             while($row = mysqli_fetch_array($result))
                                             {
                                                 $workerAFM = $row['afm'];
-                                                $checkBoxes = array();
+                                                // $checkBoxes = array();
                                                 $worker_result = mysqli_query($conn,"SELECT * FROM genericuser WHERE afm=$workerAFM");
                                                 $worker = mysqli_fetch_array($worker_result);
                                                 $checkedAFM = $worker['afm'];
@@ -288,7 +287,12 @@
                                                 </td>
                                                 </tr>';
                                             }
-
+                                            // if(isset($_POST['checkBoxes'])){
+                                            //     echo "HERE";
+                                            //     $_SESSION['checkBoxes'] = $_POST['checkBoxes'];
+                                            // }
+                                            // $_SESSION['checkBoxes'] = $checkBoxes;
+                                            // $_SESSION['checkBoxes'] = $_POST['checkBoxes'];
                                             echo " </tbody> </table> </form>";
 
                                             ?>
@@ -768,11 +772,48 @@ $('#aithsh').change(function(){
 </script>
 <script>
 $(document).ready(function() {
-  $('#test').on('submit', function(e){
-      $('#dhlwshEmployeeModal').modal('show');
-      e.preventDefault();
-  });
+    // $('#checkBoxes_POST').on('submit', function(e){
+    //     $('#dhlwshEmployeeModal').modal('show');
+    //     e.preventDefault();
+    // });
+
+    // $('#submitPost').click(function(){
+    //  /* when the submit button in the modal is clicked, submit the form */
+    
+    //     alert('submitting');
+    //     $('#checkBoxes_POST').submit();
+    //     // $('#checkBoxes_POST').on('submit', function(e){
+        
+    //     // alert('modal');
+    //     // $('#dhlwshEmployeeModal').modal('show');
+    //     // e.preventDefault();
+    //     // e.submit();
+    //     // });
+    // //     // alert('opening modal');
+    //     // $('#dhlwshEmployeeModal').modal('show');
+    // //     // e.preventDefault();
+        
+    // //     // // $('#dhlwshEmployeeModal').modal('show');
+    //     });
+    // //     // // e.preventDefault();
 });
+</script>
+<script type="text/javascript">
+    $("#checkBoxes_POST").submit(function(e){
+        alert("ENTEREd");
+        e.preventDefault();
+        $.ajax({
+            type : 'POST',
+            data: $("#checkBoxes_POST").serialize(),
+            url : 'forms/afms.php',
+            success : function(data){
+                alert("ENTEREd-2");
+                $("#dhlwshEmployeeModal").modal("show");
+                data.preventDefault();
+            }
+        });
+        return false;
+    });
 </script>
 
 </body>

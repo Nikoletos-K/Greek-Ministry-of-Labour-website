@@ -7,8 +7,7 @@
 
   echo "DHLVSH";
   print_r($_SESSION['checkBoxes']);
-  // print_r($_POST['checkBoxes']);
-
+  echo "---------------\n";
   if(isset($_POST['dhlwsh'])) {
     $dhlwsh= $_POST['dhlwsh'] = mysqli_real_escape_string($conn, $_POST['dhlwsh']);
   }
@@ -47,4 +46,5 @@
 //   } else {
 //     echo "FAIL";
 //   }  
+$_SESSION['checkBoxes'] = array();
 ?>
