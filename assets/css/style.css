@@ -2453,3 +2453,7 @@ body {
 .modal-open {
  overflow: auto; 
 }
+
+.modal-lg {
+  max-width: 80% !important;
+}

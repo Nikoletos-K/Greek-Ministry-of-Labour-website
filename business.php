@@ -391,13 +391,13 @@
                                     </div>
                                 </div>
 
-                                <div id="infoEmployeeModal" class="modal fade contact bd-example-modal-xl">
-                                    <div class="modal-dialog row justify-content-center">
-                                        <div class="modal-content modal-xl">        
+                                <div id="infoEmployeeModal" class="modal fade contact ">
+                                    <div class="modal-dialog modal-lg row justify-content-center">
+                                        <div class="modal-content ">        
                                             <form method="post" role="form"  class="php-email-form">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                 <div class="modal-header">
-                                                    <div class="modal-title col-md-9""><h4>
+                                                    <div class="modal-title col-md-9"><h4>
                                                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>  Στοιχεία εργαζομένου</h4>
                                                     </div>
                                                     <hr> <br>
@@ -447,15 +447,15 @@
                                                             
                                                         </div>
                                                     </div>	
-                                                    
+                                                    <br><br>
                                                     <table class="table table-hover">
+                                                    
                                                     <thead>
                                                         <tr style="color:white;" class="bg-primary">
-                                                            <th scope="col">Δήλωση</th>           
-                                                            <th scope="col">Κατάσταση</th>
-                                                            <th scope="col">Από</th>
-                                                            <th scope="col">Εώς</th>
-                                                            
+                                                            <td class="w-25">Δήλωση</td>           
+                                                            <td class="w-25">Κατάσταση</td>
+                                                            <td class="w-25">Από</td>
+                                                            <td class="w-25">Εώς</td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

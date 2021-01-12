@@ -11,21 +11,21 @@
               if($_SESSION['role'] === 'ergazomenos'){
 
                   echo '<div class=" d-flex justify-content-end">
-                  <a class="login-icons" href="worker.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
-                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  <a class="login-icons" href="worker.php" style="color: #19229e;"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php" style="color: #19229e;"><i class="icofont-logout"></i>Αποσύνδεση</a>
                   </div>'; 
 
               } else {
                   echo '<div class=" d-flex justify-content-end">
-                  <a class="login-icons" href="business.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
-                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  <a class="login-icons" href="business.php" style="color: #19229e;"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php" style="color: #19229e;"><i class="icofont-logout"></i>Αποσύνδεση</a>
                   </div>'; 
               }
                             
           } else {
 
-            echo '<a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
-            <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>';
+            echo '<a href="login.php"><button class="get-started-btn scrollto" style="color: #19229e;">Σύνδεση</button></a>
+            <a href="register.php"><button  class="get-started-btn scrollto" style="color: #19229e;">Εγγραφή</button></a>';
 
           }
           ?>
@@ -39,7 +39,7 @@
       <div class="container align-items-center">
         <nav class=" sec-navbar navbar ">
           <h1 class="logo mr-auto navbar-brand">
-            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="index.php" class="mr-auto "><img src="assets/img/logo.png" alt="ΥΕΚΥ" class="img-fluid"></a>
             <a href="index.php" >Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></h1>
           <form class="form-inline">
             <div class="md-form my-0 search-engine  ">
@@ -55,7 +55,7 @@
     <div class="container d-flex align-items-center">
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.php">Αρχική</a></li>
+          <li class="active"><a href="index.php" style="color: #19229e;">Αρχική</a></li>
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
               <li><a href="#">Πρόσλήψεις</a></li>
