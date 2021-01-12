@@ -25,6 +25,8 @@
             mysqli_query($conn, $query);
 
             $_SESSION["afmEmployer"] = $afmEmployer;
+
+            // $_SESSION["employer"]["firstname"];
         }
                     
         echo 'OK';
