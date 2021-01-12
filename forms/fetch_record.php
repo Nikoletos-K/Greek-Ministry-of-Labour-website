@@ -62,7 +62,10 @@
         $_SESSION['fetched_user']['adeia'] = NULL;
     }
 
-    
+    $_SESSION['fetched_user']['as_array'] = array();
+    $_SESSION['fetched_user']['as_array']['adeia'] = $_SESSION['fetched_user']['adeia'];
+    $_SESSION['fetched_user']['as_array']['thlergasia'] = $_SESSION['fetched_user']['thlergasia'];
+    $_SESSION['fetched_user']['as_array']['anastoli'] = $_SESSION['fetched_user']['anastoli'];
 
   }
 
