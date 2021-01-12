@@ -5,46 +5,62 @@
  
   $errors = array(); 
 
-  echo "DHLVSH";
-  print_r($_SESSION['checkBoxes']);
-  echo "---------------\n";
-  if(isset($_POST['dhlwsh'])) {
-    $dhlwsh= $_POST['dhlwsh'] = mysqli_real_escape_string($conn, $_POST['dhlwsh']);
-  }
-  if(isset( $_POST['date1'])) {
-    $date1 = $_POST['date1'] = mysqli_real_escape_string($conn, $_POST['date1']);
-  }
-  if(isset($_POST['date2'])) {
-    $date2 =  $_POST['date2'] = mysqli_real_escape_string($conn, $_POST['date2']);
-  }
-//   if(isset($_POST['checkBoxes'][])) {
-//     $checkBoxes=  $_POST['checkBoxes'] = mysqli_real_escape_string($conn, $_POST['checkBoxes']);
-//     echo $checkBoxes;
-    if(!empty($_POST['checkBoxes'])) {
-        echo 'hhhhhhhhhh';
-        foreach($_POST['checkBoxes'] as $check) {
-                echo $check; //echoes the value set in the HTML form for each checked checkbox.
-                             //so, if I were to check 1, 3, and 5 it would echo value 1, value 3, value 5.
-                             //in your case, it would echo whatever $row['Report ID'] is equivalent to.
-        }
-    }
-//   }
+  // echo "DHLVSH";
+  // print_r($_SESSION['checkBoxes']);
 
-//   if (count($errors) == 0) {
+  if(empty($_SESSION['checkBoxes'])) {
+    echo "Δεν έχετε επιλέξει κανέναν εργαζόμενο για κάποια ενέργεια<br>";
+    $_SESSION['checkBoxes'] = array();
+  } else {
+
+    $employeeAFMs = $_SESSION['checkBoxes'];
+
+    $date1 = $_POST['date1'] = mysqli_real_escape_string($conn, $_POST['date1']);
+    $date2 =  $_POST['date2'] = mysqli_real_escape_string($conn, $_POST['date2']);    
+    $dhlwsh= $_POST['dhlwsh'] = mysqli_real_escape_string($conn, $_POST['dhlwsh']);
+
+    foreach($employeeAFMs as $afm) {
+      
+      $insert_action = "INSERT INTO employee_action (type,starting_date,end_date) 
+                        VALUES  ('$dhlwsh','$date1','$date2')";
+
+      if(!mysqli_query($conn, $insert_action)){
+        echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
+      }
+
+
+      $increment_index = mysqli_insert_id($conn);
+
+
+      switch($dhlwsh) {
+        case "anastoli":
+          $insert_to_employee = "UPDATE employee 
+                                  SET  anastoli_id='$increment_index'
+                                    WHERE afm='$afm'";
+          break;
+
+        case "apostasi":
+          $insert_to_employee =  "UPDATE employee 
+            SET  thlergasia_id ='$increment_index'
+            WHERE afm='$afm'";
+          break;
+
+        case "adeia_eidikou_skopou":
+          $insert_to_employee =  "UPDATE employee 
+            SET  adeia_id ='$increment_index'
+            WHERE afm='$afm'";
+          break;
+      }
+
+      if(!mysqli_query($conn, $insert_to_employee)){
+        echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
+      }
+
+    }
+
+    echo "OK";
+    $_SESSION['checkBoxes'] = array();
+  } 
 
    
-
-//     $query = "INSERT INTO employee_action(name,  email, subject, message) 
-//           VALUES ('$name', '$email', '$subject', '$message')";
-
-//     if(mysqli_query($conn, $query)){
-//       echo "OK";
-//     } else {
-//       echo "FAIL";
-//     }
-    
-//   } else {
-//     echo "FAIL";
-//   }  
-$_SESSION['checkBoxes'] = array();
 ?>

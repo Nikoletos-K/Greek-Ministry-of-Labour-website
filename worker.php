@@ -87,17 +87,17 @@
                                                 <div class="col-md-3" ><a  href="#editProfileModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
                                                 <i class="icofont-ui-edit"></i> Επεξεργασία </a></div> 
                                             </div><hr> <br>
-                                            <div id="editProfileModal" class=" modal fade " >
-                                                <div class="modal-dialog row justify-content-center simple-form">
-                                                    <div class="modal-content contact">        
+                                            <div id="editProfileModal" class="modal fade contact" >
+                                                <div class="modal-dialog row justify-content-center">
+                                                    <div class="modal-content">        
                                                         <form action="forms/updateprofile.php" method="post" role="form"  class="php-email-form">
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                     
                                                             <div class=" section-title">						
                                                                 <h3 style="font-weight: bold; ">Επεξεργασία των στοιχείων μου</h3><hr>
                                                             </div>
-                                                            <div class="modal-body">	
-                                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
+                                                            <div class="contact modal-body">	
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
                                                                         <label for="firstname" class="col-4 col-form-label">Όνομα</label> 

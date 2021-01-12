@@ -8,7 +8,5 @@
   if(isset($_POST['checkBoxes'])){
     $_SESSION['checkBoxes'] = $_POST['checkBoxes'];
   }
-  // $_POST['checkBoxes'] = array();
-  // $_SESSION['checkBoxes'] = array();
-  echo "---> AFMS\n";
-  ?>
+
+?>
