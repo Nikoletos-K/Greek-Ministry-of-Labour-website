@@ -20,6 +20,7 @@
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="bootstrap/css/mdb.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -70,55 +71,166 @@
                     <div class="tab-wrapper">
                         <ul class="tab-menu">
                             <li class="active">Τα στοιχεία μου</li>
-                            <li>Κάνε αίτηση</li>
+                            <li>Νέα αίτηση</li>
                             <li>Στοιχεία εργοδότη </li>
                             <li>Ένσημα</li>
                             <li>Έγγραφα</li>
-                            <li >Επεξεργασία προφίλ</li>
+                            <li>Οι αιτήσεις μου</li>
                         </ul>
                         <div class="tab-content">
                             <div class="container" >
                                 <div class="row ">
-                                    <div class="col-md-6 ">
-                                        <div class="container z-depth-1" style="background-color: white;"  >
-                                            <br><h5>Τα στοιχεία μου</h5><hr><br>
-                                            <div class="row justify-content-center">
-                                                <div class="col-md-6">
-                                                    <div style="font-size:18px;" class="form-group">
+                                    <div class="col-md-12 ">
+                                        <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
+                                            <div class="row ">
+                                                <div class="col-md-9" style="padding-left:30px; padding-top:20px; "><h5><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Τα στοιχεία μου</h5></div>
+                                                <div class="col-md-3" ><a  href="#editProfileModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
+                                                <i class="icofont-ui-edit"></i> Επεξεργασία </a></div> 
+                                            </div><hr> <br>
+                                            <div id="editProfileModal" class=" modal fade " >
+                                                <div class="modal-dialog row justify-content-center simple-form">
+                                                    <div class="modal-content contact">        
+                                                        <form action="forms/updateprofile.php" method="post" role="form"  class="php-email-form">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    
+                                                            <div class=" section-title">						
+                                                                <h3 style="font-weight: bold; ">Επεξεργασία των στοιχείων μου</h3><hr>
+                                                            </div>
+                                                            <div class="modal-body">	
+                                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
+                                                                        <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="email" class="col-4 col-form-label">Email</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="role" class="col-6 col-form-label">Εργασιακή κατάσταση</label> 
+                                                                        <div class="form-group ">
+                                                                            
+                                                                            <select name="role" id="role" class="form-control" data-column="role">
+                                                                                <option value="default" style="display:none;">
+                                                                                <?php
+                                                                                    if($_SESSION["role"] == 'ergazomenos'){
+                                                                                        echo "Εργαζόμενος";
+                                                                                    }else{
+                                                                                        echo 'Εργοδότης-Επιχείρηση';
+                                                                                    }
+                                                                                ?></option>
+                                                                                <option value="ergazomenos">Εργαζόμενος</option>
+                                                                                <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
+                                                                                <option value="anergos">Άνεργος</option>
+                                                                                <option value="el_epag">Ελεύθερος επαγγελματίας</option>
+                                                                                <option value="syntaxiouxos">Συνταξιούχος</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
+                                                                    <br>
+
+                                                                    <div class="form-group col-md-12">
+                                                                        <label for="username" class=" col-form-label">Όνομα χρήστη</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
+                                                                    <br>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="password_1" class=" col-form-label">Νέος κωδικός</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="password_2" class=" col-form-label">Επαλήθευση νέου κωδικού</label> 
+                                                                        <div class="form-group ">
+                                                                            <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                            <div class="validate"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>					
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <div class="loading">Φόρτωση</div>
+                                                                <div class="error-message"></div>
+                                                                <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία.<br> Ανανεώστε την σελίδα για να δείτε τα νέα στοιχεία.</div>
+                                                            </div>
+                                                            <div class="text-center">
+                                                                <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>       
+
+                                             <div class="row justify-content-center">
+                                                <div class="col-md-4">
+                                                    <div style="font-size:16px;" class="form-group">
                                                         <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
-                                                        <div class="col-sm-10">
+                                                        <div class="col-sm-8">
                                                             <?php echo $_SESSION["firstname"]; ?>
                                                         </div>
                                                     </div>
-                                                    <div style="font-size:18px;" class="form-group">
+                                                    <div style="font-size:16px;" class="form-group">
                                                         <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                                                        <div class="col-sm-10">
+                                                        <div class="col-sm-8">
                                                             <?php echo $_SESSION["email"]; ?>
                                                         </div>
                                                     </div>
-                                                    <div style="font-size:18px;" class="form-group">
+                                                   
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                        <div class="col-sm-8">
+                                                            <?php echo $_SESSION["lastname"]; ?>
+                                                        </div>
+                                                    </div>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                        <div class="col-sm-8">
+                                                            <?php echo $_SESSION["phone"]; ?>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div style="font-size:16px;" class="form-group">
                                                         <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
                                                         <div class="col-sm-10">
                                                             <?php echo $_SESSION["afm"]; ?>
                                                         </div>
                                                     </div>
-                                                    
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                                                        <div class="col-sm-10">
-                                                            <?php echo $_SESSION["lastname"]; ?>
-                                                        </div>
-                                                    </div>
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                                                        <div class="col-sm-10">
-                                                            <?php echo $_SESSION["phone"]; ?>
-                                                        </div>
-                                                    </div>
-                                                    <div style="font-size:18px;" class="form-group">
-                                                        <label style="font-weight:bold;" class="col-sm-7 control-label">Εργασιακή κατάσταση</label>
+                                                    <div style="font-size:16px;" class="form-group">
+                                                        <label style="font-weight:bold;" class="col-sm-10 control-label">Εργασιακή κατάσταση</label>
                                                         <div class="col-sm-11">
                                                             <?php 
                                                                 if($_SESSION["role"] === 'ergazomenos'){
@@ -130,63 +242,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
-                                    <div class=" col-md-1">
-                                    </div>
-                                    
-                                    <div class=" col-md-5 ">
+                                                                 
+                                         <!--  <div class=" col-md-5 ">
                                         <div class="container z-depth-1 " style="background-color: rgb(226, 226, 226);"  >
                                         <br><h5>Στοιχεία που αφορούν τον <b style="color:#5688e6;">Covid-19</b></h5><hr><br>
-                                            <!-- <div class="row justify-content-center "> -->
-                                                <!-- <div class="col-md-12"> -->
-                                                <?php
-
-                                                    $myafm = $_SESSION["afm"];
-                                                    $result = mysqli_query($conn,"SELECT * FROM employee WHERE afm=$myafm");
-                                                    $employee = mysqli_fetch_array($result);
-                                                    $anastoli = $employee['anastoli_id'];
-                                                    $thlergasia = $employee['thlergasia_id'];
-                                                    $adeia = $employee['adeia_id'];
-                                                              
-                                                    if($anastoli != NULL){
-                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$anastoli");
-                                                        $action = mysqli_fetch_array($result);
-                                                        echo '<div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε αναστολή εργασίας το διάστημα:</label>
-                                                            <div class="col-sm-10">';
-                                                            echo    $action['starting_date'];
-                                                         echo ' - '; 
-                                                         echo $action['end_date']; 
-                                                         echo ' </div> </div>';
-                                                    } if($thlergasia !=NULL){
-                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$thlergasia");
-                                                        $action = mysqli_fetch_array($result);
-                                                        echo '
-                                                        <div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε εργασία εξ αποστάσεως το διάστημα:</label>
-                                                            <div class="col-sm-10">';
-                                                               echo $action['starting_date']; echo ' - '; echo $action['end_date']; 
-                                                         echo '   </div>
-                                                        </div>';
-                                                    }  if($thlergasia !=NULL){
-                                                        $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$adeia");
-                                                        $action = mysqli_fetch_array($result);
-                                                        echo '
-                                                        <div style="font-size:18px;" class="form-group">
-                                                            <label style="font-weight:bold;" class="col-sm-12 control-label">Βρίσκεστε σε άδεια το διάστημα:</label>
-                                                            <div class="col-sm-10">';
-                                                               echo $action['starting_date']; echo ' - '; echo $action['end_date']; 
-                                                         echo '   </div>
-                                                        </div> <br>';
-                                                    }
-                                            
-                                                ?>
-                                                <!-- </div> -->
-                                            <!-- </div> -->
-                                        </div>                              
+                                            </div>                             
+                                        </div>  -->
                                     </div>
                                 </div>
-                            </div>
                             
                             <div>
                                 <h5>Επιλέξτε αίτηση</h5>
@@ -262,10 +327,48 @@
                                 </form>
                             </div>
                             <div>
-                                <h5>Στοιχεία Επιχείρησης-Εργοδότη</h5><hr><br><br>
+                                <div class="row">
+                                    <div class="col-md-9" style="padding-left:30px; padding-top:20px; "><h5>Στοιχεία Επιχείρησης-Εργοδότη</h5></div>
+                                    <div class="col-md-3" ><a  href="#editEmployerModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
+                                    <i class="icofont-ui-edit"></i> Αλλαγή εργοδότη</a></div> 
+                                </div><hr> <br>
+                                <div id="editEmployerModal" class="modal fade contact" >
+                                    <div class="modal-dialog row justify-content-center">
+                                        <div class="modal-content">        
+                                            <form action="forms/allaghErgodoth.php" method="post" role="form"  class="php-email-form">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        
+                                                <div class=" section-title">						
+                                                    <h3 style="font-weight: bold; ">Αλλαγή στοιχείων εργοδότη</h3><hr>
+                                                    <h7>Για να αλλάξετε εργοδότη αρκεί να αλλάξετε το ΑΦΜ του. Τα υπόλοιπα στοιχεία θα ενημερωθούν αυτόματα. </h7><hr>
+                                                </div>
+                                                <div class="modal-body">	
+                                                	
+                                                    <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ΑΦΜ επιχείρησης ή εργοδότη</h4>
+                                                    <br>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="password_1" class="col-8 col-form-label">Α.Φ.Μ επιχείρησης ή εργοδότη</label>                                             
+                                                        <div class="form-group">
+                                                            <input id="afmEmployer" name="afmEmployer" placeholder=<?php echo $_SESSION["afmEmployer"]; ?> data-rule="checkifFilled:4" data-msg="Ο κωδικός ΑΦΜ να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="text">
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                    </div>			
+                                                    <div class="mb-3">
+                                                        <div class="loading">Φόρτωση</div>
+                                                        <div class="error-message"></div>
+                                                        <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία.<br> Ανανεώστε την σελίδα για να δείτε τα νέα στοιχεία.</div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
+                                                    </div>
+                                                </div>    
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>  
+                               
                                 <div class="container">
                                     <p style = "font-style:italic">Παρακάτω παρουσιάζονται όλα τα στοιχεία του εργοδότη για τον οποίο εργάζεστε και με τα οποία μπορείτε να έρθετε σε επαφή μαζί του.</p>
-                                    <br>
                                     <hr>
                                     <div class="row">                                
                                         <div class="col">
@@ -357,15 +460,6 @@
                                                     <div class="validate"></div>
                                                 </div>
                                             </div>
-
-                                            <!-- <div class="form-group form-row">
-                                                <label for="afm" class="col-4 col-form-label">ΑΦΜ</label> 
-                                                <div class="form-group col-md-6">
-                                                    <input id="afm" name="afm" placeholder=<?php echo $_SESSION["afm"]; ?> data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
-                                                    <div class="validate"></div>
-                                                </div>
-                                            </div> -->
-
                                             
                                             <div class="form-group form-row">
                                                 <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 

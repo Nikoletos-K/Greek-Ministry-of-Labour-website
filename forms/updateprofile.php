@@ -72,12 +72,6 @@
         $role = $_SESSION['role'];
     }
 
-    if(isset($_POST['afmEmployer']) && $_POST['afmEmployer'] !== '' && $_SESSION['login_user'] === true ) {
-        $afmEmployer = $_POST['afmEmployer'] = mysqli_real_escape_string($conn, $_POST['afmEmployer']);
-        $changed_fields++;   
-    } else {
-        $afmEmployer = $_SESSION['afmEmployer'];
-    }
 
     if(isset($_POST['password_1'])  && $_POST['password_1'] !== '' && $_SESSION['login_user'] === true ) {
 
@@ -105,18 +99,6 @@
                 WHERE  afm = '$afm'";
 
         if(mysqli_query($conn, $query)){
-
-            if($afmEmployer !== $_SESSION['afmEmployer']){
-        
-                $query = "UPDATE employee 
-                        SET workingFor = '$afmEmployer'
-                        WHERE afm = '$afm'";
-
-                mysqli_query($conn, $query);
-
-                $_SESSION["afmEmployer"] = $afmEmployer;
-            }
-
             
             $_SESSION["username"] = $username;
             $_SESSION["firstname"] = $firstname;
