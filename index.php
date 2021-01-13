@@ -125,14 +125,14 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="icofont-medical-sign"></i></div>
-              <h4 class="title"><a href="covid19.html">COVID-19</a></h4>
+              <h4 class="title"><a href="covid19.php">COVID-19</a></h4>
               <p class="description">Όλες οι πληροφορίες που αφορούν τις αλλαγές στον εργασιακό τομέα, λόγω του ιού Covid-19.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="icofont-tasks-alt"></i></div>
-              <h4 class="title"><a href="">Κλείστε ραντεβού</a></h4>
+              <h4 class="title"><a href="contact.php">Κλείστε ραντεβού</a></h4>
               <p class="description">Αν δεν είναι δυνατή η εξυπηρέτησή σας απο τον ιστόχωρό μας, υπάρχει η δυνατότητα να κλείσετε μια συνάντηση στον χώρο του υπουργείου.</p>
             </div>
           </div>
