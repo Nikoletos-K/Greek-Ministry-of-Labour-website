@@ -39,7 +39,7 @@
                                     WHERE afm='$afm'";
           break;
 
-        case "apostasi":
+        case "thlergasia":
           $insert_to_employee =  "UPDATE employee 
             SET  thlergasia_id ='$increment_index'
             WHERE afm='$afm'";
