@@ -18,6 +18,7 @@
     echo 'Κανένας εργαζόμενος σε ενεργή κατάσταση για να την αλλάξετε<br>';
   }else {
     $afm = $_SESSION['user'];
+    $flag = true;
     foreach($_POST['checkBoxes2'] as $key => $value){
 
       if($value === 'anastoli'){
@@ -38,19 +39,23 @@
 
       if(mysqli_query($conn, $update_q)){
         if(mysqli_query($conn, $query_delete)){
-          echo 'OK';
+          
         }else {
           echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
           echo 'Η ενημέρωση απέτυχε<br>';
+          $flag = false;
         }
       } else {
-        echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
-        echo 'Η ενημέρωση απέτυχε<br>';
+          echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
+          echo 'Η ενημέρωση απέτυχε<br>';
+          $flag = false;
       }
-      
-
     }
     
+  }
+
+  if($flag == true){
+    echo "OK";
   }
 
 ?>

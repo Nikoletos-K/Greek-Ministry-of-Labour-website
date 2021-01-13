@@ -14,6 +14,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
   
+  
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
@@ -38,6 +39,12 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <?php
+  if(isset($_POST['submit'])) {
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+  ?>
 
 
 </head>
@@ -71,14 +78,350 @@
                 <div class="profile-wrapper">   
                     <div class="tab-wrapper">
                         <ul class="tab-menu " >
-                            <li class="active">Τα στοιχεία μου</li>
-                            <li>Εργαζόμενοι</li>
-                            <li>Δηλώσεις</li>
+                            <li class="active">Εργαζόμενοι</li>
+                            <li>Τα στοιχεία μου</li>
                             <li>Ένσημα</li>
                             <li>Έγγραφα</li>
-                            <li>Επεξεργασία προφίλ</li>
                         </ul>
                         <div class="tab-content">
+                            <div>
+                                <h5>Οι εργαζόμενοι της επιχείρησης</h5><br>
+
+                                <p class="text-justify" style="font-size:18px;">Για να κάνετε μια νέα δήλωση για έναν ή περισσότερους εργαζομένους, επιλέξτε αυτούς που επιθυμείτε
+                                και πατήστε <e style="color: #8852ce ">δήλωση</e>. Αν θέλετε να δείτε περισσότερα στοιχεία για αυτούς ή να κάνετε άρση μιας δήλωσης 
+                                πατήστε στο κελί του εργαζόμενου ή το συμβολάκι <i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i>. </p>
+                                <i>Μετά από κάθε ενέργεια ανανεώστε την σελίδα για να δείτε τις αλλαγές στον πίνακα πληροφοριών.</i>
+                                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                                <script type="text/javascript">
+                                    $(function(){
+
+                                    $('#selectAll').click(function(event) {   
+                                        if(this.checked) {
+                                        // Iterate each checkbox
+                                        $(':checkbox').each(function() {
+                                            this.checked = true;                        
+                                        });
+                                        }
+                                        else {
+                                        // Iterate each checkbox
+                                        $(':checkbox').each(function() {
+                                            this.checked = false;
+                                        });
+                                        }
+                                    });
+                                    $(document).ready(function() {
+                                        
+                                        var checkedArray = [];
+                                        $.each($("input[name='afmID']:checked"), function(){
+                                            checkedArray.push($(this).val());
+                                        });                                        
+                                    });
+                                    })
+                                </script>
+
+                                <!-- <div class="container"> -->
+                                <div class="table-responsive">
+                                    <div class="table-wrapper">
+                                        <?php echo 
+                                        '<form method="post" action="forms/afms.php" id="checkBoxes_POST"> <div class="table-title">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h2>Διαχείρηση <b>Εργαζομένων</b></h2>    
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button style="font-size:16px;" type="submit" name="submit" value="Δήλωση" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
+                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i></i>Δήλωση
+                                                    </button>
+                                                    </div>
+                                            </div>
+                                        </div>';
+
+                                        $myafm = $_SESSION["afm"];
+                                        $result = mysqli_query($conn,"SELECT * FROM employee WHERE workingFor=$myafm");
+                                        echo '<table id="table" class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <span class="custom-checkbox">
+                                                        <input type="checkbox" id="selectAll">
+                                                        <label for="selectAll"></label>
+                                                    </span>
+                                                </th>
+                                                <th>Όνομα</th>
+                                                <th>Επώνυμο</th>
+                                                <th>Email</th>
+                                                <th>ΑΦΜ</th>
+                                                <th>Κατάσταση</th>
+                                                <th>Ενέργειες</th>
+                                            </tr>
+                                        </thead> <tbody>  ';
+
+                                        while($row = mysqli_fetch_array($result))
+                                        {
+                                            $workerAFM = $row['afm'];
+                                            $worker_result = mysqli_query($conn,"SELECT * FROM genericuser WHERE afm=$workerAFM");
+                                            $worker = mysqli_fetch_array($worker_result);
+                                            $worker_benefits_q = mysqli_query($conn,"SELECT * FROM employee WHERE afm=$workerAFM");
+                                            $worker_benefits = mysqli_fetch_array($worker_benefits_q);
+
+                                            $checkedAFM = $worker['afm'];
+                                            echo "<tr style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>
+                                                <td>
+                                                    <span class='custom-checkbox'>
+                                                    
+                                                        <input id='checkbox1'  type='checkbox' name='checkBoxes[]'  value='" . $worker['afm'] . "'>
+                                                        <label for='checkbox1'></label>
+                                                
+                                                    </span>
+                                                </td>";
+                                            
+                                            echo "<td>" . $worker['firstname'] .  "</td>";
+                                            echo "<td>" . $worker['lastname'] . "</td>";
+                                            echo "<td>" . $worker['email'] . "</td>";
+                                            echo "<td>" . $worker['afm'] . "</td>";
+                                            
+                                            echo "<td>" ;
+                                            if($worker_benefits["anastoli_id"]) {
+                                                echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
+                                            }
+                                            if($worker_benefits["thlergasia_id"]) {
+                                                echo "<h8 class='badge badge-success' >ΤΗΛΕΡΓΑΣΙΑ</h8><br>";
+                                            }
+                                            if($worker_benefits["adeia_id"]) {
+                                                echo "<h8 class='badge badge-success' >ΑΔΕΙΑ</h8>";
+                                            }                                            
+                                            echo "</td>";
+
+                                            echo ' <td>
+                                            <a href="#dhlwshEmployeeModal" data-id="'.$worker['afm'] .'" class="edit" data-toggle="modal"><i style="color:  #8852ce" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                                            <a href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
+                                            </td>
+                                            </tr>';
+                                        }
+                                        echo " </tbody> </table> </form>";
+
+                                        ?>
+                                        <div class="clearfix">
+                                            <!-- <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div> -->
+                                            <ul class="pagination">
+                                                <li class="page-item disabled"><a href="#">Προηγούμενο</a></li>
+                                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                                <li class="page-item"><a href="#" class="page-link">Επόμενο</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>        
+                                <!-- </div> -->
+
+                                <div id="infoEmployeeModal" class="modal fade contact ">
+                                    <div class="modal-dialog modal-lg row justify-content-center">
+                                        <div class="modal-content ">        
+                                            <form method="post" action="forms/changeEmployeeStatus.php" class= 'contact php-email-form'>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <div class="modal-header">
+                                                    <div class="modal-title col-md-9"><h4>
+                                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>  Στοιχεία εργαζομένου</h4>
+                                                    </div>
+                                                    <hr> <br>
+                                                </div>
+                                                <!-- <div class="fetched-data"></div> -->
+                                                <div class="contact modal-body">					
+                                                    <div class="row  justify-content-center">
+                                                        <div class="col">
+                                                            <div style="font-size:16px;" class="form-group">
+                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                                                                <div class="col-sm-8">
+                                                                    <?php echo $_SESSION['fetched_user']['data']["firstname"]; ?>
+                                                                </div>
+                                                            </div>
+                                                            <div style="font-size:16px;" class="form-group">
+                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                                                                <div class="col-sm-10">
+                                                                    <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                        <div class="col">
+                                                            <div style="font-size:16px;" class="form-group">
+                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                                <div class="col-sm-8">
+                                                                    <?php echo $_SESSION['fetched_user']['data']["lastname"]; ?>
+                                                                </div>
+                                                            </div>
+                                                            <div style="font-size:16px;" class="form-group">
+                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                                <div class="col-sm-8">
+                                                                    <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                            
+                                                        </div>
+                                                        <div class="col">
+                                                            <div style="font-size:16px;" class="form-group">
+                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                                                                <div class="col-sm-10">
+                                                                    <?php echo $_SESSION['fetched_user']['data']["afm"]; ?>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>	
+                                                    <br><br><hr>
+                                                    <div class="table-responsive">
+                                                        <div class="table-wrapper">
+                                                            <?php 
+                                                                // $array = $_SESSION['fetched_user']['as_array'];
+                                                                // $counter = 0;
+                                                                // foreach($row as $array)
+                                                                // {
+                                                                //     if(!empty($row)){
+                                                                //         $counter++;
+                                                                //     }
+                                                                // }
+                                                                
+                                                                // if($counter){
+
+                                                                // }
+                                                            ?>    
+                                                                                                                            
+                                                            <div class="table-title">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <h2>Κατάσταση εργαζομένου</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <table id="table" class="table table-striped table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+                                                                            Άρση
+                                                                        </th>
+                                                                        <th>Δήλωση</th>
+                                                                        <th>Κατάσταση</th>
+                                                                        <th>Από</th>
+                                                                        <th>Εώς</th>
+                                                                    </tr>
+                                                                </thead> 
+                                                                <tbody>
+                                                                    <?php
+                                                                        $array = $_SESSION['fetched_user']['as_array'];
+                                                                        // $arrayAnastoli = $_SESSION['fetched_user']['as_array']['anastoli'];
+                                                                        // $arrayThllergasia = $_SESSION['fetched_user']['as_array']['thlergasia'];
+                                                                        // echo $arrayADEIA;
+                                                                        // print_r($array);
+
+
+                                                                        foreach($array as $key => $value){
+
+                                                                            if($key === 'anastoli')   {
+                                                                                $newtype = 'Αναστολή σύμβασης εργασίας';
+                                                                            } elseif ($key === 'adeia') {
+                                                                                $newtype = 'Άδεια ειδικού σκοπού';
+                                                                            } else {
+                                                                                $newtype = 'Τηλεργασία';
+                                                                            } 
+                                                                            if(!$value){
+                                                                                $disabled = ' disabled ';
+                                                                                $date1 = ' - ';
+                                                                                $date2 = ' - ';
+                                                                                $status = 'ΑΝΕΝΕΡΓΗ';
+
+                                                                            } else {
+                                                                                $disabled = ' ';
+                                                                                $date1 = $value['starting_date'];
+                                                                                $date2 =  $value['end_date'];
+                                                                                $status = 'ΕΝΕΡΓΗ';
+                                                                                
+                                                                            }
+                                                                            echo "<tr>";
+                                                                            echo "<td>
+                                                                                <span class='custom-checkbox'>
+                                                                                    <input id='checkbox2' " .$disabled. " type='checkbox' name='checkBoxes2[]'  value='" . $key . "'>
+                                                                                    <label for='checkbox2'></label>
+                                                                                </span>
+                                                                                </td>";
+                                                                            echo "<td>" . $newtype .  "</td>";
+                                                                            echo "<td>" . $status . "</td>";
+                                                                            echo "<td>" . $date1 . "</td>";
+                                                                            echo "<td>" . $date2 . "</td>";
+                                                                            echo '</tr>';
+                                                                        }
+                                                                    ?>
+                                                                </tbody> 
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <div class="loading">Φόρτωση</div>
+                                                        <div class="error-message text-center"></div>
+                                                        <div class="sent-message">Οι άρσεις έγιναν με επιτυχία</div>
+                                                        <div class="reload"></div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button value="submit" name="submit" type="submit">Άρση επιλεγμένων δηλώσεων</button>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- dhlwsh Modal HTML -->
+                                <div id="dhlwshEmployeeModal" class="modal fade contact">
+                                    <div class="modal-dialog row justify-content-center">
+                                        <div class="modal-content">        
+                                            <form action="forms/dhlwsh.php" method="post" role="form"  class="php-email-form">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        
+                                                <div class=" section-title">						
+                                                    <h3 style="font-weight: bold; ">Δήλωση εργαζομένου</h3><br><hr>
+                                                    <h7>Αρχικά επιλέξτε την δήλωση που σας ενδιαφέρει και στην συνέχεια συμπληρώστε τα στοιχεία που ζητούνται. 
+                                                    <br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                                                </div>
+                                                <div class="contact modal-body">					
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-12">
+                                                            <label for="dhlwsh">Είδος δήλωσης</label>
+                                                            <select name="dhlwsh" id="dhlwsh" class="form-control" data-column="dhlwsh" data-msg="Παρακαλώ επιλέξτε την δήλωση που επιθυμείτε">
+                                                                <option value="default" style="display:none;">Διαλέξτε</option>
+                                                                <option value="anastoli" >Aναστολή σύμβασης εργασίας</option>
+                                                                <option value="thlergasia" >Eξ αποστάσεως εργασία</option>
+                                                                <option value="apozhmeiwsh-erg" >Aποζημείωση εργαζομένου</option>
+                                                                <option value="apolysh" >Απόλυση</option>
+                                                            </select>
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                        <div class="form-group col-md-6" id="date1" style="display:none;">
+                                                            <label for="date1">Ημερομηνία Έναρξης</label>
+                                                            <input  type="text" class="form-control" id="datepicker1" data-date-format="dd-mm-yyyy" name="date1" required data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία έναρξης">
+                                                            <div class="validate"></div>
+                                                           
+                                                        </div>
+                                                        <div class="form-group col-md-6" id="date2" style="display:none;">
+                                                            <label for="date2">Ημερομηνία Λήξης</label>
+                                                            <input  type="text" class="form-control" id="datepicker2" data-date-format="dd-mm-yyyy" name="date2" required data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία λήξης">
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                    </div>					
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="loading">Φόρτωση</div>
+                                                    <div class="error-message"></div>
+                                                    <div class="sent-message">Οι δηλώσεις έγιναν με επιτυχία</div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button value="submit" name="submit" type="submit">Δήλωση</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
                             <div>
                                 <div class="container" >
                                     <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
@@ -242,507 +585,6 @@
                                     </div>
                                 </div>       
                             </div>
-                            <div>
-                                <h5>Οι εργαζόμενοι της επιχείρησης</h5><br>
-
-                                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                <script type="text/javascript">
-                                    $(function(){
-
-                                    $('#selectAll').click(function(event) {   
-                                        if(this.checked) {
-                                        // Iterate each checkbox
-                                        $(':checkbox').each(function() {
-                                            this.checked = true;                        
-                                        });
-                                        }
-                                        else {
-                                        // Iterate each checkbox
-                                        $(':checkbox').each(function() {
-                                            this.checked = false;
-                                        });
-                                        }
-                                    });
-                                    $(document).ready(function() {
-                                        
-                                        var checkedArray = [];
-                                        $.each($("input[name='afmID']:checked"), function(){
-                                            checkedArray.push($(this).val());
-                                        });                                        
-                                    });
-                                    })
-                                </script>
-
-                                <!-- <div class="container"> -->
-                                <div class="table-responsive">
-                                    <div class="table-wrapper">
-                                        <?php echo 
-                                        '<form method="post" action="forms/afms.php" id="checkBoxes_POST"> <div class="table-title">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <h2>Διαχείρηση <b>Εργαζομένων</b></h2>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="submit" name="submit" value="Δήλωση" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
-                                                </div>
-                                            </div>
-                                        </div>';
-
-                                        $myafm = $_SESSION["afm"];
-                                        $result = mysqli_query($conn,"SELECT * FROM employee WHERE workingFor=$myafm");
-                                        echo '<table id="table" class="table table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <span class="custom-checkbox">
-                                                        <input type="checkbox" id="selectAll">
-                                                        <label for="selectAll"></label>
-                                                    </span>
-                                                </th>
-                                                <th>Όνομα</th>
-                                                <th>Επώνυμο</th>
-                                                <th>Email</th>
-                                                <th>ΑΦΜ</th>
-                                                <th>Κατάσταση</th>
-                                                <th>Ενέργειες</th>
-                                            </tr>
-                                        </thead> <tbody>  ';
-
-                                        while($row = mysqli_fetch_array($result))
-                                        {
-                                            $workerAFM = $row['afm'];
-                                            $worker_result = mysqli_query($conn,"SELECT * FROM genericuser WHERE afm=$workerAFM");
-                                            $worker = mysqli_fetch_array($worker_result);
-                                            $worker_benefits_q = mysqli_query($conn,"SELECT * FROM employee WHERE afm=$workerAFM");
-                                            $worker_benefits = mysqli_fetch_array($worker_benefits_q);
-
-                                            $checkedAFM = $worker['afm'];
-                                            echo "<tr style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>
-                                                <td>
-                                                    <span class='custom-checkbox'>
-                                                    
-                                                        <input id='checkbox1'  type='checkbox' name='checkBoxes[]'  value='" . $worker['afm'] . "'>
-                                                        <label for='checkbox1'></label>
-                                                
-                                                    </span>
-                                                </td>";
-                                            
-                                            echo "<td>" . $worker['firstname'] .  "</td>";
-                                            echo "<td>" . $worker['lastname'] . "</td>";
-                                            echo "<td>" . $worker['email'] . "</td>";
-                                            echo "<td>" . $worker['afm'] . "</td>";
-                                            
-                                            echo "<td>" ;
-                                            if($worker_benefits["anastoli_id"]) {
-                                                echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
-                                            }
-                                            if($worker_benefits["thlergasia_id"]) {
-                                                echo "<h8 class='badge badge-success' >ΤΗΛΕΡΓΑΣΙΑ</h8><br>";
-                                            }
-                                            if($worker_benefits["adeia_id"]) {
-                                                echo "<h8 class='badge badge-success' >ΑΔΕΙΑ</h8>";
-                                            }                                            
-                                            echo "</td>";
-
-                                            echo ' <td>
-                                            <a href="#editEmployeeModal" data-id="'.$worker['afm'] .'" class="edit" data-toggle="modal"><i style="color:red " class="material-icons" data-toggle="tooltip" title="Επεξεργασία κατάστασης εργαζομένου">&#xE254;</i></a>
-                                            <a href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
-                                            </td>
-                                            </tr>';
-                                        }
-                                        echo " </tbody> </table> </form>";
-
-                                        ?>
-                                        <div class="clearfix">
-                                            <!-- <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div> -->
-                                            <ul class="pagination">
-                                                <li class="page-item disabled"><a href="#">Προηγούμενο</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                                <li class="page-item"><a href="#" class="page-link">Επόμενο</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>        
-                                <!-- </div> -->
-                                
-
-
-                                <!-- Add Modal HTML -->
-                                <div id="addEmployeeModal" class="modal fade contact">
-                                    <div class="modal-dialog row justify-content-center">
-                                        <div class="modal-content">
-                                            <form  action="forms/hirement.php" method="post" role="form" class="php-email-form">
-                                                <div class="modal-header">						
-                                                    <h4 class="modal-title">Πρόσληψη υπαλλήλου</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                </div>
-                                                <div class="modal-body" style="font-size:18px;">					
-                                                    <div class="form-group">
-                                                        <label>ΑΦΜ</label>
-                                                        <input id="employee_afm" name="employee_afm" type="text" class="form-control" data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ">
-                                                        <div class="validate"></div>
-                                                    </div>					
-                                                </div>
-                                                <div class="text-center">
-                                                    <input type="submit" class="btn btn-success" value="Δημιουργία">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="infoEmployeeModal" class="modal fade contact ">
-                                    <div class="modal-dialog modal-lg row justify-content-center">
-                                        <div class="modal-content ">        
-                                        <form method="post" action="forms/changeEmployeeStatus.php" class= 'contact php-email-form'>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <div class="modal-header">
-                                                    <div class="modal-title col-md-9"><h4>
-                                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>  Στοιχεία εργαζομένου</h4>
-                                                    </div>
-                                                    <hr> <br>
-                                                </div>
-                                                
-                                                        
-
-                                                <!-- <div class="fetched-data"></div> -->
-                                                <div class="contact modal-body">					
-                                                    <div class="row  justify-content-center">
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["firstname"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                                                                <div class="col-sm-10">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                        </div>
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["lastname"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                            
-                                                        </div>
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
-                                                                <div class="col-sm-10">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["afm"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>	
-                                                    <br><br>
-
-
-                                                    <?php
-
-                                                    ?>
-                                                    <hr>
-                                                    <div class="table-responsive">
-                                                        <div class="table-wrapper">
-                                                            <?php 
-                                                                // $array = $_SESSION['fetched_user']['as_array'];
-                                                                // $counter = 0;
-                                                                // foreach($row as $array)
-                                                                // {
-                                                                //     if(!empty($row)){
-                                                                //         $counter++;
-                                                                //     }
-                                                                // }
-                                                                
-                                                                // if($counter){
-
-                                                                // }
-                                                            ?>    
-                                                                                                                            
-                                                            <div class="table-title">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <h2>Κατάσταση εργαζομένου</h2>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <table id="table" class="table table-striped table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>
-                                                                            Άρση
-                                                                        </th>
-                                                                        <th>Δήλωση</th>
-                                                                        <th>Κατάσταση</th>
-                                                                        <th>Από</th>
-                                                                        <th>Εώς</th>
-                                                                    </tr>
-                                                                </thead> 
-                                                                <tbody>
-                                                                    <?php
-                                                                        $array = $_SESSION['fetched_user']['as_array'];
-                                                                        // $arrayAnastoli = $_SESSION['fetched_user']['as_array']['anastoli'];
-                                                                        // $arrayThllergasia = $_SESSION['fetched_user']['as_array']['thlergasia'];
-                                                                        // echo $arrayADEIA;
-                                                                        // print_r($array);
-
-
-                                                                        foreach($array as $key => $value){
-
-                                                                            if($key === 'anastoli')   {
-                                                                                $newtype = 'Αναστολή σύμβασης εργασίας';
-                                                                            } elseif ($key === 'adeia') {
-                                                                                $newtype = 'Άδεια ειδικού σκοπού';
-                                                                            } else {
-                                                                                $newtype = 'Τηλεργασία';
-                                                                            } 
-                                                                            if(!$value){
-                                                                                $disabled = ' disabled ';
-                                                                                $date1 = ' - ';
-                                                                                $date2 = ' - ';
-                                                                                $status = 'ΑΝΕΝΕΡΓΗ';
-
-                                                                            } else {
-                                                                                $disabled = ' ';
-                                                                                $date1 = $value['starting_date'];
-                                                                                $date2 =  $value['end_date'];
-                                                                                $status = 'ΕΝΕΡΓΗ';
-                                                                                
-                                                                            }
-                                                                            echo "<tr>";
-                                                                            echo "<td>
-                                                                                <span class='custom-checkbox'>
-                                                                                    <input id='checkbox2' " .$disabled. " type='checkbox' name='checkBoxes2[]'  value='" . $key . "'>
-                                                                                    <label for='checkbox2'></label>
-                                                                                </span>
-                                                                                </td>";
-                                                                            echo "<td>" . $newtype .  "</td>";
-                                                                            echo "<td>" . $status . "</td>";
-                                                                            echo "<td>" . $date1 . "</td>";
-                                                                            echo "<td>" . $date2 . "</td>";
-                                                                            echo '</tr>';
-                                                                        }
-                                                                    ?>
-                                                                </tbody> 
-                                                            </table>
-                                                            
-                                                            
-                                                        </div>
-                                                    </div>
-                                                
-
-                                                
-                                                <div class="mb-3">
-                                                    <div class="loading">Φόρτωση</div>
-                                                    <div class="error-message text-center"></div>
-                                                    <div class="sent-message">Οι άρσεις έγιναν με επιτυχία</div>
-                                                    <div class="reload"></div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button value="submit" name="submit" type="submit">Άρση επιλεγμένων δηλώσεων</button>
-                                                    
-                                                </div>
-                                                    
-                                            </form>
-                                                
-                                                
-                                                                        
-                                                
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Edit Modal HTML -->
-                                <div id="editEmployeeModal" class="modal fade contact">
-                                    <div style="justify-content: center;" class="modal-dialog modal-dialog-centered modal-lg" >
-                                        <div class="modal-content"  >
-
-                                            <!-- <div class="modal-header">
-                                                <div class="well-title col-md-9""><h4>
-                                                    Άρση κατάστασης εργαζομένου</h4>
-                                                </div>
-                                            </div>
-                                            <hr> <br> -->
-                                            <form method="post" action="forms/changeEmployeeStatus.php" class= 'simple-form php-email-form'>
-                                                        
-                                                <div class="modal-body" >
-
-                                                    <?php
-
-                                                    ?>
-
-                                                    <div class="table-responsive">
-                                                        <div class="table-wrapper">
-                                                            <?php 
-                                                                // $array = $_SESSION['fetched_user']['as_array'];
-                                                                // $counter = 0;
-                                                                // foreach($row as $array)
-                                                                // {
-                                                                //     if(!empty($row)){
-                                                                //         $counter++;
-                                                                //     }
-                                                                // }
-                                                                
-                                                                // if($counter){
-
-                                                                // }
-                                                            ?>    
-                                                                                                                            
-                                                            <div class="table-title">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <h2>Άρση κατάστασης εργαζομένου</h2>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <table id="table" class="table table-striped table-hover col-">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>
-                                                                            Άρση
-                                                                        </th>
-                                                                        <th>Κατάσταση</th>
-                                                                        <th>Από</th>
-                                                                        <th>Εώς</th>
-                                                                    </tr>
-                                                                </thead> 
-                                                                <tbody>
-                                                                    <?php
-                                                                        $array = $_SESSION['fetched_user']['as_array'];
-                                                                        // $arrayAnastoli = $_SESSION['fetched_user']['as_array']['anastoli'];
-                                                                        // $arrayThllergasia = $_SESSION['fetched_user']['as_array']['thlergasia'];
-                                                                        // echo $arrayADEIA;
-                                                                        // print_r($array);
-
-
-                                                                        foreach($array as $key => $value){
-
-                                                                            if($key === 'anastoli')   {
-                                                                                $newtype = 'Αναστολή σύμβασης εργασίας';
-                                                                            } elseif ($key === 'adeia') {
-                                                                                $newtype = 'Άδεια ειδικού σκοπού';
-                                                                            } else {
-                                                                                $newtype = 'Τηλεργασία';
-                                                                            } 
-                                                                            if(!$value){
-                                                                                $disabled = ' disabled ';
-                                                                                $date1 = ' - ';
-                                                                                $date2 = ' - ';
-
-                                                                            } else {
-                                                                                $disabled = ' ';
-                                                                                $date1 = $value['starting_date'];
-                                                                                $date2 =  $value['end_date'];
-                                                                                
-                                                                            }
-                                                                            echo "<tr>";
-                                                                            echo "<td>
-                                                                                <span class='custom-checkbox'>
-                                                                                    <input id='checkbox2' " .$disabled. " type='checkbox' name='checkBoxes2[]'  value='" . $key . "'>
-                                                                                    <label for='checkbox2'></label>
-                                                                                </span>
-                                                                                </td>";
-                                                                            echo "<td>" . $newtype .  "</td>";
-                                                                            echo "<td>" . $date1 . "</td>";
-                                                                            echo "<td>" . $date2 . "</td>";
-                                                                            echo '</tr>';
-                                                                        }
-                                                                    ?>
-                                                                </tbody> 
-                                                            </table>
-                                                            
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                
-                                                <div class="mb-3">
-                                                    <div class="loading">Φόρτωση</div>
-                                                    <div class="error-message text-center"></div>
-                                                    <div class="sent-message">Οι άρσεις έγιναν με επιτυχία</div>
-                                                    <div class="reload"></div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button value="submit" name="submit" type="submit">Άρση</button>
-                                                    
-                                                </div>
-                                                    
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- dhlwsh Modal HTML -->
-                                <div id="dhlwshEmployeeModal" class="modal fade contact">
-                                    <div class="modal-dialog row justify-content-center">
-                                        <div class="modal-content">        
-                                            <form action="forms/dhlwsh.php" method="post" role="form"  class="php-email-form">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        
-                                                <div class=" section-title">						
-                                                    <h3 style="font-weight: bold; ">Δήλωση εργαζομένου</h3><br><hr>
-                                                    <h7>Αρχικά επιλέξτε την δήλωση που σας ενδιαφέρει και στην συνέχεια συμπληρώστε τα στοιχεία που ζητούνται. 
-                                                    <br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
-                                                </div>
-                                                <div class="contact modal-body">					
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-12">
-                                                            <label for="dhlwsh">Είδος δήλωσης</label>
-                                                            <select name="dhlwsh" id="dhlwsh" class="form-control" data-column="dhlwsh" data-msg="Παρακαλώ επιλέξτε την δήλωση που επιθυμείτε">
-                                                                <option value="default" style="display:none;">Διαλέξτε</option>
-                                                                <option value="anastoli" >Aναστολή σύμβασης εργασίας</option>
-                                                                <option value="thlergasia" >Eξ αποστάσεως εργασία</option>
-                                                                <option value="adeia_eidikou_skopou" >Άδεια ειδικού σκοπού</option>
-                                                                <option value="apozhmeiwsh-erg" >Aποζημείωση εργαζομένου</option>
-                                                                <option value="apolysh" >Απόλυση</option>
-                                                                <option value="proslhpsh" >Πρόσληψη</option>
-                                                            </select>
-                                                            <div class="validate"></div>
-                                                        </div>
-                                                        <div class="form-group col-md-6" id="date1" style="display:none;">
-                                                            <label for="date1">Ημερομηνία Έναρξης</label>
-                                                            <input type="date" placeholder="dd-mm-yyyy" name="date1" class="form-control" id="date" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία έναρξης">
-                                                            <div class="validate"></div>
-                                                        </div>
-                                                        <div class="form-group col-md-6" id="date2" style="display:none;">
-                                                            <label for="date2">Ημερομηνία Λήξης</label>
-                                                            <input type="date"  name="date2" class="form-control datepicker" id="date" placeholder="Ημερολόγιο" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία λήξης">
-                                                            <div class="validate"></div>
-                                                        </div>
-                                                    </div>					
-                                                </div>
-                                                <div class="mb-3">
-                                                    <div class="loading">Φόρτωση</div>
-                                                    <div class="error-message"></div>
-                                                    <div class="sent-message">Οι δηλώσεις έγιναν με επιτυχία</div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button value="submit" name="submit" type="submit">Δήλωση</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>                                
-                            </div>
                         
                             <div>
                                 <h5>Τα έμσημά μου</h5>
@@ -753,131 +595,12 @@
                                 <h5>Έγγραφα που έχω αποθηκεύσει</h5>
                                     <br>
                             </div>
-                            
-                            <div>
-                                <h5>Επεξεργασία των στοιχείων μου</h5>
-                                    <hr><br>
-                                    <div class="row simple-form">
-                                        <div class="col-md-12">
-                                            <form action="forms/updateprofile.php" method="post" role="form" class="php-email-form">                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>
-                                                <br>                                            
-                                                <div class="form-group form-row">
-                                                    <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                    <div class="validate"></div>
-                                                </div>
-
-                                                <div class="form-group form-row">
-                                                    <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group form-row">
-                                                    <label for="email" class="col-4 col-form-label">Email</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group form-row">
-                                                    <label for="afm" class="col-4 col-form-label">ΑΦΜ</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="afm" name="afm" placeholder=<?php echo $_SESSION["afm"]; ?> data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-
-                                                
-                                                <div class="form-group form-row">
-                                                    <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group form-row">
-                                                    <label for="role" class="col-4 col-form-label">Εργασιακή κατάσταση</label> 
-                                                    <div class="form-group col-md-6">
-                                                        
-                                                        <select name="role" id="role" class="form-control" data-column="role">
-                                                            <option value="default" style="display:none;">
-                                                            <?php
-                                                                if($_SESSION["role"] == 'ergazomenos'){
-                                                                    echo "Εργαζόμενος";
-                                                                }else{
-                                                                    echo 'Εργοδότης-Επιχείρηση';
-                                                                }
-                                                            ?></option>
-                                                            <option value="ergazomenos">Εργαζόμενος</option>
-                                                            <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
-                                                            <option value="anergos">Άνεργος</option>
-                                                            <option value="el_epag">Ελεύθερος επαγγελματίας</option>
-                                                            <option value="syntaxiouxos">Συνταξιούχος</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <br>
-                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
-                                                <br>
-
-                                                <div class="form-group form-row">
-                                                    <label for="username" class="col-4 col-form-label">Όνομα χρήστη</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
-                                                <br>
-                                                <div class="form-group form-row">
-                                                    <label for="password_1" class="col-4 col-form-label">Νέος κωδικός</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group form-row">
-                                                    <label for="password_2" class="col-4 col-form-label">Επαλήθευση νέου κωδικού</label> 
-                                                    <div class="form-group col-md-6">
-                                                        <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                        <div class="validate"></div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <br>
-                                                <div class="mb-3">
-                                                    <div class="loading">Φόρτωση</div>
-                                                    <div class="error-message"></div>
-                                                    <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία</div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div><!-- //tab-content -->
                     </div><!-- //tab-wrapper -->
                 </div>    
             </div> 
-
-
-
+        </div> 
     </main><!-- End #main -->
 
 
@@ -910,6 +633,8 @@ include "./footer.php";
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" charset="UTF-8" ></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
@@ -956,9 +681,28 @@ $('#aithsh').change(function(){
   });
 </script>
 
+<script>
 
+    $("#datepicker1").datepicker({
+        isRTL: false,
+        autoclose:true,
+        language: 'el',
+        locale: 'el',
+        todayHighlight: true,
+    });
+
+    $("#datepicker2").datepicker({
+        isRTL: false,
+        autoclose:true,
+        language: 'el',
+        locale: 'el',
+        todayHighlight: true,
+    });
+   
+</script>
 
 <script type="text/javascript">
+
     $("#checkBoxes_POST").submit(function(e){
         e.preventDefault();
         $.ajax({
@@ -1002,8 +746,10 @@ $('#aithsh').change(function(){
         });
      });
 </script>
+
 <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" ></script>
+<script type="text/javascript" src="assets/js/jquery.ui.datepicker-el.js"></script>
 
 </body>
 

@@ -8,10 +8,16 @@
   // echo "DHLVSH";
   // print_r($_SESSION['checkBoxes']);
 
+  $fromdate = strtotime($_POST['date1']);
+  $todate = strtotime($_POST['date2']);
+
+
   if(empty($_SESSION['checkBoxes'])) {
     echo "Δεν έχετε επιλέξει κανέναν εργαζόμενο για κάποια ενέργεια<br>";
     $_SESSION['checkBoxes'] = array();
-  } else {
+  }else if($todate < $fromdate){
+    echo "Η ημερομηνία λήξης είναι νωρίτερα της έναρξης<br>";
+  }else {
 
     $employeeAFMs = $_SESSION['checkBoxes'];
 
