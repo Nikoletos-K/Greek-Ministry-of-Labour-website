@@ -5,6 +5,7 @@
     $errors = array(); 
     $changed_fields = 0;
 
+
     if(isset($_POST['username']) && $_POST['username'] !== '' && $_SESSION['login_user'] === true ) {
         
         $temp_username = $_POST['username'];

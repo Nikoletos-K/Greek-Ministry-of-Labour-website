@@ -1,7 +1,6 @@
 <?php
   session_start();
   include '../db_connection.php';
-  echo "------";
   $errors = array(); 
 
   if($_POST['rowid']) {

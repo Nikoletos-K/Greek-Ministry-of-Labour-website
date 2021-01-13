@@ -85,6 +85,174 @@
                         </ul>
                         <div class="tab-content">
                             <div>
+<<<<<<< Updated upstream
+=======
+                                <div class="container" >
+                                    <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
+                                        <div class="row ">
+                                            <div class="col-md-9" style="padding-left:30px; padding-top:20px; "><h5><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Τα στοιχεία μου</h5></div>
+                                            <div class="col-md-3" ><a  href="#editProfileModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
+                                            <i class="icofont-ui-edit"></i> Επεξεργασία </a></div> 
+                                        </div><hr> <br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                                                    <div class="col-sm-8">
+                                                        <?php echo $_SESSION["firstname"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                                                    <div class="col-sm-8">
+                                                        <?php echo $_SESSION["email"]; ?>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                    <div class="col-sm-8">
+                                                        <?php echo $_SESSION["lastname"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                    <div class="col-sm-8">
+                                                        <?php echo $_SESSION["phone"]; ?>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                                                    <div class="col-sm-10">
+                                                        <?php echo $_SESSION["afm"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-10 control-label">Εργασιακή κατάσταση</label>
+                                                    <div class="col-sm-11">
+                                                        <?php 
+                                                            if($_SESSION["role"] === 'ergodoths'){
+                                                                echo 'Εργοδότης';
+                                                            }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                                <div id="editProfileModal" class="modal fade">
+                                    <div class="modal-dialog row justify-content-center simple-form">
+                                        <div class="modal-content">        
+                                            <form action="forms/updateprofile.php" method="post" role="form"  class="php-email-form">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <div class=" section-title">						
+                                                    <h3 style="font-weight: bold; ">Επεξεργασία των στοιχείων μου</h3><hr>
+                                                </div>
+                                                <div class="modal-body">	
+                                                    <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
+                                                            <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
+                                                            <div class="form-group ">
+                                                                <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="email" class="col-4 col-form-label">Email</label> 
+                                                            <div class="form-group ">
+                                                                <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
+                                                            <div class="form-group ">
+                                                                <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label for="role" class="col-6 col-form-label">Εργασιακή κατάσταση</label> 
+                                                            <div class="form-group ">
+                                                                
+                                                                <select name="role" id="role" class="form-control" data-column="role">
+                                                                    <option value="default" style="display:none;">
+                                                                    <?php
+                                                                        if($_SESSION["role"] == 'ergazomenos'){
+                                                                            echo "Εργαζόμενος";
+                                                                        }else{
+                                                                            echo 'Εργοδότης-Επιχείρηση';
+                                                                        }
+                                                                    ?></option>
+                                                                    <option value="ergazomenos">Εργαζόμενος</option>
+                                                                    <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
+                                                                    <option value="anergos">Άνεργος</option>
+                                                                    <option value="el_epag">Ελεύθερος επαγγελματίας</option>
+                                                                    <option value="syntaxiouxos">Συνταξιούχος</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
+                                                        <br>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label for="username" class=" col-form-label">Όνομα χρήστη</label> 
+                                                            <div class="form-group ">
+                                                                <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+                                                        <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
+                                                        <br>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="password_1" class=" col-form-label">Νέος κωδικός</label> 
+                                                            <div class="form-group ">
+                                                                <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label for="password_2" class=" col-form-label">Επαλήθευση νέου κωδικού</label> 
+                                                            <div class="form-group ">
+                                                                <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                <div class="validate"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>					
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="loading">Φόρτωση</div>
+                                                    <div class="error-message"></div>
+                                                    <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία.<br> Ανανεώστε την σελίδα για να δείτε τα νέα στοιχεία.</div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>       
+                            </div>
+
+
+                            <div>
+>>>>>>> Stashed changes
                                 <h5>Οι εργαζόμενοι της επιχείρησης</h5><br>
 
                                 <p class="text-justify" style="font-size:18px;">Για να κάνετε μια νέα δήλωση για έναν ή περισσότερους εργαζομένους, επιλέξτε αυτούς που επιθυμείτε
@@ -202,7 +370,6 @@
 
                                         ?>
                                         <div class="clearfix">
-                                            <!-- <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div> -->
                                             <ul class="pagination">
                                                 <li class="page-item disabled"><a href="#">Προηγούμενο</a></li>
                                                 <li class="page-item"><a href="#" class="page-link">1</a></li>
@@ -211,7 +378,37 @@
                                         </div>
                                     </div>
                                 </div>        
+<<<<<<< Updated upstream
                                 <!-- </div> -->
+=======
+                                
+                                
+
+
+                                <!-- Add Modal HTML -->
+                                <div id="addEmployeeModal" class="modal fade contact">
+                                    <div class="modal-dialog row justify-content-center">
+                                        <div class="modal-content">
+                                            <form  action="forms/hirement.php" method="post" role="form" class="php-email-form">
+                                                <div class="modal-header">						
+                                                    <h4 class="modal-title">Πρόσληψη υπαλλήλου</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                </div>
+                                                <div class="modal-body" style="font-size:18px;">					
+                                                    <div class="form-group">
+                                                        <label>ΑΦΜ</label>
+                                                        <input id="employee_afm" name="employee_afm" type="text" class="form-control" data-rule="checkifFilled:5" data-msg="Μη έγκυρο ΑΦΜ">
+                                                        <div class="validate"></div>
+                                                    </div>					
+                                                </div>
+                                                <div class="text-center">
+                                                    <input type="submit" class="btn btn-success" value="Δημιουργία">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+>>>>>>> Stashed changes
 
                                 <div id="infoEmployeeModal" class="modal fade contact ">
                                     <div class="modal-dialog modal-lg row justify-content-center">
@@ -224,7 +421,14 @@
                                                     </div>
                                                     <hr> <br>
                                                 </div>
+<<<<<<< Updated upstream
                                                 <!-- <div class="fetched-data"></div> -->
+=======
+                                                
+                                                        
+
+                                                    <!-- <div class="fetched-data"></div> -->
+>>>>>>> Stashed changes
                                                 <div class="contact modal-body">					
                                                     <div class="row  justify-content-center">
                                                         <div class="col">
@@ -240,7 +444,6 @@
                                                                     <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
                                                                 </div>
                                                             </div>
-                                                        
                                                         </div>
                                                         <div class="col">
                                                             <div style="font-size:16px;" class="form-group">
@@ -255,8 +458,6 @@
                                                                     <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
                                                                 </div>
                                                             </div>
-                                                        
-                                                            
                                                         </div>
                                                         <div class="col">
                                                             <div style="font-size:16px;" class="form-group">
@@ -268,24 +469,15 @@
                                                             
                                                         </div>
                                                     </div>	
+<<<<<<< Updated upstream
                                                     <br><br><hr>
+=======
+                                                    <br><br>
+                                                    <hr>
+>>>>>>> Stashed changes
                                                     <div class="table-responsive">
                                                         <div class="table-wrapper">
-                                                            <?php 
-                                                                // $array = $_SESSION['fetched_user']['as_array'];
-                                                                // $counter = 0;
-                                                                // foreach($row as $array)
-                                                                // {
-                                                                //     if(!empty($row)){
-                                                                //         $counter++;
-                                                                //     }
-                                                                // }
-                                                                
-                                                                // if($counter){
-
-                                                                // }
-                                                            ?>    
-                                                                                                                            
+                                                                                                        
                                                             <div class="table-title">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
@@ -293,7 +485,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            
+                                                                
                                                             <table id="table" class="table table-striped table-hover">
                                                                 <thead>
                                                                     <tr>
@@ -309,11 +501,6 @@
                                                                 <tbody>
                                                                     <?php
                                                                         $array = $_SESSION['fetched_user']['as_array'];
-                                                                        // $arrayAnastoli = $_SESSION['fetched_user']['as_array']['anastoli'];
-                                                                        // $arrayThllergasia = $_SESSION['fetched_user']['as_array']['thlergasia'];
-                                                                        // echo $arrayADEIA;
-                                                                        // print_r($array);
-
 
                                                                         foreach($array as $key => $value){
 
@@ -355,6 +542,10 @@
                                                             </table>
                                                         </div>
                                                     </div>
+<<<<<<< Updated upstream
+=======
+                                                    
+>>>>>>> Stashed changes
                                                     <div class="mb-3">
                                                         <div class="loading">Φόρτωση</div>
                                                         <div class="error-message text-center"></div>
@@ -363,6 +554,29 @@
                                                     </div>
                                                     <div class="text-center">
                                                         <button value="submit" name="submit" type="submit">Άρση επιλεγμένων δηλώσεων</button>
+<<<<<<< Updated upstream
+=======
+                                                        
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Edit Modal HTML -->
+                                <div id="editEmployeeModal" class="modal fade contact">
+                                    <div style="justify-content: center;" class="modal-dialog modal-dialog-centered modal-lg" >
+                                        <div class="modal-content"  >
+
+                                            <!-- <div class="modal-header">
+                                                <div class="well-title col-md-9""><h4>
+                                                    Άρση κατάστασης εργαζομένου</h4>
+                                                </div>
+                                            </div>
+                                            <hr> <br> -->
+                                            <form method="post" action="forms/changeEmployeeStatus.php" class= 'simple-form php-email-form'>
+>>>>>>> Stashed changes
                                                         
                                                     </div>
                                                 </div>
