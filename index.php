@@ -41,15 +41,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  
 
-  <!-- =======================================================
-  * Template Name: Green - v2.3.0
-  * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
 
 <body>
 
@@ -66,12 +58,11 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/EE.jpg)">
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/corona.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Εργασία στην Ευρώπη</h2>
-              <p class="animate__animated animate__fadeInUp">Δυνατότητα εργασίας στην Ευρώπη μέσω του προγράμματος EURES. Ο φορέας παρέχει υπηρεσίες πληροφόρησης, συμβουλευτικής και πρόσληψης ή τοποθέτησης αλλά και να προβαίνει σε
-                 ενέργειες προκειμένου να διευκολύνει εκείνους που αναζητούν εργασία σε άλλη Ευρωπαϊκή χώρα. Οι υπηρεσίες του EURES προσφέρονται δωρεάν.</p>
+              <h2 class="animate__animated animate__fadeInDown">Νέα μέτρα</h2>
+              <p class="animate__animated animate__fadeInUp">Τι αλλάζει στους χώρους εργασίας, λόγω του COVID-19.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
             </div>
           </div>
@@ -90,15 +81,17 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/corona.jpg)">
+        <div class="carousel-item " style="background-image: url(assets/img/slide/EE.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Νέα μέτρα</h2>
-              <p class="animate__animated animate__fadeInUp">Τι αλλάζει στους χώρους εργασίας, λόγω του COVID-19.</p>
+              <h2 class="animate__animated animate__fadeInDown">Εργασία στην Ευρώπη</h2>
+              <p class="animate__animated animate__fadeInUp">Δυνατότητα εργασίας στην Ευρώπη μέσω του προγράμματος EURES. Ο φορέας παρέχει υπηρεσίες πληροφόρησης, συμβουλευτικής και πρόσληψης ή τοποθέτησης αλλά και να προβαίνει σε
+                 ενέργειες προκειμένου να διευκολύνει εκείνους που αναζητούν εργασία σε άλλη Ευρωπαϊκή χώρα. Οι υπηρεσίες του EURES προσφέρονται δωρεάν.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
             </div>
           </div>
         </div>
+        
 
       </div>
 

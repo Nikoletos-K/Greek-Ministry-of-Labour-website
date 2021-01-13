@@ -72,7 +72,7 @@
                     <ul class="tab-menu">
                         <li class="active">Τα στοιχεία μου</li>
                         <li>Νέα αίτηση</li>
-                        <li>Οι αιτήσεις μου</li>
+                        <li>Εργασιακή κατάσταση</li>
                         <li>Στοιχεία εργοδότη </li>
                         <li>Ένσημα</li>
                         <li>Έγγραφα</li>
@@ -316,7 +316,7 @@
                             </form>
                         </div>
                         <div>
-                            <h5>Δηλώσεις εργοδότη</h5><br>
+                            <!-- <h5>Η εργασιακή μου κατάσταση</h5><br> -->
 
                             <!-- <div class="container"> -->
                                 <div class="table-responsive">
@@ -324,12 +324,7 @@
                                         <?php echo '<form method="post" action="forms/afms.php" id="checkBoxes_POST"> <div class="table-title">
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <h2>Οι <b>Δηλώσεις</b> του εργοδότη </h2>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                <input type="submit" name="submit" value="Submit" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
-                                                <!-- <input type="submit" value="Δήλωση" ></input> -->
-                                                <!--<a href="#dhlwshEmployeeModal" id="submitPost" data-toggle="modal" data-target="#dhlwshEmployeeModal" data-to class="btn btn-secondary">Submit</a> -->
+                                                    <h2>Η <b>εργασιακή</b> μου κατάσταση </h2>
                                                 </div>
                                             </div>
                                         </div>';
@@ -369,7 +364,20 @@
                                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
                                             </td>
                                             </tr>';
-                                        } 
+                                        }else if ($anastoli == NULL){
+                                            $count++;
+                                            echo "<tr>";
+                                            echo "<td> $count </td>";
+                                            echo "<td> Αναστολή </td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . "Ανενεργή" . "</td>";
+                                            echo ' <td>
+                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
+                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
+                                            </td>
+                                            </tr>';
+                                        }
                                         if($thlergasia != NULL){
                                             $result = mysqli_query($conn,"SELECT * FROM employee_action WHERE action_id=$thlergasia");
                                             $action = mysqli_fetch_array($result);
@@ -380,6 +388,19 @@
                                             echo "<td>" . $action['starting_date'] . "</td>";
                                             echo "<td>" . $action['end_date'] . "</td>";
                                             echo "<td>" . "Ενεργή" . "</td>";
+                                            echo ' <td>
+                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
+                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
+                                            </td>
+                                            </tr>';
+                                        }else if ($thlergasia == NULL){
+                                            $count++;
+                                            echo "<tr>";
+                                            echo "<td> $count </td>";
+                                            echo "<td> Τηλεργασία </td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . "Ανενεργή" . "</td>";
                                             echo ' <td>
                                             <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
                                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
@@ -396,6 +417,19 @@
                                             echo "<td>" . $action['starting_date'] . "</td>";
                                             echo "<td>" . $action['end_date'] . "</td>";
                                             echo "<td>" . "Ενεργή" . "</td>";
+                                            echo ' <td>
+                                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
+                                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>
+                                            </td>
+                                            </tr>';
+                                        }else if ($adeia == NULL){
+                                            $count++;
+                                            echo "<tr>";
+                                            echo "<td> $count </td>";
+                                            echo "<td> Άδεια </td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . " - " . "</td>";
+                                            echo "<td>" . "Ανενεργή" . "</td>";
                                             echo ' <td>
                                             <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Αλλαγή">&#xE254;</i></a>
                                             <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Διαγραφή">&#xE872;</i></a>

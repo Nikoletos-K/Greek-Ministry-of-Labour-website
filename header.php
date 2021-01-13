@@ -11,21 +11,21 @@
               if($_SESSION['role'] === 'ergazomenos'){
 
                   echo '<div class=" d-flex justify-content-end">
-                  <a class="login-icons" href="worker.php" style="color: #19229e;"><i class="icofont-user-alt-7"></i> Προφίλ</a>
-                  <a class="login-icons" href="logout.php" style="color: #19229e;"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  <a class="login-icons" href="worker.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
                   </div>'; 
 
               } else {
                   echo '<div class=" d-flex justify-content-end">
-                  <a class="login-icons" href="business.php" style="color: #19229e;"><i class="icofont-user-alt-7"></i> Προφίλ</a>
-                  <a class="login-icons" href="logout.php" style="color: #19229e;"><i class="icofont-logout"></i>Αποσύνδεση</a>
+                  <a class="login-icons" href="business.php"><i class="icofont-user-alt-7"></i> Προφίλ</a>
+                  <a class="login-icons" href="logout.php"><i class="icofont-logout"></i>Αποσύνδεση</a>
                   </div>'; 
               }
                             
           } else {
 
-            echo '<a href="login.php"><button class="get-started-btn scrollto" style="color: #19229e;">Σύνδεση</button></a>
-            <a href="register.php"><button  class="get-started-btn scrollto" style="color: #19229e;">Εγγραφή</button></a>';
+            echo '<a href="login.php"><button class="get-started-btn scrollto">Σύνδεση</button></a>
+            <a href="register.php"><button  class="get-started-btn scrollto">Εγγραφή</button></a>';
 
           }
           ?>
@@ -59,14 +59,14 @@
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
               <li><a href="#">Πρόσλήψεις</a></li>
-              <li class="drop-down"><a href="#">COVID-19</a>
+              <li><a href="covid19.php">COVID-19</a>
                 <ul>
-                  <li><a href="#">Χορήγηση άδειας ειδικού σκοπού</a></li>
+                  <!-- <li><a href="#">Δήλωση τηλεργασίας εργαζομένου</a></li>
                   <li><a href="#">Αναστολή σύμβασης εργαζομένου</a></li>
                   <li><a href="#">Διαχείρηση κρούσματος</a></li>
                   <li><a href="#">Μέτρα προφύλαξης</a></li>
                   <li><a href="#">Αποζημιώσεις</a></li>
-                  <li><a href="#">Άλλα θέματα COVID-19</a></li>
+                  <li><a href="#">Άλλα θέματα COVID-19</a></li> -->
                 </ul>
               </li>
               <li><a href="#">Νέα επιχείρηση</a></li>
@@ -77,15 +77,15 @@
           <li class="drop-down"><a href="#">Εργαζόμενος</a>
             <ul>
               <li><a href="#">Μισθοδοσία</a></li>
-              <li class="drop-down"><a href="#">COVID-19</a>
-                <ul>
-                  <li><a href="#">Άδεια ειδικού σκοπού</a></li>
+              <li><a href="covid19.php">COVID-19</a>
+                <!-- <ul>
+                  <li><a href="covid19.php#adeia">Άδεια ειδικού σκοπού</a></li>
                   <li><a href="#">Αναστολή εργασίας</a></li>
                   <li><a href="#">Τηλεργασία</a></li>
                   <li><a href="#">Μέτρα προφύλαξης</a></li>
                   <li><a href="#">Αποζημιώσεις</a></li>
                   <li><a href="#">Άλλα θέματα COVID-19</a></li>
-                </ul>
+                </ul> -->
               </li>
               <li><a href="#">Επιδόματα</a></li>
               <li><a href="#">Άδειες</a></li>
@@ -129,3 +129,19 @@
       
     </div>
   </header><!-- End Header -->
+
+  <script>
+    window.onload = function(){  
+
+      var url = document.location.toString();
+      if (url.match('#')) {
+          $('.nav ul il a[href="#' + url.split('#')[1] + '"]').tab('show');
+      }
+
+      //Change hash for page-reload
+      $('.nav ul il a[href="#' + url.split('#')[1] + '"]').on('shown', function (e) {
+          window.location.hash = e.target.hash;
+      }); 
+    } 
+    
+  </script>
