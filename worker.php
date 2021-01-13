@@ -71,13 +71,14 @@
                             <li class="active">Εργασιακή κατάσταση</li>
                             <li>Τα στοιχεία μου</li>
                             <li>Στοιχεία εργοδότη </li>
+                            <li>Νέα δήλωση </li>
                             <li>Ένσημα</li>
                             <li>Έγγραφα</li>
                         </ul>
                         <div class="tab-content">
 
 
-                            <div id="employeeHomepage">
+                            <div>
                                 <div class="container">
                                     <div class="table-responsive">
                                         <div class="table-wrapper">
@@ -89,7 +90,9 @@
                                                             <h2>Δηλώσεις </h2>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input type="submit" name="submit" value="Δήλωση" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
+                                                            <button style="font-size:16px;" type="submit" name="submit" value="Δήλωση"  data-target="#nea_dhlvsh" class="btn btn-success"></input>
+                                                                <i class="fa fa-file-text-o" aria-hidden="true"></i>Νέα Δήλωση
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -294,84 +297,84 @@
                                                 </div>
                                                 <div class="contact modal-body">
                                                     <div class="container  align-items-center">
-                                                    <div class= "row">
-                                                        <div class="col">
-                                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
+                                                        <div class= "row">
+                                                            <div class="col">
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
 
-                                                            <div class="col-md-8">
-                                                                <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
-                                                                    <div class="validate"></div>
+                                                                <div class="col-md-8">
+                                                                    <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
-                                                                    <div class="validate"></div>
+                                                                <div class="col-md-8">
+                                                                    <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <label for="email" class="col-4 col-form-label">Email</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
-                                                                    <div class="validate"></div>
+                                                                <div class="col-md-8">
+                                                                    <label for="email" class="col-4 col-form-label">Email</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
+                                                                        <div class="validate"></div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
-                                                                    <div class="validate"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="col">
-                                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
-                                                            
-
-                                                            <div class="col-md-8">
-                                                                <label for="username" class="col-8 col-form-label">Όνομα χρήστη</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
-                                                                    <div class="validate"></div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <hr><br>
-                                                            <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
-                                                            <br>
-                                                            <div class="col-md-8">
-                                                                <label for="password_1" class="col-8 col-form-label">Νέος κωδικός</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                                    <div class="validate"></div>
+                                                                <div class="col-md-8">
+                                                                    <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-8">
-                                                                <label for="password_2" class="col-8 col-form-label">Επαλήθευση νέου κωδικού</label> 
-                                                                <div class="form-group ">
-                                                                    <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                                    <div class="validate"></div>
-                                                                </div>
-                                                            </div>
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="container ">
-                                                    <div class="">
-                                                                <div class="alert alert-warning" role="alert">
-                                                                <i class="fas fa-exclamation fa-xl"></i>
-                                                                    Για αλλαγή της <b>εργασιακής σας κατάστασης</b> ή του <b> ΑΦΜ</b>  σας θα πρέπει να έρθετε στο υπουργείο. <br>
-                                                                    Λόγω της πανδημίας του COVID-19 ενημερώθειτε για την διαδικασία που θα πρέπει να ακολουθήσετε μέσω της  <a href="covid19.php"> επίσημης σελίδας του υπουργείου  </a>.
+
+                                                            <div class="col">
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
+                                                                
+
+                                                                <div class="col-md-8">
+                                                                    <label for="username" class="col-8 col-form-label">Όνομα χρήστη</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
                                                                 </div>
                                                                 
+                                                                <hr><br>
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
+                                                                <br>
+                                                                <div class="col-md-8">
+                                                                    <label for="password_1" class="col-8 col-form-label">Νέος κωδικός</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-8">
+                                                                    <label for="password_2" class="col-8 col-form-label">Επαλήθευση νέου κωδικού</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                    <!-- <div class="row "> -->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container ">
+                                                        <div class="">
+                                                            <div class="alert alert-warning" role="alert">
+                                                            <i class="fas fa-exclamation fa-xl"></i>
+                                                                Για αλλαγή της <b>εργασιακής σας κατάστασης</b> ή του <b> ΑΦΜ</b>  σας θα πρέπει να έρθετε στο υπουργείο. <br>
+                                                                Λόγω της πανδημίας του COVID-19 ενημερώθειτε για την διαδικασία που θα πρέπει να ακολουθήσετε μέσω της  <a href="covid19.php"> επίσημης σελίδας του υπουργείου  </a>.
+                                                            </div>
+                                                        </div>
+
                                                         <div class="mb-3">
                                                             <div class="loading">Φόρτωση</div>
                                                             <div class="error-message text-center"></div>
@@ -380,21 +383,148 @@
                                                         <div class="text-center">
                                                             <button value="submit" name="submit" type="submit">Ενημέρωση</button>
                                                         </div>
-                                                    <!-- </div>   -->
                                                     </div>    
                                                 </div>
-                                                                                   
                                             </form>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+
+                                <div class="container" >
+                                    <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
+                                        <div class="row ">
+                                            <div class="col-md-9" style="padding-left:30px; padding-top:20px; "><h5><i class="fa fa-user-circle-o" aria-hidden="true"></i> Στοιχεία εργοδότη </h5></div>
+                                            <div class="col-md-3" ><a  href="#editProfileEmployerModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
+                                            <i class="icofont-ui-edit"></i> Αλλαγή εργοδότη </a></div> 
+                                        </div><hr> 
+                                        <p style = "font-style:italic">Παρακάτω παρουσιάζονται όλα τα στοιχεία του εργοδότη για τον οποίο εργάζεστε και με τα οποία μπορείτε να έρθετε σε επαφή μαζί του.</p>
+                                
+                                        <br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
+                                                    <div class="col-sm-8">
+                                                    <?php echo $_SESSION["employer"]["firstname"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                                                    <div class="col-sm-8">
+                                                    <?php echo $_SESSION["employer"]["email"]; ?>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                                                    <div class="col-sm-8">
+                                                    <?php echo $_SESSION["employer"]["lastname"]; ?>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                                                    <div class="col-sm-8">
+                                                    <?php echo $_SESSION["employer"]["phone"]; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div style="font-size:16px;" class="form-group">
+                                                    <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                                                    <div class="col-sm-10">
+                                                        <?php echo $_SESSION["employer"]["afm"]; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>      
                                 </div>
 
 
                             </div>
 
-
+                            <div id="nea_dhlvsh">
+                                <h5>Νέα δήλωση</h5>
+                                <br>
+                                <div class="select-btn" style="padding-bottom:50px;">                    
+                                    <select id="aithsh" class="form-control col-md-6" >
+                                        <option value="default" style="display:none;">Διαλέξτε</option>
+                                        <option value="eidikou-skopou" >Άδεια ειδικού σκοπού</option>
+                                        <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
+                                        <option value="anergia" >Επίδομα ανεργείας</option>
+                                        <option value="paraithsh" >Αίτηση παραίτησης</option>
+                                    </select>
+                                </div>
+                                <form style="display:none;" id="eidikou-skopou" action="forms/eidikou-skopou.php" method="post" role="form" class="contact">
+                                    <div class=" d-flex justify-content-center align-items-center">
+                                        <div class="php-email-form col-md-9">
+                                            <div class="form-row">
+                                                <div class="section-title">
+                                                    <br>
+                                                    <h3 style="font-weight: bold; ">Δήλωση άδειας ειδικού σκοπού</h3><br><hr>
+                                                    <h7 >Συμπληρώστε τα στοιχεία που σας ζητούνται για να κάνετε την αίτησή σας στο υπουργείο. Τα προσωπικά σας στοιχεία θα σταλούν αυτόματα απο τον ιστόχωρό μας.<br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="firstname">Ημερομηνία Έναρξης</label>
+                                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                                    <div class="validate"></div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="firstname">Ημερομηνία Λήξης</label>
+                                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                                    <div class="validate"></div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="family">Οικογενειακή κατάσταση</label>
+                                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                                        <option value="married">Έγγαμος</option>
+                                                        <option value="non-married">Άγαμος</option>
+                                                    </select>  
+                                                    <div class="validate"></div>
+                                                </div>
+                                        
+                                                <div class="form-group col-md-6">
+                                                    <label for="role">Αριθμός ανήλικων τέκνων</label>
+                                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                                        <option value="default" style="display:none;">Διαλέξτε</option>
+                                                        <option value="ergazomenos">1</option>
+                                                        <option value="ergodoths">2</option>
+                                                        <option value="anergos">3</option>
+                                                        <option value="el_epag">Περισσότερα από 3</option>
+                                                    </select>
+                                                    <div class="validate"></div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label for="name">Σημείωση</label>
+                                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
+                                                <div class="validate"></div>
+                                            </div>
+                                            <hr><br>
+                                            <div class="mb-3">
+                                                <div class="loading">Φόρτωση</div>
+                                                <div class="error-message"></div>
+                                                <div class="sent-message">Το αίτημά σας στάλθηκε επιτυχώς </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button value="submit" name="submit" type="submit">Αποστολή</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                             
-
+                            <div></div>
+                            
+                            <div></div>
                         </div><!-- //tab-content -->
                     </div><!-- //tab-wrapper -->
                 </div>    
