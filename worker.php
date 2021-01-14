@@ -76,9 +76,13 @@
                             <li>Έγγραφα</li>
                         </ul>
                         <div class="tab-content">
-
-
                             <div>
+                            <h5>Η εργασιακή μου κατάσταση</h5><br>
+                            <p class="text-justify" style="font-size:18px;">
+                            Σε αυτόν τον πίνακα βλέπετε την εργασιακή κατάσταση, που έχει προκύψει από δικές σας ενέργειες, αλλά και του εργοδότη σας. Η επιλογή άρσης κάποιας
+                            δήλωσης γίνεται μόνο στην περίπτωση άδειας ειδικού σκοπού με το σύμβολο <i class="fa fa-trash" aria-hidden="true" style="color:red;" title="Άρση δήλωσης"> </i> . Στις υπόλοιπες περιπτώσεις το δικαίωμα αυτό το διαθέτει μόνο ο εργοδότης σας.
+                            </p>
+                            <!-- <i>Μετά από κάθε ενέργεια ανανεώστε την σελίδα για να δείτε τις αλλαγές στον πίνακα πληροφοριών.</i> -->
                                 <div class="container">
                                     <div class="table-responsive">
                                         <div class="table-wrapper">
@@ -90,7 +94,7 @@
                                                             <h2>Δηλώσεις </h2>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <button style="font-size:16px;" type="submit" name="submit" value="Δήλωση"  data-target="#nea_dhlvsh" class="btn btn-success"></input>
+                                                            <button style="font-size:16px;" type="submit" name="submit" value="Δήλωση" data-toggle="modal"  data-target="#nea_dhlwsh" class="btn btn-success"></input>
                                                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>Νέα Δήλωση
                                                             </button>
                                                         </div>
@@ -178,7 +182,7 @@
                                                                 } 
                                                                 if(!$value){
                                                                     $date1 = ' - ';
-                                                                    $date1 = ' - ';
+                                                                    $date2 = ' - ';
                                                                     $status = 'ΑΝΕΝΕΡΓΗ';
 
                                                                 } else {
@@ -199,12 +203,19 @@
                                                                     }                            
                                                                 echo "</td>";
                                                                 echo "<td>" . $date1 . "</td>";
-                                                                echo "<td>" . $date1 . "</td>";
-                                                                echo ' <td>
-                                                                <a href="#editEmployeeModal"  class="edit" data-toggle="modal"><i style="color:red " class="material-icons" data-toggle="tooltip" title="Επεξεργασία κατάστασης εργαζομένου">&#xE254;</i></a>
-                                                                <a href="#infoEmployeeModal"  class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
-                                                                </td>
-                                                                </tr>';
+                                                                echo "<td>" . $date2 . "</td>";
+                                                                $myafm = $_SESSION['afm'];
+                                                                if($key === 'adeia'){ 
+                                                                    echo ' <td>
+                                                                    <a href="#deleteAdeiaModal" data-id="'.$myafm .'" data-toggle="modal"><i class="fa fa-trash" aria-hidden="true" style="color:red;" title="Άρση δήλωσης"> </i> </a>
+                                                                    </td>
+                                                                    </tr>';
+                                                                }else{
+                                                                    echo " <td>
+                                                                    -
+                                                                    </td>
+                                                                    </tr>";
+                                                                }    
                                                             }
                                                         ?>
                                                     </tbody> 
@@ -222,6 +233,100 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="deleteAdeiaModal" class="modal fade contact">
+                                    <div class="modal-dialog row justify-content-center">
+                                        <div class="modal-content">        
+                                            <form action="forms/arsh_adeias.php" method="post" role="form"  class="php-email-form">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        
+                                                <div class=" section-title">						
+                                                    <h3 style="font-weight: bold; ">Άρση δήλωσης ειδικού σκοπού</h3><br><hr>
+                                                    <h5>Είστε βέβαιος/η ότι θέλετε να ακυρώσετε την άδεια ειδικού σκοπού;</h5>
+                                                    
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="loading">Φόρτωση</div>
+                                                    <div class="error-message"></div>
+                                                    <div class="sent-message">H άρση άδειας ειδικού σκοπού έγινε με επιτυχία</div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button value="submit" name="submit" type="submit" class="btn btn-danger">Άρση</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>    
+
+                                <!-- Nea dhlwsh Modal HTML -->
+                                <div id="nea_dhlwsh" class="modal fade contact">
+                                    <div class="modal-dialog row justify-content-center">
+                                        <div class="modal-content">        
+                                            <form action="forms/nea_dhlwsh.php" method="post" role="form"  class="php-email-form">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        
+                                                <div class=" section-title">						
+                                                    <h3 style="font-weight: bold; ">Δήλωση εργαζομένου</h3><br><hr>
+                                                    <h7>Αρχικά επιλέξτε την δήλωση που σας ενδιαφέρει και στην συνέχεια συμπληρώστε τα στοιχεία που ζητούνται. 
+                                                    <br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
+                                                </div>
+                                                <div class="contact modal-body">					
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-12">
+                                                            <label for="dhlwsh">Είδος δήλωσης</label>
+                                                            <select name="dhlwsh" id="dhlwsh" class="form-control" data-column="dhlwsh" data-msg="Παρακαλώ επιλέξτε την δήλωση που επιθυμείτε">
+                                                                <option value="default" style="display:none;">Διαλέξτε</option>
+                                                                <option value="adeia" >Άδεια ειδικού σκοπού</option>
+                                                                <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
+                                                                <option value="anergia" >Επίδομα ανεργείας</option>
+                                                                <option value="paraithsh" >Αίτηση παραίτησης</option>
+                                                            </select>
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                        <div class="form-group col-md-6" id="date1" style="display:none;">
+                                                            <label for="date1">Ημερομηνία Έναρξης</label>
+                                                            <input  type="text" class="form-control" id="datepicker1" data-date-format="dd-mm-yyyy" name="date1" required data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία έναρξης">
+                                                            <div class="validate"></div>
+                                                           
+                                                        </div>
+                                                        <div class="form-group col-md-6" id="date2" style="display:none;">
+                                                            <label for="date2">Ημερομηνία Λήξης</label>
+                                                            <input  type="text" class="form-control" id="datepicker2" data-date-format="dd-mm-yyyy" name="date2" required data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε μια ημερομηνία λήξης">
+                                                            <div class="validate"></div>
+                                                        </div>
+                                                        <!-- <div class="form-group col-md-6" id="marriage" style="display:none;">
+                                                            <label for="marriage">Οικογενειακή κατάσταση</label>
+                                                            <select name="marriage" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                                                <option value="married">Έγγαμος</option>
+                                                                <option value="non-married">Άγαμος</option>
+                                                            </select>  
+                                                            <div class="validate"></div>
+                                                        </div> -->
+                                                
+                                                        <!-- <div class="form-group col-md-6" id="children"style="display:none;">
+                                                            <label for="children">Αριθμός ανήλικων τέκνων</label>
+                                                            <select name="children" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
+                                                                <option value="default" style="display:none;">Διαλέξτε</option>
+                                                                <option value="one">1</option>
+                                                                <option value="two">2</option>
+                                                                <option value="three">3</option>
+                                                                <option value="more_three">Περισσότερα από 3</option>
+                                                            </select>
+                                                            <div class="validate"></div>
+                                                        </div> -->
+                                                    </div>					
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="loading">Φόρτωση</div>
+                                                    <div class="error-message"></div>
+                                                    <div class="sent-message">Οι δηλώσεις έγιναν με επιτυχία</div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button value="submit" name="submit" type="submit">Δήλωση</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> 
                             </div>
                             
                             <div>
@@ -445,83 +550,8 @@
                                     </div>      
                                 </div>
 
-
                             </div>
 
-                            <div id="nea_dhlvsh">
-                                <h5>Νέα δήλωση</h5>
-                                <br>
-                                <div class="select-btn" style="padding-bottom:50px;">                    
-                                    <select id="aithsh" class="form-control col-md-6" >
-                                        <option value="default" style="display:none;">Διαλέξτε</option>
-                                        <option value="eidikou-skopou" >Άδεια ειδικού σκοπού</option>
-                                        <option value="apwzhmeiwsh-eidikou-skopou" >Αίτηση απωζημείωσης ειδικού σκοπού</option>
-                                        <option value="anergia" >Επίδομα ανεργείας</option>
-                                        <option value="paraithsh" >Αίτηση παραίτησης</option>
-                                    </select>
-                                </div>
-                                <form style="display:none;" id="eidikou-skopou" action="forms/eidikou-skopou.php" method="post" role="form" class="contact">
-                                    <div class=" d-flex justify-content-center align-items-center">
-                                        <div class="php-email-form col-md-9">
-                                            <div class="form-row">
-                                                <div class="section-title">
-                                                    <br>
-                                                    <h3 style="font-weight: bold; ">Δήλωση άδειας ειδικού σκοπού</h3><br><hr>
-                                                    <h7 >Συμπληρώστε τα στοιχεία που σας ζητούνται για να κάνετε την αίτησή σας στο υπουργείο. Τα προσωπικά σας στοιχεία θα σταλούν αυτόματα απο τον ιστόχωρό μας.<br>Όλα τα πεδία είναι <b>υποχρεωτικά</b>.</h7><br><hr>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="firstname">Ημερομηνία Έναρξης</label>
-                                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                                    <div class="validate"></div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="firstname">Ημερομηνία Λήξης</label>
-                                                    <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                                    <div class="validate"></div>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="family">Οικογενειακή κατάσταση</label>
-                                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
-                                                        <option value="married">Έγγαμος</option>
-                                                        <option value="non-married">Άγαμος</option>
-                                                    </select>  
-                                                    <div class="validate"></div>
-                                                </div>
-                                        
-                                                <div class="form-group col-md-6">
-                                                    <label for="role">Αριθμός ανήλικων τέκνων</label>
-                                                    <select name="role" id="role" class="form-control" data-msg="Παρακαλώ εισάγετε την εργασιακή σας κατάσταση">
-                                                        <option value="default" style="display:none;">Διαλέξτε</option>
-                                                        <option value="ergazomenos">1</option>
-                                                        <option value="ergodoths">2</option>
-                                                        <option value="anergos">3</option>
-                                                        <option value="el_epag">Περισσότερα από 3</option>
-                                                    </select>
-                                                    <div class="validate"></div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="form-group">
-                                                <label for="name">Σημείωση</label>
-                                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Γράψτε μας το αίτημα σας"></textarea>
-                                                <div class="validate"></div>
-                                            </div>
-                                            <hr><br>
-                                            <div class="mb-3">
-                                                <div class="loading">Φόρτωση</div>
-                                                <div class="error-message"></div>
-                                                <div class="sent-message">Το αίτημά σας στάλθηκε επιτυχώς </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button value="submit" name="submit" type="submit">Αποστολή</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            
                             <div></div>
                             
                             <div></div>
@@ -529,9 +559,6 @@
                     </div><!-- //tab-wrapper -->
                 </div>    
             </div> 
-
-
-
     </main><!-- End #main -->
 
 
@@ -565,6 +592,11 @@ include "./footer.php";
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+
+<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" ></script>
+<script type="text/javascript" src="assets/js/jquery.ui.datepicker-el.js"></script>
+
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 
@@ -590,25 +622,45 @@ $('#aithsh').change(function(){
     selection = $(this).val();    
     switch(selection)
     { 
-        case 'anastoli':
+        case 'adeia':
             $('#date1').show();
             $('#date2').show();
-            break;
-        case 'thlergasia':
-            $('#date1').show();
-            $('#date2').show();
+            $('#marriage').show();
+            $('#children').show();
             break;
         default:
             $('#date1').hide();
             $('#date2').hide();
+            $('#marriage').hide();
+            $('#children').hide();
             break;
     }
   });
-
+  
   $('tbody tr input:checkbox').click(function(e) {
     e.stopPropagation();
   });
 
+</script>
+
+<script>
+
+    $("#datepicker1").datepicker({
+        isRTL: false,
+        autoclose:true,
+        language: 'el',
+        locale: 'el',
+        todayHighlight: true,
+    });
+
+    $("#datepicker2").datepicker({
+        isRTL: false,
+        autoclose:true,
+        language: 'el',
+        locale: 'el',
+        todayHighlight: true,
+    });
+   
 </script>
 
 <script type="text/javascript">
