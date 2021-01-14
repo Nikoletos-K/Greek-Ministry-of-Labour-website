@@ -397,8 +397,8 @@
                                     <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
                                         <div class="row ">
                                             <div class="col-md-9" style="padding-left:30px; padding-top:20px; "><h5><i class="fa fa-user-circle-o" aria-hidden="true"></i> Στοιχεία εργοδότη </h5></div>
-                                            <div class="col-md-3" ><a  href="#editProfileEmployerModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
-                                            <i class="icofont-ui-edit"></i> Αλλαγή εργοδότη </a></div> 
+                                            <!-- <div class="col-md-3" ><a  href="#editProfileEmployerModal" data-toggle="modal"style="background-color: rgb(226, 226, 226); text-transform: none;"  type="button" class="btn">
+                                            <i class="icofont-ui-edit"></i> Αλλαγή εργοδότη </a></div>  -->
                                         </div><hr> 
                                         <p style = "font-style:italic">Παρακάτω παρουσιάζονται όλα τα στοιχεία του εργοδότη για τον οποίο εργάζεστε και με τα οποία μπορείτε να έρθετε σε επαφή μαζί του.</p>
                                 
