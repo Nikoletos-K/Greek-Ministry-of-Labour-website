@@ -67,8 +67,8 @@
     $_SESSION['fetched_user']['as_array']['adeia'] = $_SESSION['fetched_user']['adeia'];
     $_SESSION['fetched_user']['as_array']['thlergasia'] = $_SESSION['fetched_user']['thlergasia'];
     $_SESSION['fetched_user']['as_array']['anastoli'] = $_SESSION['fetched_user']['anastoli'];
-    print_r($_SESSION['fetched_user']['as_array']['anastoli']);
-    echo "END";
+    // print_r($_SESSION['fetched_user']['as_array']['anastoli']);
+    // echo "END";
 
     echo '<div class="contact modal-body">					
         <div class="row  justify-content-center">
