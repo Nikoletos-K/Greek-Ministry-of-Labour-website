@@ -7,7 +7,7 @@
   if($_POST['rowid']) {
     
     $afm = $_POST['rowid'];
-    echo $_POST['rowid'];
+    // echo $_POST['rowid'];
     
     $_SESSION['user'] = $_POST['rowid'];
 

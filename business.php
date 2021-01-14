@@ -151,11 +151,11 @@
                                                     </span>
                                                 </td>";
                                             
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['lastname'] . "</td>";
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['email'] . "</td>";
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['afm'] . "</td>";
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
+                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
+                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['lastname'] . "</td>";
+                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['email'] . "</td>";
+                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['afm'] . "</td>";
+                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
                                             if($worker_benefits["anastoli_id"]) {
                                                 echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
                                             }
@@ -168,7 +168,7 @@
                                             echo "</td>";
 
                                             echo ' <td>
-
+                                         
                                             <a class="show-hide" href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
                                             </td>
                                             </tr>';
@@ -601,35 +601,19 @@ $(document).ready(function() {
         });
      });
 
-     $('#YOUR_BUTTON_ID').on('click',function(e){
+     $('.YOUR_BUTTON_ID').on('click',function(e){
         var rowid = $(e.currentTarget).data('id');
         $.ajax({
             type : 'post',
             url : 'forms/fetch_record.php', //Here you will fetch records 
             data :  'rowid='+ rowid, //Pass $id
             success : function(data){
-                alert("YOYHOY");
                 $('.fetched-data').html(data);//Show fetched data from database
                 $('#infoEmployeeModal').modal("show");
             }
         });         
      });
 
-    // $('#infoEmployeeModal').on('show.bs.modal', function (e) {
-
-    //     e.preventDefault();
-    //     var rowid = $(e.relatedTarget).data('id');
-    //     $.ajax({
-    //         type : 'post',
-    //         cache: false,
-    //         url : 'forms/fetch_record.php', //Here you will fetch records 
-    //         data :  'rowid='+ rowid, //Pass $id
-    //         success : function(data){
-    //             $('.fetched-data').html(data);//Show fetched data from database
-    //             $('#infoEmployeeModal').modal("show");
-    //         }
-    //     });
-    //  });
 </script>
 
 <script>
