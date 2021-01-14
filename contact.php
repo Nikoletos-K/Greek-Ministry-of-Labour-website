@@ -215,7 +215,7 @@
               <div class="mb-3">
                 <div class="loading">Φόρτωση</div>
                 <div class="error-message">ΛΑΘΟΣ</div>
-                <div class="sent-message">Το αίτημα σας καταχωρήθηκε. Θα ενημερωθείτε άμεσα!</div>
+                <div class="sent-message">Το ραντεβού σας καταχωρήθηκε.</div>
               </div>
               <div class="text-center"><button type="submit">Ολοκλήρωση ραντεβού</button></div>
             </form>
