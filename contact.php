@@ -187,7 +187,7 @@
                   <label for="name">Διαθέσιμες ημερομηνίες</label>
 
                   <div class="form-group">
-                    <input type="text" name="date" class="form-control datepicker" id="date" placeholder="  Ημερολόγιο" data-rule="required" data-msg="Παρακαλώ επιλέξτε">
+                    <input type="text" name="date" class="form-control datepicker" data-date-format="dd-mm-yyyy" id="date" placeholder="  Ημερολόγιο" data-rule="required" data-msg="Παρακαλώ επιλέξτε">
                  </div>
                  <div class="validate"></div>
                 </div>
@@ -289,6 +289,18 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/datepicker-el.js"></script>
+
+  <script>
+
+    $("#date").datepicker({
+        isRTL: false,
+        autoclose:true,
+        language: 'el',
+        locale: 'el',
+        todayHighlight: true,
+    });
+  
+</script>
 
 
 </body>

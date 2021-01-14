@@ -58,7 +58,7 @@
           <li class="active"><a href="index.php" style="color: #19229e;">Αρχική</a></li>
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
-              <li><a href="#">Πρόσλήψεις</a></li>
+              <li><a href="#">Προσλήψεις</a></li>
               <li><a href="covid19.php">COVID-19</a>
                 <ul>
                   <!-- <li><a href="#">Δήλωση τηλεργασίας εργαζομένου</a></li>
