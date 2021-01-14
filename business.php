@@ -169,11 +169,7 @@
 
                                             echo ' <td>
 
-
-
-                                            <input  type="submit" name="checkBoxes[]" placeholder=""  value="' . $worker['afm'] . '" class="edit">
-                                                <i style="color:  #8852ce;" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i>
-                                            </input>
+                                            <a class="show-hide" href="#dhlwshEmployeeButtonModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color:  #8852ce;" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i></a>
                                             
                                             <a class="show-hide" href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
                                             </td>
