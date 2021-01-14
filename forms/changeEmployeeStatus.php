@@ -14,8 +14,10 @@
 
   if($counter !==0 && empty($_POST['checkBoxes2'])){
     echo 'Δεν έχετε διαλέξει καμία κατάσταση για αλλαγή<br>';
+    $flag = false;
   }elseif($counter===0 && empty($_POST['checkBoxes2'])) {
     echo 'Κανένας εργαζόμενος σε ενεργή κατάσταση για να την αλλάξετε<br>';
+    $flag = false;
   }else {
     $afm = $_SESSION['user'];
     $flag = true;
@@ -39,7 +41,7 @@
 
       if(mysqli_query($conn, $update_q)){
         if(mysqli_query($conn, $query_delete)){
-          
+          $flag = true;
         }else {
           echo mysqli_errno($conn)."_--".mysqli_error($conn)."<br /> ";
           echo 'Η ενημέρωση απέτυχε<br>';

@@ -151,11 +151,11 @@
                                                     </span>
                                                 </td>";
                                             
-                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
-                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['lastname'] . "</td>";
-                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['email'] . "</td>";
-                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['afm'] . "</td>";
-                                            echo "<td style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
+                                            echo "<td  style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] .">" . $worker['firstname'] .  "</td>";
+                                            echo "<td  style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] .">" . $worker['lastname'] . "</td>";
+                                            echo "<td  style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] .">" . $worker['email'] . "</td>";
+                                            echo "<td  style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] .">" . $worker['afm'] . "</td>";
+                                            echo "<td  style='cursor: pointer;' class='YOUR_BUTTON_ID' data-id= ". $worker['afm'] .">" ;
                                             if($worker_benefits["anastoli_id"]) {
                                                 echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
                                             }
@@ -167,9 +167,9 @@
                                             }                                            
                                             echo "</td>";
 
-                                            echo ' <td>
+                                            echo ' <td  style="cursor: pointer;" class="YOUR_BUTTON_ID" data-id= "'. $worker['afm'] .'">
                                          
-                                            <a class="show-hide" href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
+                                            <a   data-id="'.$worker['afm'] .'" class="info" ><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
                                             </td>
                                             </tr>';
                                         }
