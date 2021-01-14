@@ -129,7 +129,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Θέμα</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 8 χαρακτήρες στο θέμα" />
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Παρακαλώ εισάγετε τουλάχιστον 4 χαρακτήρες στο θέμα" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
