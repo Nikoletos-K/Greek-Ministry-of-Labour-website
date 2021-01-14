@@ -2440,20 +2440,12 @@ color: rgb(0, 33, 95);
   height: 44px;
 }
 
-html {
-  overflow: hidden;
-  height: 100%;
-}
-body {
-  overflow: auto;
-  height: 100%;
-}
-
-/* unset bs3 setting */
-.modal-open {
- overflow: auto; 
-}
-
 .modal-lg {
   max-width: 80% !important;
+}
+
+body.modal-open-noscroll
+{
+    margin-right: 0!important;
+    overflow: hidden;
 }
