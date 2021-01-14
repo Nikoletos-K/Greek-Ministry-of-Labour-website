@@ -7,6 +7,7 @@
   // print_r($_POST['checkBoxes']);
   if(isset($_POST['checkBoxes'])){
     $_SESSION['checkBoxes'] = $_POST['checkBoxes'];
+    $_SESSION['afm_id'] = $_POST['afm_id'];
   }
 
 ?>

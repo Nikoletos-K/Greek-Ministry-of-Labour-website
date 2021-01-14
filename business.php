@@ -39,6 +39,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <?php
   if(isset($_POST['submit'])) {
@@ -91,33 +92,8 @@
                                 και πατήστε <e style="color: #8852ce ">δήλωση</e>. Αν θέλετε να δείτε περισσότερα στοιχεία για αυτούς ή να κάνετε άρση μιας δήλωσης 
                                 πατήστε στο κελί του εργαζόμενου ή το συμβολάκι <i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i>. </p>
                                 <i>Μετά από κάθε ενέργεια ανανεώστε την σελίδα για να δείτε τις αλλαγές στον πίνακα πληροφοριών.</i>
-                                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                <script type="text/javascript">
-                                    $(function(){
-
-                                    $('#selectAll').click(function(event) {   
-                                        if(this.checked) {
-                                        // Iterate each checkbox
-                                        $(':checkbox').each(function() {
-                                            this.checked = true;                        
-                                        });
-                                        }
-                                        else {
-                                        // Iterate each checkbox
-                                        $(':checkbox').each(function() {
-                                            this.checked = false;
-                                        });
-                                        }
-                                    });
-                                    $(document).ready(function() {
-                                        
-                                        var checkedArray = [];
-                                        $.each($("input[name='afmID']:checked"), function(){
-                                            checkedArray.push($(this).val());
-                                        });                                        
-                                    });
-                                    })
-                                </script>
+                                
+                                
 
                                 <!-- <div class="container"> -->
                                 <div class="table-responsive">
@@ -129,8 +105,8 @@
                                                     <h2>Διαχείρηση <b>Εργαζομένων</b></h2>    
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <button style="font-size:16px;" type="submit" name="submit" value="Δήλωση" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" /></input>
-                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i></i>Δήλωση
+                                                    <button style="font-size:16px;" type="submit" name="submit_1" value="submit_1" data-toggle="modal" data-target="#dhlwshEmployeeModal" class="btn btn-secondary" />
+                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>Νέα Δήλωση
                                                     </button>
                                                     </div>
                                             </div>
@@ -165,8 +141,8 @@
                                             $worker_benefits = mysqli_fetch_array($worker_benefits_q);
 
                                             $checkedAFM = $worker['afm'];
-                                            echo "<tr style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>
-                                                <td>
+                                            echo "<tr >
+                                                <td >
                                                     <span class='custom-checkbox'>
                                                     
                                                         <input id='checkbox1'  type='checkbox' name='checkBoxes[]'  value='" . $worker['afm'] . "'>
@@ -175,12 +151,11 @@
                                                     </span>
                                                 </td>";
                                             
-                                            echo "<td>" . $worker['firstname'] .  "</td>";
-                                            echo "<td>" . $worker['lastname'] . "</td>";
-                                            echo "<td>" . $worker['email'] . "</td>";
-                                            echo "<td>" . $worker['afm'] . "</td>";
-                                            
-                                            echo "<td>" ;
+                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['firstname'] .  "</td>";
+                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['lastname'] . "</td>";
+                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['email'] . "</td>";
+                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['afm'] . "</td>";
+                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
                                             if($worker_benefits["anastoli_id"]) {
                                                 echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
                                             }
@@ -193,8 +168,14 @@
                                             echo "</td>";
 
                                             echo ' <td>
-                                            <a href="#dhlwshEmployeeModal" data-id="'.$worker['afm'] .'" class="edit" data-toggle="modal"><i style="color:  #8852ce" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i></a>
-                                            <a href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
+
+
+
+                                            <input  type="submit" name="checkBoxes[]" placeholder=""  value="' . $worker['afm'] . '" class="edit">
+                                                <i style="color:  #8852ce;" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i>
+                                            </input>
+                                            
+                                            <a class="show-hide" href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
                                             </td>
                                             </tr>';
                                         }
@@ -271,20 +252,6 @@
                                                     <br><br><hr>
                                                     <div class="table-responsive">
                                                         <div class="table-wrapper">
-                                                            <?php 
-                                                                // $array = $_SESSION['fetched_user']['as_array'];
-                                                                // $counter = 0;
-                                                                // foreach($row as $array)
-                                                                // {
-                                                                //     if(!empty($row)){
-                                                                //         $counter++;
-                                                                //     }
-                                                                // }
-                                                                
-                                                                // if($counter){
-
-                                                                // }
-                                                            ?>    
                                                                                                                             
                                                             <div class="table-title">
                                                                 <div class="row">
@@ -309,10 +276,6 @@
                                                                 <tbody>
                                                                     <?php
                                                                         $array = $_SESSION['fetched_user']['as_array'];
-                                                                        // $arrayAnastoli = $_SESSION['fetched_user']['as_array']['anastoli'];
-                                                                        // $arrayThllergasia = $_SESSION['fetched_user']['as_array']['thlergasia'];
-                                                                        // echo $arrayADEIA;
-                                                                        // print_r($array);
 
 
                                                                         foreach($array as $key => $value){
@@ -422,6 +385,7 @@
                                     </div>
                                 </div>                                
                             </div>
+
                             <div>
                                 <div class="container" >
                                     <div class="container z-depth-1" style="background-color: white;padding-bottom:30px;"  ><br><br>
@@ -483,107 +447,113 @@
                                         </div>
                                     </div>      
                                 </div>
-                                <div id="editProfileModal" class="modal fade">
-                                    <div class="modal-dialog row justify-content-center simple-form">
-                                        <div class="modal-content">        
-                                            <form action="forms/updateprofile.php" method="post" role="form"  class="php-email-form">
+
+
+                                <div id="editProfileModal" class="modal fade contact">
+                                    <div class="modal-dialog modal-dialog-center  modal-lg row justify-content-center">
+                                        <div class="modal-content">
+                                            <form action="forms/updateprofile.php" method="post" class="php-email-form">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <div class=" section-title">						
-                                                    <h3 style="font-weight: bold; ">Επεξεργασία των στοιχείων μου</h3><hr>
+                                                <div class="modal-header">
+                                                    <div class="modal-title col-md-9"><h4>
+                                                        <i class="icofont-ui-edit" aria-hidden="true"></i><b>  Επεξεργασία των στοιχείων μου</b></h4>
+                                                    </div>
+                                                    <hr>
                                                 </div>
-                                                <div class="modal-body">	
-                                                    <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
-                                                            <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
-                                                            <div class="validate"></div>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
-                                                            <div class="form-group ">
-                                                                <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
-                                                                <div class="validate"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="email" class="col-4 col-form-label">Email</label> 
-                                                            <div class="form-group ">
-                                                                <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
-                                                                <div class="validate"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
-                                                            <div class="form-group ">
-                                                                <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
-                                                                <div class="validate"></div>
-                                                            </div>
-                                                        </div>
+                                                <div class="contact modal-body">
+                                                    <div class="container  align-items-center">
+                                                        <div class= "row">
+                                                            <div class="col">
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή προσωπικών στοιχείων</h4>				
 
-                                                        <div class="form-group col-md-12">
-                                                            <label for="role" class="col-6 col-form-label">Εργασιακή κατάσταση</label> 
-                                                            <div class="form-group ">
+                                                                <div class="col-md-8">
+                                                                    <label for="firstname" class="col-4 col-form-label">Όνομα</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="firstname" name="firstname" placeholder=<?php echo $_SESSION["firstname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο όνομα" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <label for="lastname" class="col-4 col-form-label">Επίθετο</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="lastname" name="lastname" placeholder=<?php echo $_SESSION["lastname"]; ?> data-rule="checkifFilled:2" data-msg="Μη έγκυρο επίθετο" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <label for="email" class="col-4 col-form-label">Email</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="email" name="email" placeholder=<?php echo $_SESSION["email"]; ?> data-rule="ifemail" data-msg="Μη έγκυρο email" class="form-control" type="email">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <label for="phone" class="col-4 col-form-label">Τηλέφωνο</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="phone" name="phone" placeholder=<?php echo $_SESSION["phone"]; ?> data-rule="checkifFilled:10" data-msg="Μη έγκυρο ΑΦΜ" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col">
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
                                                                 
-                                                                <select name="role" id="role" class="form-control" data-column="role">
-                                                                    <option value="default" style="display:none;">
-                                                                    <?php
-                                                                        if($_SESSION["role"] == 'ergazomenos'){
-                                                                            echo "Εργαζόμενος";
-                                                                        }else{
-                                                                            echo 'Εργοδότης-Επιχείρηση';
-                                                                        }
-                                                                    ?></option>
-                                                                    <option value="ergazomenos">Εργαζόμενος</option>
-                                                                    <option value="ergodoths">Εργοδότης/Επιχείρηση</option>
-                                                                    <option value="anergos">Άνεργος</option>
-                                                                    <option value="el_epag">Ελεύθερος επαγγελματίας</option>
-                                                                    <option value="syntaxiouxos">Συνταξιούχος</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή ονόματος χρήστη</h4>
-                                                        <br>
 
-                                                        <div class="form-group col-md-12">
-                                                            <label for="username" class=" col-form-label">Όνομα χρήστη</label> 
-                                                            <div class="form-group ">
-                                                                <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
-                                                                <div class="validate"></div>
+                                                                <div class="col-md-8">
+                                                                    <label for="username" class="col-8 col-form-label">Όνομα χρήστη</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="username" name="username" placeholder=<?php echo $_SESSION["username"]; ?> data-rule="checkifFilled:4" data-msg="Το όνομα χρήστη πρέπει να περιέχει πάνω απο 4 χαρακτήρες" class="form-control" type="text">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <hr><br>
+                                                                <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
+                                                                <br>
+                                                                <div class="col-md-8">
+                                                                    <label for="password_1" class="col-8 col-form-label">Νέος κωδικός</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-8">
+                                                                    <label for="password_2" class="col-8 col-form-label">Επαλήθευση νέου κωδικού</label> 
+                                                                    <div class="form-group ">
+                                                                        <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
+                                                                        <div class="validate"></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <h4 style="color: #5688e6;font-weight: none; align: center;">Αλλαγή κωδικού πρόσβασης</h4>
-                                                        <br>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="password_1" class=" col-form-label">Νέος κωδικός</label> 
-                                                            <div class="form-group ">
-                                                                <input id="password_1" name="password_1"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                                <div class="validate"></div>
+                                                    </div>
+
+                                                    <div class="container ">
+                                                        <div class="">
+                                                            <div class="alert alert-warning" role="alert">
+                                                            <i class="fas fa-exclamation fa-xl"></i>
+                                                                Για αλλαγή της <b>εργασιακής σας κατάστασης</b> ή του <b> ΑΦΜ</b>  σας θα πρέπει να έρθετε στο υπουργείο. <br>
+                                                                Λόγω της πανδημίας του COVID-19 ενημερώθειτε για την διαδικασία που θα πρέπει να ακολουθήσετε μέσω της  <a href="covid19.php"> επίσημης σελίδας του υπουργείου  </a>.
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group col-md-6">
-                                                            <label for="password_2" class=" col-form-label">Επαλήθευση νέου κωδικού</label> 
-                                                            <div class="form-group ">
-                                                                <input id="password_2" name="password_2"  data-rule="checkifFilled:4" data-msg="Ο κωδικός πρέπει να είναι μεγαλύτερος απο 4 χαρακτήρες" class="form-control" type="password">
-                                                                <div class="validate"></div>
-                                                            </div>
+                                                        <div class="mb-3">
+                                                            <div class="loading">Φόρτωση</div>
+                                                            <div class="error-message text-center"></div>
+                                                            <div class="sent-message">Η ενημέρωση έγινε με επιτυχία</div>
                                                         </div>
-                                                    </div>					
-                                                </div>
-                                                <div class="mb-3">
-                                                    <div class="loading">Φόρτωση</div>
-                                                    <div class="error-message"></div>
-                                                    <div class="sent-message">Τα στοιχεία ανανεώθηκαν με επιτυχία.<br> Ανανεώστε την σελίδα για να δείτε τα νέα στοιχεία.</div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button value="submit" name="submit" type="submit">Αποθήκευση νέων στοιχείων</button>
+                                                        <div class="text-center">
+                                                            <button value="submit" name="submit" type="submit">Ενημέρωση</button>
+                                                        </div>
+                                                    </div>    
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
-                                </div>       
+                                </div>     
                             </div>
                         
                             <div>
@@ -676,11 +646,34 @@ $('#aithsh').change(function(){
     }
   });
 
-  $('tbody tr input:checkbox').click(function(e) {
-    e.stopPropagation();
-  });
-</script>
 
+</script>
+<script type="text/javascript">
+$(function(){
+
+$('#selectAll').click(function(event) {   
+    if(this.checked) {
+    // Iterate each checkbox
+    $(':checkbox').each(function() {
+        this.checked = true;                        
+    });
+    }
+    else {
+    // Iterate each checkbox
+    $(':checkbox').each(function() {
+        this.checked = false;
+    });
+    }
+});
+$(document).ready(function() {
+    
+    var checkedArray = [];
+    $.each($("input[name='afmID']:checked"), function(){
+        checkedArray.push($(this).val());
+    });                                        
+});
+})
+</script>
 <script>
 
     $("#datepicker1").datepicker({
@@ -718,6 +711,8 @@ $('#aithsh').change(function(){
     });
     
     $('#editEmployeeModal').on('show.bs.modal', function (e) {
+
+        e.preventDefault();
         var rowid = $(e.relatedTarget).data('id');
 
         $.ajax({
@@ -728,12 +723,14 @@ $('#aithsh').change(function(){
             success : function(data){
 
                 $('.fetched-data').html(data);//Show fetched data from database
+                $('#editEmployeeModal').modal("show");
             }
         });
      });
 
     $('#infoEmployeeModal').on('show.bs.modal', function (e) {
 
+        e.preventDefault();
         var rowid = $(e.relatedTarget).data('id');
         $.ajax({
             type : 'post',
@@ -742,6 +739,7 @@ $('#aithsh').change(function(){
             data :  'rowid='+ rowid, //Pass $id
             success : function(data){
                 $('.fetched-data').html(data);//Show fetched data from database
+                $('#infoEmployeeModal').modal("show");
             }
         });
      });

@@ -6,6 +6,7 @@
   $errors = array(); 
 
   // echo "DHLVSH";
+  // echo $_SESSION['afm_id'];
   // print_r($_SESSION['checkBoxes']);
 
   $fromdate = strtotime($_POST['date1']);
