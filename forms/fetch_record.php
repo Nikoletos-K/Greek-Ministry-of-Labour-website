@@ -77,28 +77,28 @@
                     <label style="font-weight:bold;" class="col-sm-2 control-label">Ονομα</label>
                     <div class="col-sm-8">';
                         echo $_SESSION['fetched_user']['data']["firstname"];
-                    </div>
+                   echo' </div>
                 </div>
                 <div style="font-size:16px;" class="form-group">
                     <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                        <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
-                    </div>
+                    <div class="col-sm-10">';
+                        echo $_SESSION['fetched_user']['data']["email"];
+                    echo'</div>
                 </div>
             
             </div>
             <div class="col">
                 <div style="font-size:16px;" class="form-group">
                     <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                    <div class="col-sm-8">
-                        <?php echo $_SESSION['fetched_user']['data']["lastname"]; ?>
-                    </div>
+                    <div class="col-sm-8">';
+                        echo $_SESSION['fetched_user']['data']["lastname"];
+                    echo'</div>
                 </div>
                 <div style="font-size:16px;" class="form-group">
                     <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                    <div class="col-sm-8">
-                        <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
-                    </div>
+                    <div class="col-sm-8">';
+                        echo $_SESSION['fetched_user']['data']["phone"];
+                    echo'</div>
                 </div>
             
                 
@@ -106,9 +106,9 @@
             <div class="col">
                 <div style="font-size:16px;" class="form-group">
                     <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
-                    <div class="col-sm-10">
-                        <?php echo $_SESSION['fetched_user']['data']["afm"]; ?>
-                    </div>
+                    <div class="col-sm-10">';
+                        echo $_SESSION['fetched_user']['data']["afm"];
+                    echo '</div>
                 </div>
                 
             </div>
@@ -128,19 +128,15 @@
                 <table id="table" class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>
-                                Άρση
-                            </th>
-                            <th>Δήλωση</th>
-                            <th>Κατάσταση</th>
-                            <th>Από</th>
-                            <th>Εώς</th>
+                            <th > Άρση </th>
+                            <th class="w-25"> Δήλωση </th>
+                            <th class="w-25">Κατάσταση</th>
+                            <th class="w-25">Από</th>
+                            <th class="w-25">Εώς</th>
                         </tr>
                     </thead> 
-                    <tbody>
-                        <?php
+                    <tbody>';
                             $array = $_SESSION['fetched_user']['as_array'];
-
 
                             foreach($array as $key => $value){
 
@@ -177,7 +173,7 @@
                                 echo "<td>" . $date2 . "</td>";
                                 echo '</tr>';
                             }
-                        ?>
+                        echo'
                     </tbody> 
                 </table>
             </div>

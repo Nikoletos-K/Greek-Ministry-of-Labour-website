@@ -151,11 +151,11 @@
                                                     </span>
                                                 </td>";
                                             
-                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID'  data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
-                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['lastname'] . "</td>";
-                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['email'] . "</td>";
-                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['afm'] . "</td>";
-                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['lastname'] . "</td>";
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['email'] . "</td>";
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." >" . $worker['afm'] . "</td>";
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" ;
                                             if($worker_benefits["anastoli_id"]) {
                                                 echo "<h8 class='badge badge-success' >ΑΝΑΣΤΟΛΗ</h8><br>";
                                             }
@@ -169,8 +169,6 @@
 
                                             echo ' <td>
 
-                                            <a class="show-hide" href="#dhlwshEmployeeButtonModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color:  #8852ce;" title="Δήλωση" class="fa fa-file-text-o" aria-hidden="true"></i></a>
-                                            
                                             <a class="show-hide" href="#infoEmployeeModal" data-id="'.$worker['afm'] .'" class="info" data-toggle="modal"><i style="color: #5688e6 " class="icofont-info-circle" title="Περισσότερες πληροφορίες"></i></a>
                                             </td>
                                             </tr>';
@@ -203,16 +201,12 @@
                                                 </div>
                                                 
                                                 <div class="fetched-data">
-
-
-
                                                 </div>
                                                 
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-
 
                                 <!-- dhlwsh Modal HTML -->
                                 <div id="dhlwshEmployeeModal" class="modal fade contact">
@@ -609,9 +603,6 @@ $(document).ready(function() {
 
      $('#YOUR_BUTTON_ID').on('click',function(e){
         var rowid = $(e.currentTarget).data('id');
-        alert("HERE");
-        alert(eval($(this).data("id")));
-        alert(rowid);
         $.ajax({
             type : 'post',
             url : 'forms/fetch_record.php', //Here you will fetch records 
