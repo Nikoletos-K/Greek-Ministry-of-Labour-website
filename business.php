@@ -151,7 +151,7 @@
                                                     </span>
                                                 </td>";
                                             
-                                            echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['firstname'] .  "</td>";
+                                            echo "<td style='cursor: pointer;' id='YOUR_BUTTON_ID'  data-id= ". $worker['afm'] ." >" . $worker['firstname'] .  "</td>";
                                             echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['lastname'] . "</td>";
                                             echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['email'] . "</td>";
                                             echo "<td style='cursor: pointer;' data-toggle='modal' data-id= ". $worker['afm'] ." data-target='#infoEmployeeModal'>" . $worker['afm'] . "</td>";
@@ -190,7 +190,7 @@
                                 </div>        
                                 <!-- </div> -->
 
-                                <div id="infoEmployeeModal" class="modal fade contact ">
+                                <div id="infoEmployeeModal" class=" modal fade contact ">
                                     <div class="modal-dialog modal-lg row justify-content-center">
                                         <div class="modal-content ">        
                                             <form method="post" action="forms/changeEmployeeStatus.php" class= 'contact php-email-form'>
@@ -201,130 +201,13 @@
                                                     </div>
                                                     <hr> <br>
                                                 </div>
-                                                <!-- <div class="fetched-data"></div> -->
-                                                <div class="contact modal-body">					
-                                                    <div class="row  justify-content-center">
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">'Ονομα</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["firstname"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
-                                                                <div class="col-sm-10">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                        </div>
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["lastname"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
-                                                                <div class="col-sm-8">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
-                                                                </div>
-                                                            </div>
-                                                        
-                                                            
-                                                        </div>
-                                                        <div class="col">
-                                                            <div style="font-size:16px;" class="form-group">
-                                                                <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
-                                                                <div class="col-sm-10">
-                                                                    <?php echo $_SESSION['fetched_user']['data']["afm"]; ?>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>	
-                                                    <br><br><hr>
-                                                    <div class="table-responsive">
-                                                        <div class="table-wrapper">
-                                                                                                                            
-                                                            <div class="table-title">
-                                                                <div class="row">
-                                                                    <div class="col-sm-6">
-                                                                        <h2>Κατάσταση εργαζομένου</h2>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <table id="table" class="table table-striped table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>
-                                                                            Άρση
-                                                                        </th>
-                                                                        <th>Δήλωση</th>
-                                                                        <th>Κατάσταση</th>
-                                                                        <th>Από</th>
-                                                                        <th>Εώς</th>
-                                                                    </tr>
-                                                                </thead> 
-                                                                <tbody>
-                                                                    <?php
-                                                                        $array = $_SESSION['fetched_user']['as_array'];
+                                                
+                                                <div class="fetched-data">
 
 
-                                                                        foreach($array as $key => $value){
 
-                                                                            if($key === 'anastoli')   {
-                                                                                $newtype = 'Αναστολή σύμβασης εργασίας';
-                                                                            } elseif ($key === 'adeia') {
-                                                                                $newtype = 'Άδεια ειδικού σκοπού';
-                                                                            } else {
-                                                                                $newtype = 'Τηλεργασία';
-                                                                            } 
-                                                                            if(!$value){
-                                                                                $disabled = ' disabled ';
-                                                                                $date1 = ' - ';
-                                                                                $date2 = ' - ';
-                                                                                $status = 'ΑΝΕΝΕΡΓΗ';
-
-                                                                            } else {
-                                                                                $disabled = ' ';
-                                                                                $date1 = $value['starting_date'];
-                                                                                $date2 =  $value['end_date'];
-                                                                                $status = 'ΕΝΕΡΓΗ';
-                                                                                
-                                                                            }
-                                                                            echo "<tr>";
-                                                                            echo "<td>
-                                                                                <span class='custom-checkbox'>
-                                                                                    <input id='checkbox2' " .$disabled. " type='checkbox' name='checkBoxes2[]'  value='" . $key . "'>
-                                                                                    <label for='checkbox2'></label>
-                                                                                </span>
-                                                                                </td>";
-                                                                            echo "<td>" . $newtype .  "</td>";
-                                                                            echo "<td>" . $status . "</td>";
-                                                                            echo "<td>" . $date1 . "</td>";
-                                                                            echo "<td>" . $date2 . "</td>";
-                                                                            echo '</tr>';
-                                                                        }
-                                                                    ?>
-                                                                </tbody> 
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <div class="loading">Φόρτωση</div>
-                                                        <div class="error-message text-center"></div>
-                                                        <div class="sent-message">Οι άρσεις έγιναν με επιτυχία</div>
-                                                        <div class="reload"></div>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <button value="submit" name="submit" type="submit">Άρση επιλεγμένων δηλώσεων</button>
-                                                        
-                                                    </div>
                                                 </div>
+                                                
                                             </form>
                                         </div>
                                     </div>
@@ -709,7 +592,6 @@ $(document).ready(function() {
     
     $('#editEmployeeModal').on('show.bs.modal', function (e) {
 
-        e.preventDefault();
         var rowid = $(e.relatedTarget).data('id');
 
         $.ajax({
@@ -725,21 +607,38 @@ $(document).ready(function() {
         });
      });
 
-    $('#infoEmployeeModal').on('show.bs.modal', function (e) {
-
-        e.preventDefault();
-        var rowid = $(e.relatedTarget).data('id');
+     $('#YOUR_BUTTON_ID').on('click',function(e){
+        var rowid = $(e.currentTarget).data('id');
+        alert("HERE");
+        alert(eval($(this).data("id")));
+        alert(rowid);
         $.ajax({
             type : 'post',
-            cache: false,
             url : 'forms/fetch_record.php', //Here you will fetch records 
             data :  'rowid='+ rowid, //Pass $id
             success : function(data){
+                alert("YOYHOY");
                 $('.fetched-data').html(data);//Show fetched data from database
                 $('#infoEmployeeModal').modal("show");
             }
-        });
+        });         
      });
+
+    // $('#infoEmployeeModal').on('show.bs.modal', function (e) {
+
+    //     e.preventDefault();
+    //     var rowid = $(e.relatedTarget).data('id');
+    //     $.ajax({
+    //         type : 'post',
+    //         cache: false,
+    //         url : 'forms/fetch_record.php', //Here you will fetch records 
+    //         data :  'rowid='+ rowid, //Pass $id
+    //         success : function(data){
+    //             $('.fetched-data').html(data);//Show fetched data from database
+    //             $('#infoEmployeeModal').modal("show");
+    //         }
+    //     });
+    //  });
 </script>
 
 <script>

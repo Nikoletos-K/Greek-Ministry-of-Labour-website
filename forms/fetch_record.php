@@ -3,9 +3,11 @@
   include '../db_connection.php';
   $errors = array(); 
 
+    
   if($_POST['rowid']) {
     
     $afm = $_POST['rowid'];
+    echo $_POST['rowid'];
     
     $_SESSION['user'] = $_POST['rowid'];
 
@@ -65,7 +67,132 @@
     $_SESSION['fetched_user']['as_array']['adeia'] = $_SESSION['fetched_user']['adeia'];
     $_SESSION['fetched_user']['as_array']['thlergasia'] = $_SESSION['fetched_user']['thlergasia'];
     $_SESSION['fetched_user']['as_array']['anastoli'] = $_SESSION['fetched_user']['anastoli'];
+    print_r($_SESSION['fetched_user']['as_array']['anastoli']);
+    echo "END";
 
+    echo '<div class="contact modal-body">					
+        <div class="row  justify-content-center">
+            <div class="col">
+                <div style="font-size:16px;" class="form-group">
+                    <label style="font-weight:bold;" class="col-sm-2 control-label">Ονομα</label>
+                    <div class="col-sm-8">';
+                        echo $_SESSION['fetched_user']['data']["firstname"];
+                    </div>
+                </div>
+                <div style="font-size:16px;" class="form-group">
+                    <label style="font-weight:bold;" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <?php echo $_SESSION['fetched_user']['data']["email"]; ?>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="col">
+                <div style="font-size:16px;" class="form-group">
+                    <label style="font-weight:bold;" class="col-sm-2 control-label">Επίθετο</label>
+                    <div class="col-sm-8">
+                        <?php echo $_SESSION['fetched_user']['data']["lastname"]; ?>
+                    </div>
+                </div>
+                <div style="font-size:16px;" class="form-group">
+                    <label style="font-weight:bold;" class="col-sm-2 control-label">Τηλέφωνο</label>
+                    <div class="col-sm-8">
+                        <?php echo $_SESSION['fetched_user']['data']["phone"]; ?>
+                    </div>
+                </div>
+            
+                
+            </div>
+            <div class="col">
+                <div style="font-size:16px;" class="form-group">
+                    <label style="font-weight:bold;" class="col-sm-2 control-label">ΑΦΜ</label>
+                    <div class="col-sm-10">
+                        <?php echo $_SESSION['fetched_user']['data']["afm"]; ?>
+                    </div>
+                </div>
+                
+            </div>
+        </div>	
+        <br><br><hr>
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                                                                                
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>Κατάσταση εργαζομένου</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <table id="table" class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Άρση
+                            </th>
+                            <th>Δήλωση</th>
+                            <th>Κατάσταση</th>
+                            <th>Από</th>
+                            <th>Εώς</th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <?php
+                            $array = $_SESSION['fetched_user']['as_array'];
+
+
+                            foreach($array as $key => $value){
+
+                                if($key === 'anastoli')   {
+                                    $newtype = 'Αναστολή σύμβασης εργασίας';
+                                } elseif ($key === 'adeia') {
+                                    $newtype = 'Άδεια ειδικού σκοπού';
+                                } else {
+                                    $newtype = 'Τηλεργασία';
+                                } 
+                                if(!$value){
+                                    $disabled = ' disabled ';
+                                    $date1 = ' - ';
+                                    $date2 = ' - ';
+                                    $status = 'ΑΝΕΝΕΡΓΗ';
+
+                                } else {
+                                    $disabled = ' ';
+                                    $date1 = $value['starting_date'];
+                                    $date2 =  $value['end_date'];
+                                    $status = 'ΕΝΕΡΓΗ';
+                                    
+                                }
+                                echo "<tr>";
+                                echo "<td>
+                                    <span class='custom-checkbox'>
+                                        <input id='checkbox2' " .$disabled. " type='checkbox' name='checkBoxes2[]'  value='" . $key . "'>
+                                        <label for='checkbox2'></label>
+                                    </span>
+                                    </td>";
+                                echo "<td>" . $newtype .  "</td>";
+                                echo "<td>" . $status . "</td>";
+                                echo "<td>" . $date1 . "</td>";
+                                echo "<td>" . $date2 . "</td>";
+                                echo '</tr>';
+                            }
+                        ?>
+                    </tbody> 
+                </table>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="loading">Φόρτωση</div>
+            <div class="error-message text-center"></div>
+            <div class="sent-message">Οι άρσεις έγιναν με επιτυχία</div>
+            <div class="reload"></div>
+        </div>
+        <div class="text-center">
+            <button value="submit" name="submit" type="submit">Άρση επιλεγμένων δηλώσεων</button>
+            
+        </div>
+    </div>';
   }
 
 ?>
