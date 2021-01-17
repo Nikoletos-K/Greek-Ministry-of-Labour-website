@@ -740,6 +740,24 @@ $(function(){
         });
      });
 </script>
+
+<script>
+
+$(document).ready(function () {
+    $('.modal').on('show.bs.modal', function () {
+        if ($(document).height() > $(window).height()) {
+            // no-scroll
+            $('body').addClass("modal-open-noscroll");
+        }
+        else {
+            $('body').removeClass("modal-open-noscroll");
+        }
+    });
+    $('.modal').on('hide.bs.modal', function () {
+        $('body').removeClass("modal-open-noscroll");
+    });
+})
+</script>
 <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css/locales/bootstrap-datepicker.el.min.js" ></script>
 

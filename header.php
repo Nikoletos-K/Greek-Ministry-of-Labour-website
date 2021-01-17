@@ -58,7 +58,7 @@
           <li class="active"><a href="index.php" style="color: #19229e;">Αρχική</a></li>
           <li class="drop-down"><a href="#">Εργοδότης</a>
             <ul>
-              <li><a href="#">Προσλήψεις</a></li>
+              <li><a href="coming_soon.php">Προσλήψεις</a></li>
               <li><a href="covid19.php">COVID-19</a>
                 <ul>
                   <!-- <li><a href="#">Δήλωση τηλεργασίας εργαζομένου</a></li>
@@ -69,14 +69,14 @@
                   <li><a href="#">Άλλα θέματα COVID-19</a></li> -->
                 </ul>
               </li>
-              <li><a href="#">Νέα επιχείρηση</a></li>
-              <li><a href="#">Ασφάλιση εργαζομένου</a></li>
-              <li><a href="#">Απολύσεις</a></li>
+              <li><a href="coming_soon.php">Νέα επιχείρηση</a></li>
+              <li><a href="coming_soon.php">Ασφάλιση εργαζομένου</a></li>
+              <li><a href="coming_soon.php">Απολύσεις</a></li>
             </ul>
           </li>
           <li class="drop-down"><a href="#">Εργαζόμενος</a>
             <ul>
-              <li><a href="#">Μισθοδοσία</a></li>
+              <li><a href="coming_soon.php">Μισθοδοσία</a></li>
               <li><a href="covid19.php">COVID-19</a>
                 <!-- <ul>
                   <li><a href="covid19.php#adeia">Άδεια ειδικού σκοπού</a></li>
@@ -87,46 +87,40 @@
                   <li><a href="#">Άλλα θέματα COVID-19</a></li>
                 </ul> -->
               </li>
-              <li><a href="#">Επιδόματα</a></li>
-              <li><a href="#">Άδειες</a></li>
-              <li><a href="#">Απόλυση</a></li>
-              <li><a href="#">Ασφάλιση</a></li>
+              <li><a href="coming_soon.php">Επιδόματα</a></li>
+              <li><a href="coming_soon.php">Άδειες</a></li>
+              <li><a href="coming_soon.php">Απόλυση</a></li>
+              <li><a href="coming_soon.php">Ασφάλιση</a></li>
             </ul>
           </li>
-          <li class="drop-down"><a href="">Εργασία και Ασφάλιση</a>
+          <li class="drop-down"><a href="#">Εργασία και Ασφάλιση</a>
             <ul>
-              <li><a href="#">Επιχειρήσεις</a></li>
-              <li><a href="#">Συνταξιοδότηση</a></li>
-              <li><a href="#">Ανεργία</a></li>
-              <li><a href="#">Ελεύθεροι Επαγγελματίες</a></li>
-              <li><a href="#">ΑΜΕΑ</a></li>
-              <li><a href="#">Εποχιακή Απασχόληση</a></li>
-              <li><a href="#">Κοινωνική Ασφάλιση</a></li>
-              <li><a href="#">Επιδόματα</a></li>
-              <li><a href="#">Εργασία στην ΕΕ</a></li>
-              <li><a href="#">Διεθνείς υποθέσεις</a></li>
+              <li><a href="coming_soon.php">Επιχειρήσεις</a></li>
+              <li><a href="coming_soon.php">Συνταξιοδότηση</a></li>
+              <li><a href="coming_soon.php">Ανεργία</a></li>
+              <li><a href="coming_soon.php">Ελεύθεροι Επαγγελματίες</a></li>
+              <li><a href="coming_soon.php">ΑΜΕΑ</a></li>
+              <li><a href="coming_soon.php">Εποχιακή Απασχόληση</a></li>
+              <li><a href="coming_soon.php">Κοινωνική Ασφάλιση</a></li>
+              <li><a href="coming_soon.php">Επιδόματα</a></li>
+              <li><a href="coming_soon.php">Εργασία στην ΕΕ</a></li>
+              <li><a href="coming_soon.php">Διεθνείς υποθέσεις</a></li>
             </ul>
           </li>
           <li class="drop-down" ><a href="#">Υπουργείο</a>
             <ul>
-              <li><a href="#">Πολιτική ηγεσία</a></li>
-              <li><a href="#">Γραμματεία</a></li>
-              <li><a href="#">Εκδηλώσεις</a></li>
-              <li><a href="#">Δαπάνες</a></li>
+              <li><a href="coming_soon.php">Πολιτική ηγεσία</a></li>
+              <li><a href="coming_soon.php">Γραμματεία</a></li>
+              <li><a href="coming_soon.php">Εκδηλώσεις</a></li>
+              <li><a href="coming_soon.php">Δαπάνες</a></li>
             </ul>
           </li>
           <li><a href="contact.php">Επικοινωνία</a></li>
-          <li><a href="#">Νέα</a></li>
+          <li><a href="coming_soon.php">Νέα</a></li>
 
           <li><a href="covid19.php" class="covid-btn scrollto " >Covid-19</a></li>
         </ul>
-
-        
       </nav><!-- .nav-menu -->
-       
-     
-       
-      
     </div>
   </header><!-- End Header -->
 

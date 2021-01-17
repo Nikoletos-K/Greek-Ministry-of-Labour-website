@@ -63,7 +63,7 @@
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Νέα μέτρα</h2>
               <p class="animate__animated animate__fadeInUp">Τι αλλάζει στους χώρους εργασίας, λόγω του COVID-19.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
+              <a href="coming_soon.php" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
               <h2 class="animate__animated animate__fadeInDown">Αλλαγές στον ιδιωτικό τομέα</h2>
               <p class="animate__animated animate__fadeInUp">Έρχονται αλλαγές στην αγορά εργασίας του ιδιωτικού τομέα με το νομοσχέδιο που προγραμματίζεται να έρθει σε
                  δημόσια διαβούλευση το πρώτο 15ήμερο Φεβρουαρίου.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
+              <a href="coming_soon.php" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
               <h2 class="animate__animated animate__fadeInDown">Εργασία στην Ευρώπη</h2>
               <p class="animate__animated animate__fadeInUp">Δυνατότητα εργασίας στην Ευρώπη μέσω του προγράμματος EURES. Ο φορέας παρέχει υπηρεσίες πληροφόρησης, συμβουλευτικής και πρόσληψης ή τοποθέτησης αλλά και να προβαίνει σε
                  ενέργειες προκειμένου να διευκολύνει εκείνους που αναζητούν εργασία σε άλλη Ευρωπαϊκή χώρα. Οι υπηρεσίες του EURES προσφέρονται δωρεάν.</p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
+              <a href="coming_soon.php" class="btn-get-started animate__animated animate__fadeInUp scrollto">Διαβάστε περισσότερα</a>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="icon-box">
               <div class="icon"><i class="icofont-files-stack"></i></div>
-              <h4 class="title"><a href="">Χρήσιμα έγγραφα</a></h4>
+              <h4 class="title"><a href="coming_soon.php">Χρήσιμα έγγραφα</a></h4>
               <p class="description">Εδώ θα βρείτε έναν κατάλογο από όλα τα έγγραφα που μπορεί να χρειαστείτε, ταξινομημένα, σε ηλεκτρονική μορφή.</p>
             </div>
           </div>
@@ -141,7 +141,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="icon-box">
             <div class="icon"><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i></div>
-            <h4 class="title"><a href="#">Ειδικός σχεδιασμός</a></h4>
+            <h4 class="title"><a href="coming_soon.php">Ειδικός σχεδιασμός</a></h4>
             <p class="description">Aν ανήκετε σε ομάδα ατόμων με ειδικές ανάγκες, παρακαλώ πατήστε εδώ
                για να γίνει ο ιστότοπος συμβατός με τις απαιτήσεις σας.</p>
           </div>
@@ -149,7 +149,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="icon-box">
             <div class="icon"><i class="icofont-globe"></i></div>
-            <h4 class="title"><a href="#">Ευρωπαϊκή Ένωση</a></h4>
+            <h4 class="title"><a href="coming_soon.php">Ευρωπαϊκή Ένωση</a></h4>
             <p class="description">Πατήστε εδώ για να δείτε τις δυνατότες και τα δικαιώματα που έχετε ως ευρωπαίος πολίτης.
               Ακόμα θα βρείτε θέσεις εργασίας σε όλες τις χώρες της Ε.Ε.
             </p>
@@ -158,7 +158,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="icon-box">
             <div class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
-            <h4 class="title"><a href="#">Σεμινάρια</a></h4>
+            <h4 class="title"><a href="coming_soon.php">Σεμινάρια</a></h4>
             <p class="description">Εδώ θα βρείτε τα διαθέσιμα σεμινάρια και ημερίδες που μπορεί να σας ενδιαφέρουν.
             </p>
           </div>
