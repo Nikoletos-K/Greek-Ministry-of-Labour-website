@@ -22,9 +22,9 @@ Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
 ## Sign in 
 
-Name of a user-employee: ΕΡΓΑΖΟΜΕΝΟΣ1
-Name of a user-employer: ΕΡΓOΔΟΤΗΣ1
-Password for both of them:12345
+Name of a user-employee: ΕΡΓΑΖΟΜΕΝΟΣ1 <br>
+Name of a user-employer: ΕΡΓOΔΟΤΗΣ1 <br>
+Password for both of them:12345 <br>
 
 ## Screenshots of the website
 
