@@ -7,17 +7,17 @@ Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
 ## Screenshots of the website
 
-![alt text](screenshots/homepage.png)  
+![alt text](screenshots/homepage.PNG)  
 
-![alt text](screenshots/contact.png)  
+![alt text](screenshots/contact.PNG)  
 
-![alt text](screenshots/covid19.png)  
+![alt text](screenshots/covid19.PNG)  
 
-![alt text](screenshots/register.png)  
+![alt text](screenshots/register.PNG)  
 
-![alt text](screenshots/ergazomenos.png)  
+![alt text](screenshots/ergazomenos.PNG)  
 
-![alt text](screenshots/ergodoths.png)  
+![alt text](screenshots/ergodoths.PNG)  
 
-![alt text](screenshots/stoixeia.png)  
+![alt text](screenshots/stoixeia.PNG)  
 
