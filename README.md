@@ -3,10 +3,11 @@
 Redesigning the website of greek Ministry of Labour, focusing on UX Design.
 Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
-<video width="320" height="240" controls>
-  <source src="./videos/ministry_video.webm" type="video/mp4">
+<video width="320" height="240" controls preload>
+  <source src="videos/ministry_video.webm" type="video/webm">
 </video>
 
+![](/videos/ministry_video.webm)
 
 ## Requested
 
