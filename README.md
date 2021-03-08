@@ -104,6 +104,7 @@ Password for both of them:12345 <br>
 
 ### Page of personal info
 
+
 ![alt text](screenshots/stoixeia.PNG)  
 
 --- 
