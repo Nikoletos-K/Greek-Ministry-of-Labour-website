@@ -1,54 +1,23 @@
+<p>
+    <a><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /></a>
+    <a><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" /></a>
+    <a><img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" /></a>
+    <a><img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white" /></a>
+    <a><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /></a>
+    <a><img src="https://img.shields.io/badge/xampp-FB7A24.svg?&style=for-the-badge&logo=xampp&logoColor=white" /></a>
+    <a><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" /></a>
+</p>
+
+
+---
+
 # Redesign the website of greek Ministry of Labour
 
 Redesigning the website of greek Ministry of Labour, focusing on UX Design.
 Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
 
-
-
-
-
-
-
-![web](./videos/ministry_video.mp4)
-
-
-
-
-
-
-
-
-
-
-
-
-<video width="320" height="200" controls preload> 
-    <source src="/videos/ministry_video.mp4"></source> 
-</video>
-
-
-
-
-
-
-<video src="./videos/ministry_video.mp4" controls preload></video>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](./videos/ministry_video.gif)
 
 ## Requested
 
@@ -78,35 +47,65 @@ Password for both of them:12345 <br>
 
 ![alt text](screenshots/homepage.PNG)  
 
+--- 
+
+
 ### Contact page
 
 ![alt text](screenshots/contact.PNG)  
+
+--- 
+
 
 ### Make an appointment 
 
 ![alt text](screenshots/make_appointment.PNG)  
 
+--- 
+
+
 ### Covid19 page information
 
 ![alt text](screenshots/covid19.PNG)  
+
+--- 
+
 
 ### Registration form
 
 ![alt text](screenshots/register.PNG)  
 
+
+--- 
+
+
 ### Personal page of employee
 
 ![alt text](screenshots/ergazomenos.PNG)  
+
+--- 
+
 
 ### Personal page of employer
 
 ![alt text](screenshots/ergodoths.PNG)  
 
+
+--- 
+
+
 ### When click on an employee, see information about him
 
 ![alt text](screenshots/employee_info.PNG)  
+
+
+--- 
+
 
 ### Page of personal info
 
 ![alt text](screenshots/stoixeia.PNG)  
 
+--- 
+
+© Myrto Igglezou && Konstantinos Nikoletos
