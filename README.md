@@ -3,6 +3,10 @@
 Redesigning the website of greek Ministry of Labour, focusing on UX Design.
 Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
+<video width="320" height="240" controls>
+  <source src="./videos/ministry_video.webm" type="video/mp4">
+</video>
+
 
 ## Requested
 
@@ -12,7 +16,7 @@ Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 * Implement certain forms for employees and employers
 * Implement the page of personal info display and edit 
 
-## Run site
+## Stream site
 1. Download xampp
 2. Add this folder to \xampp\htdocs
 3. Open xampp to your computer
