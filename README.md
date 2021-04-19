@@ -11,9 +11,9 @@
 
 ---
 
-# Redesigned the website of greek Ministry of Labour
+# Redesigned of the Greek Ministry of Labor website focusing on UX-Design
 
-Redesigning the website of greek Ministry of Labour, focusing on UX Design.
+Redesigned the website of greek Ministry of Labour, focusing on UX Design.
 Made using PHP, SQL, HTML, CSS (Bootstrap) and JAVASCRIPT (Bootstrap, jQuery).
 
 
